@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the capabilities-add-netbindservice/containers policy.
     policies.kolteq.com/validatingAdmissionPolicy: b101993a-4538-5f11-8e4b-5fa1795e1d4c
   labels:
-    capabilities-add-netbindservice-containers.security.kolteq.com/audit: 'false,true'
-    capabilities-add-netbindservice-containers.security.kolteq.com/enforce: 'false,true'
-    capabilities-add-netbindservice-containers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    capabilities-add-netbindservice-containers.security.kolteq.com/audit: 'false-true'
+    capabilities-add-netbindservice-containers.security.kolteq.com/enforce: 'false-true'
+    capabilities-add-netbindservice-containers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

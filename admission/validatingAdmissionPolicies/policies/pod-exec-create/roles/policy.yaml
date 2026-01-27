@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Remove pod write verbs and exec/attach/portforward/ephemeralcontainers create permissions. Fields: rules[*].apiGroups, rules[*].resources, rules[*].verbs."
     policies.kolteq.com/validatingAdmissionPolicy: d0d61a51-5e95-56ee-9432-00a6a8c2cd68
   labels:
-    check-role-pod-exec-create.security.kolteq.com/audit: 'false,true'
-    check-role-pod-exec-create.security.kolteq.com/enforce: 'false,true'
-    check-role-pod-exec-create.security.kolteq.com/warn: 'false,true'
+    check-role-pod-exec-create.security.kolteq.com/audit: 'false-true'
+    check-role-pod-exec-create.security.kolteq.com/enforce: 'false-true'
+    check-role-pod-exec-create.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

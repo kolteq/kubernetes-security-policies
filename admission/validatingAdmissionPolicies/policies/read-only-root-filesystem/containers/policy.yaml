@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Set readOnlyRootFilesystem=true for containers. Fields: spec.containers[*].securityContext.readOnlyRootFilesystem."
     policies.kolteq.com/validatingAdmissionPolicy: b2d14a29-33fa-5136-b30b-e3049d47d252
   labels:
-    check-read-only-root-filesystem-containers.security.kolteq.com/audit: 'false,true'
-    check-read-only-root-filesystem-containers.security.kolteq.com/enforce: 'false,true'
-    check-read-only-root-filesystem-containers.security.kolteq.com/warn: 'false,true'
+    check-read-only-root-filesystem-containers.security.kolteq.com/audit: 'false-true'
+    check-read-only-root-filesystem-containers.security.kolteq.com/enforce: 'false-true'
+    check-read-only-root-filesystem-containers.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

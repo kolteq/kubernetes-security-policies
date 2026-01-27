@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the capabilities-drop-all/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: e1ac01ae-4714-50d5-a2ed-9cb79fd53e42
   labels:
-    capabilities-drop-all-initcontainers.security.kolteq.com/audit: 'false,true'
-    capabilities-drop-all-initcontainers.security.kolteq.com/enforce: 'false,true'
-    capabilities-drop-all-initcontainers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    capabilities-drop-all-initcontainers.security.kolteq.com/audit: 'false-true'
+    capabilities-drop-all-initcontainers.security.kolteq.com/enforce: 'false-true'
+    capabilities-drop-all-initcontainers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

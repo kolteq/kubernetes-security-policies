@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Use an immutable digest or a non-latest tag for init container images. Fields: spec.initContainers[*].image."
     policies.kolteq.com/validatingAdmissionPolicy: e5b14d9b-ae1c-531d-8f5a-401fe7ab3c2e
   labels:
-    check-image-no-latest-initcontainers.security.kolteq.com/audit: 'false,true'
-    check-image-no-latest-initcontainers.security.kolteq.com/enforce: 'false,true'
-    check-image-no-latest-initcontainers.security.kolteq.com/warn: 'false,true'
+    check-image-no-latest-initcontainers.security.kolteq.com/audit: 'false-true'
+    check-image-no-latest-initcontainers.security.kolteq.com/enforce: 'false-true'
+    check-image-no-latest-initcontainers.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

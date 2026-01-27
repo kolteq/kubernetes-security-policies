@@ -5,10 +5,10 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 3216e8b4-598d-5d00-a9ad-a3493b74a5ba
   labels:
-    check-rolebinding-anonymous-subjects.security.kolteq.com/warn: 'false,true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/warn: enabled
-    check-rolebinding-anonymous-subjects.security.kolteq.com/audit: 'false,true'
-    check-rolebinding-anonymous-subjects.security.kolteq.com/enforce: 'false,true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/audit: 'false-true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/enforce: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
 spec:
@@ -34,9 +34,9 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 3216e8b4-598d-5d00-a9ad-a3493b74a5ba
   labels:
-    check-rolebinding-anonymous-subjects.security.kolteq.com/warn: 'false,true'
-    check-rolebinding-anonymous-subjects.security.kolteq.com/audit: 'false,true'
-    check-rolebinding-anonymous-subjects.security.kolteq.com/enforce: 'false,true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/warn: 'false-true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/audit: 'false-true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/enforce: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
@@ -59,10 +59,10 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 3216e8b4-598d-5d00-a9ad-a3493b74a5ba
   labels:
-    check-rolebinding-anonymous-subjects.security.kolteq.com/audit: 'false,true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/audit: 'false-true'
     security.kolteq.com/audit: enabled
-    check-rolebinding-anonymous-subjects.security.kolteq.com/enforce: 'false,true'
-    check-rolebinding-anonymous-subjects.security.kolteq.com/warn: 'false,true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/enforce: 'false-true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
 spec:
@@ -88,9 +88,9 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 3216e8b4-598d-5d00-a9ad-a3493b74a5ba
   labels:
-    check-rolebinding-anonymous-subjects.security.kolteq.com/audit: 'false,true'
-    check-rolebinding-anonymous-subjects.security.kolteq.com/enforce: 'false,true'
-    check-rolebinding-anonymous-subjects.security.kolteq.com/warn: 'false,true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/audit: 'false-true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/enforce: 'false-true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
@@ -113,10 +113,10 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 3216e8b4-598d-5d00-a9ad-a3493b74a5ba
   labels:
-    check-rolebinding-anonymous-subjects.security.kolteq.com/enforce: 'false,true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/enforce: 'false-true'
     security.kolteq.com/enforce: enabled
-    check-rolebinding-anonymous-subjects.security.kolteq.com/audit: 'false,true'
-    check-rolebinding-anonymous-subjects.security.kolteq.com/warn: 'false,true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/audit: 'false-true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/warn: enabled
 spec:
@@ -142,9 +142,9 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 3216e8b4-598d-5d00-a9ad-a3493b74a5ba
   labels:
-    check-rolebinding-anonymous-subjects.security.kolteq.com/enforce: 'false,true'
-    check-rolebinding-anonymous-subjects.security.kolteq.com/audit: 'false,true'
-    check-rolebinding-anonymous-subjects.security.kolteq.com/warn: 'false,true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/enforce: 'false-true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/audit: 'false-true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

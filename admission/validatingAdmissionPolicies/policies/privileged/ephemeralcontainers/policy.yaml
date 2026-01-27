@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the privileged/ephemeralcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: e7449115-e7a0-5eb2-b9b7-90d95badf92e
   labels:
-    privileged-ephemeralcontainers.security.kolteq.com/audit: 'false,true'
-    privileged-ephemeralcontainers.security.kolteq.com/enforce: 'false,true'
-    privileged-ephemeralcontainers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    privileged-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    privileged-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
+    privileged-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

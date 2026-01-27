@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Remove spec.externalIPs. Fields: spec.externalIPs."
     policies.kolteq.com/validatingAdmissionPolicy: 6dfa90b1-5902-5a18-a066-ab0d84833bb6
   labels:
-    check-service-external-ips.security.kolteq.com/audit: 'false,true'
-    check-service-external-ips.security.kolteq.com/enforce: 'false,true'
-    check-service-external-ips.security.kolteq.com/warn: 'false,true'
+    check-service-external-ips.security.kolteq.com/audit: 'false-true'
+    check-service-external-ips.security.kolteq.com/enforce: 'false-true'
+    check-service-external-ips.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

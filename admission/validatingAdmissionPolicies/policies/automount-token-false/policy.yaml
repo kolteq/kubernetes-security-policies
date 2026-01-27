@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Set automountServiceAccountToken=false on ServiceAccounts. Fields: automountServiceAccountToken."
     policies.kolteq.com/validatingAdmissionPolicy: 288fb92b-4b29-5439-85e7-2f73cf881a9e
   labels:
-    check-serviceaccount-automount-token-false.security.kolteq.com/audit: 'false,true'
-    check-serviceaccount-automount-token-false.security.kolteq.com/enforce: 'false,true'
-    check-serviceaccount-automount-token-false.security.kolteq.com/warn: 'false,true'
+    check-serviceaccount-automount-token-false.security.kolteq.com/audit: 'false-true'
+    check-serviceaccount-automount-token-false.security.kolteq.com/enforce: 'false-true'
+    check-serviceaccount-automount-token-false.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

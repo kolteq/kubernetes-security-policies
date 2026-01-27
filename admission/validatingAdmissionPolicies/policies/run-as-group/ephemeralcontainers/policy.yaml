@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Set spec.ephemeralContainers[*].securityContext.runAsGroup to >0 or omit it. Fields: spec.ephemeralContainers[*].securityContext.runAsGroup."
     policies.kolteq.com/validatingAdmissionPolicy: ab502359-d289-516a-a2db-df43d95b0808
   labels:
-    check-run-as-group-ephemeralcontainers.security.kolteq.com/audit: 'false,true'
-    check-run-as-group-ephemeralcontainers.security.kolteq.com/enforce: 'false,true'
-    check-run-as-group-ephemeralcontainers.security.kolteq.com/warn: 'false,true'
+    check-run-as-group-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    check-run-as-group-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
+    check-run-as-group-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

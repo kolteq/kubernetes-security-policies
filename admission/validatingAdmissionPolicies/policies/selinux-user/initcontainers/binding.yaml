@@ -5,15 +5,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 84c37a26-8dad-569b-81b9-35eda037e453
   labels:
-    pss.security.kolteq.com/warn: 'baseline,restricted'
-    selinux-user-initcontainers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
+    selinux-user-initcontainers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-user-initcontainers.security.kolteq.com/audit: 'false,true'
-    selinux-user-initcontainers.security.kolteq.com/enforce: 'false,true'
+    selinux-user-initcontainers.security.kolteq.com/audit: 'false-true'
+    selinux-user-initcontainers.security.kolteq.com/enforce: 'false-true'
 spec:
   policyName: selinux-user-initcontainers
   validationActions:
@@ -39,14 +39,14 @@ metadata:
     policies.kolteq.com/validatingAdmissionPolicy: 84c37a26-8dad-569b-81b9-35eda037e453
   labels:
     security.kolteq.com/warn: enabled
-    selinux-user-initcontainers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    selinux-user-initcontainers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
-    selinux-user-initcontainers.security.kolteq.com/audit: 'false,true'
-    selinux-user-initcontainers.security.kolteq.com/enforce: 'false,true'
+    selinux-user-initcontainers.security.kolteq.com/audit: 'false-true'
+    selinux-user-initcontainers.security.kolteq.com/enforce: 'false-true'
 spec:
   policyName: selinux-user-initcontainers
   validationActions:
@@ -70,15 +70,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 84c37a26-8dad-569b-81b9-35eda037e453
   labels:
-    selinux-user-initcontainers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    selinux-user-initcontainers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-user-initcontainers.security.kolteq.com/audit: 'false,true'
-    selinux-user-initcontainers.security.kolteq.com/enforce: 'false,true'
+    selinux-user-initcontainers.security.kolteq.com/audit: 'false-true'
+    selinux-user-initcontainers.security.kolteq.com/enforce: 'false-true'
 spec:
   policyName: selinux-user-initcontainers
   validationActions:
@@ -98,15 +98,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 84c37a26-8dad-569b-81b9-35eda037e453
   labels:
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    selinux-user-initcontainers.security.kolteq.com/audit: 'false,true'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    selinux-user-initcontainers.security.kolteq.com/audit: 'false-true'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-user-initcontainers.security.kolteq.com/enforce: 'false,true'
-    selinux-user-initcontainers.security.kolteq.com/warn: 'false,true'
+    selinux-user-initcontainers.security.kolteq.com/enforce: 'false-true'
+    selinux-user-initcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-user-initcontainers
   validationActions:
@@ -132,14 +132,14 @@ metadata:
     policies.kolteq.com/validatingAdmissionPolicy: 84c37a26-8dad-569b-81b9-35eda037e453
   labels:
     security.kolteq.com/audit: enabled
-    selinux-user-initcontainers.security.kolteq.com/audit: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    selinux-user-initcontainers.security.kolteq.com/audit: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-user-initcontainers.security.kolteq.com/enforce: 'false,true'
-    selinux-user-initcontainers.security.kolteq.com/warn: 'false,true'
+    selinux-user-initcontainers.security.kolteq.com/enforce: 'false-true'
+    selinux-user-initcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-user-initcontainers
   validationActions:
@@ -163,15 +163,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 84c37a26-8dad-569b-81b9-35eda037e453
   labels:
-    selinux-user-initcontainers.security.kolteq.com/audit: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    selinux-user-initcontainers.security.kolteq.com/audit: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-user-initcontainers.security.kolteq.com/enforce: 'false,true'
-    selinux-user-initcontainers.security.kolteq.com/warn: 'false,true'
+    selinux-user-initcontainers.security.kolteq.com/enforce: 'false-true'
+    selinux-user-initcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-user-initcontainers
   validationActions:
@@ -191,15 +191,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 84c37a26-8dad-569b-81b9-35eda037e453
   labels:
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    selinux-user-initcontainers.security.kolteq.com/enforce: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    selinux-user-initcontainers.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-user-initcontainers.security.kolteq.com/audit: 'false,true'
-    selinux-user-initcontainers.security.kolteq.com/warn: 'false,true'
+    selinux-user-initcontainers.security.kolteq.com/audit: 'false-true'
+    selinux-user-initcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-user-initcontainers
   validationActions:
@@ -225,14 +225,14 @@ metadata:
     policies.kolteq.com/validatingAdmissionPolicy: 84c37a26-8dad-569b-81b9-35eda037e453
   labels:
     security.kolteq.com/enforce: enabled
-    selinux-user-initcontainers.security.kolteq.com/enforce: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    selinux-user-initcontainers.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/warn: enabled
-    selinux-user-initcontainers.security.kolteq.com/audit: 'false,true'
-    selinux-user-initcontainers.security.kolteq.com/warn: 'false,true'
+    selinux-user-initcontainers.security.kolteq.com/audit: 'false-true'
+    selinux-user-initcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-user-initcontainers
   validationActions:
@@ -256,15 +256,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 84c37a26-8dad-569b-81b9-35eda037e453
   labels:
-    selinux-user-initcontainers.security.kolteq.com/enforce: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    selinux-user-initcontainers.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-user-initcontainers.security.kolteq.com/audit: 'false,true'
-    selinux-user-initcontainers.security.kolteq.com/warn: 'false,true'
+    selinux-user-initcontainers.security.kolteq.com/audit: 'false-true'
+    selinux-user-initcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-user-initcontainers
   validationActions:

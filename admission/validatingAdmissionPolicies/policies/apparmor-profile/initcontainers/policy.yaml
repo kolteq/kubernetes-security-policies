@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the apparmor-profile/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 73b9e59e-4497-50a5-9318-90e26d15b14a
   labels:
-    apparmor-profile-initcontainers.security.kolteq.com/audit: 'false,true'
-    apparmor-profile-initcontainers.security.kolteq.com/enforce: 'false,true'
-    apparmor-profile-initcontainers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    apparmor-profile-initcontainers.security.kolteq.com/audit: 'false-true'
+    apparmor-profile-initcontainers.security.kolteq.com/enforce: 'false-true'
+    apparmor-profile-initcontainers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

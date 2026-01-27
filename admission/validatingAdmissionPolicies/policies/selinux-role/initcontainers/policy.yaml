@@ -10,15 +10,15 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the selinux-role/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 4c783e13-6559-579d-84d4-8256f789369e
   labels:
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-role-initcontainers.security.kolteq.com/audit: 'false,true'
-    selinux-role-initcontainers.security.kolteq.com/enforce: 'false,true'
-    selinux-role-initcontainers.security.kolteq.com/warn: 'false,true'
+    selinux-role-initcontainers.security.kolteq.com/audit: 'false-true'
+    selinux-role-initcontainers.security.kolteq.com/enforce: 'false-true'
+    selinux-role-initcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   failurePolicy: Fail
   matchConstraints:

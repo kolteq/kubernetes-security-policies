@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Move sensitive values into Secrets and remove from ConfigMap. Fields: data, binaryData."
     policies.kolteq.com/validatingAdmissionPolicy: 00bccb24-48e9-569b-be4a-6263d3113604
   labels:
-    check-configmap-no-secrets.security.kolteq.com/audit: 'false,true'
-    check-configmap-no-secrets.security.kolteq.com/enforce: 'false,true'
-    check-configmap-no-secrets.security.kolteq.com/warn: 'false,true'
+    check-configmap-no-secrets.security.kolteq.com/audit: 'false-true'
+    check-configmap-no-secrets.security.kolteq.com/enforce: 'false-true'
+    check-configmap-no-secrets.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

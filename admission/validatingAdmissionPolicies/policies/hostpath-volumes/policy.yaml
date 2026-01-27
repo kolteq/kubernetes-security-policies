@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the hostpath-volumes policy.
     policies.kolteq.com/validatingAdmissionPolicy: 442539af-2016-5e89-9049-475db1b41f50
   labels:
-    hostpath-volumes.security.kolteq.com/audit: 'false,true'
-    hostpath-volumes.security.kolteq.com/enforce: 'false,true'
-    hostpath-volumes.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    hostpath-volumes.security.kolteq.com/audit: 'false-true'
+    hostpath-volumes.security.kolteq.com/enforce: 'false-true'
+    hostpath-volumes.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

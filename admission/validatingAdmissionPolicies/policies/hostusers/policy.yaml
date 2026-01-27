@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Set spec.hostUsers=false or omit it. Fields: spec.hostUsers."
     policies.kolteq.com/validatingAdmissionPolicy: ef824444-e21d-5f0c-8b9e-58ae3fba230b
   labels:
-    check-hostusers.security.kolteq.com/audit: 'false,true'
-    check-hostusers.security.kolteq.com/enforce: 'false,true'
-    check-hostusers.security.kolteq.com/warn: 'false,true'
+    check-hostusers.security.kolteq.com/audit: 'false-true'
+    check-hostusers.security.kolteq.com/enforce: 'false-true'
+    check-hostusers.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

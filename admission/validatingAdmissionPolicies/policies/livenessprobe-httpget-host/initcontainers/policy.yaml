@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the livenessprobe-httpget-host/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 32cab35f-b5d0-5896-a5e6-7c5ac722ffd0
   labels:
-    livenessprobe-httpget-host-initcontainers.security.kolteq.com/audit: 'false,true'
-    livenessprobe-httpget-host-initcontainers.security.kolteq.com/enforce: 'false,true'
-    livenessprobe-httpget-host-initcontainers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    livenessprobe-httpget-host-initcontainers.security.kolteq.com/audit: 'false-true'
+    livenessprobe-httpget-host-initcontainers.security.kolteq.com/enforce: 'false-true'
+    livenessprobe-httpget-host-initcontainers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

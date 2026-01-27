@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the poststart-httpget-host/containers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 61951dbe-b3f2-51f3-9c31-e89becf09777
   labels:
-    poststart-httpget-host-containers.security.kolteq.com/audit: 'false,true'
-    poststart-httpget-host-containers.security.kolteq.com/enforce: 'false,true'
-    poststart-httpget-host-containers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    poststart-httpget-host-containers.security.kolteq.com/audit: 'false-true'
+    poststart-httpget-host-containers.security.kolteq.com/enforce: 'false-true'
+    poststart-httpget-host-containers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

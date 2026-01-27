@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Remove anonymous/broad user subjects from RoleBinding. Fields: subjects[*].kind, subjects[*].name."
     policies.kolteq.com/validatingAdmissionPolicy: 3216e8b4-598d-5d00-a9ad-a3493b74a5ba
   labels:
-    check-rolebinding-anonymous-subjects.security.kolteq.com/audit: 'false,true'
-    check-rolebinding-anonymous-subjects.security.kolteq.com/enforce: 'false,true'
-    check-rolebinding-anonymous-subjects.security.kolteq.com/warn: 'false,true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/audit: 'false-true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/enforce: 'false-true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

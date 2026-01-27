@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the run-as-nonroot/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 8e5ea7fe-f071-5538-a13c-89b00413b610
   labels:
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
-    run-as-nonroot-initcontainers.security.kolteq.com/audit: 'false,true'
-    run-as-nonroot-initcontainers.security.kolteq.com/enforce: 'false,true'
-    run-as-nonroot-initcontainers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
+    run-as-nonroot-initcontainers.security.kolteq.com/audit: 'false-true'
+    run-as-nonroot-initcontainers.security.kolteq.com/enforce: 'false-true'
+    run-as-nonroot-initcontainers.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

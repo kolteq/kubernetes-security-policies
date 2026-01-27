@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the apparmor-annotation-values policy.
     policies.kolteq.com/validatingAdmissionPolicy: 934375f3-3b04-5b5b-937c-24c962bb253b
   labels:
-    apparmor-annotation-values.security.kolteq.com/audit: 'false,true'
-    apparmor-annotation-values.security.kolteq.com/enforce: 'false,true'
-    apparmor-annotation-values.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    apparmor-annotation-values.security.kolteq.com/audit: 'false-true'
+    apparmor-annotation-values.security.kolteq.com/enforce: 'false-true'
+    apparmor-annotation-values.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
