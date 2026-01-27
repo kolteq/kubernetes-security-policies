@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Capabilities Drop All'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for capabilities-drop-all/ephemeralcontainers.
     security.kubeapt.io/resource: Ephemeralcontainers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the capabilities-drop-all/ephemeralcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: f2f40dab-4e79-5c18-994c-259829febef6
   labels:

@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Readinessprobe Httpget Host'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for readinessprobe-httpget-host/containers.
     security.kubeapt.io/resource: Containers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "3"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the readinessprobe-httpget-host/containers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 5f5fc77a-ad90-5ca9-8991-f084d666cea8
   labels:

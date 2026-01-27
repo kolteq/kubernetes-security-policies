@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Pvc Write'
     security.kubeapt.io/description: ClusterRoles must not grant create/update/patch/delete on PersistentVolumeClaims without
     security.kubeapt.io/resource: ClusterRoles
-    security.kubeapt.io/severity: "7"
+    security.kubeapt.io/severity: "3"
     security.kubeapt.io/remediation: "Remove create/update/patch/delete on persistentvolumeclaims. Fields: rules[*].resources, rules[*].verbs."
     policies.kolteq.com/validatingAdmissionPolicy: 8eab4861-118d-59ab-962b-e64960ebde99
 spec:

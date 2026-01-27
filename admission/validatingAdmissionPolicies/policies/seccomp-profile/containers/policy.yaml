@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Seccomp Profile'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for seccomp-profile/containers.
     security.kubeapt.io/resource: Containers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the seccomp-profile/containers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 500d2ca8-f835-5884-a1e7-0b604c1344c8
   labels:

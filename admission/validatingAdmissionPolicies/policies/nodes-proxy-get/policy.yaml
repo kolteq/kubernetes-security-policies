@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Nodes Proxy Get'
     security.kubeapt.io/description: ClusterRoles must not grant get access to nodes/proxy.
     security.kubeapt.io/resource: ClusterRoles
-    security.kubeapt.io/severity: "9"
+    security.kubeapt.io/severity: "3"
     security.kubeapt.io/remediation: "Remove get on nodes/proxy. Fields: rules[*].apiGroups, rules[*].resources, rules[*].verbs."
     policies.kolteq.com/validatingAdmissionPolicy: 60af13ff-0b27-4502-8f62-afcd53148fa5
 spec:

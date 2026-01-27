@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'No Admin Ports'
     security.kubeapt.io/description: Externally reachable Services (type LoadBalancer/NodePort) must not expose admin/debug/metrics
     security.kubeapt.io/resource: Services
-    security.kubeapt.io/severity: "8"
+    security.kubeapt.io/severity: "3"
     security.kubeapt.io/remediation: "Remove admin/debug/metrics ports from external Services or split into an internal Service. Fields: spec.type, spec.ports[].name."
     policies.kolteq.com/validatingAdmissionPolicy: 2f913b3b-1da0-5d39-b5fb-393a6cb0ed66
   labels:

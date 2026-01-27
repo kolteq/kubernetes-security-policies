@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Selinux User'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for selinux-user/ephemeralcontainers.
     security.kubeapt.io/resource: Ephemeralcontainers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the selinux-user/ephemeralcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: c7406e3b-0b35-5689-aca3-2661d8698786
   labels:

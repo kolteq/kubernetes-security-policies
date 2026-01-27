@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Powerful Roles'
     security.kubeapt.io/description: ClusterRoleBindings must not reference powerful roles such as cluster-admin/admin/edit.
     security.kubeapt.io/resource: ClusterRoleBindings
-    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/severity: "9"
     security.kubeapt.io/remediation: "Change roleRef to a non-privileged role. Fields: roleRef.kind, roleRef.name."
     policies.kolteq.com/validatingAdmissionPolicy: 26924755-9e36-52b6-b19d-7ef5f37738cf
 spec:

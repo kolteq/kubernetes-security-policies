@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Seccomp Profile Restricted'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for seccomp-profile-restricted/ephemeralcontainers.
     security.kubeapt.io/resource: Ephemeralcontainers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the seccomp-profile-restricted/ephemeralcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 575fdecc-47b2-50f1-a344-eea767bbe580
   labels:

@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Wildcard Rules'
     security.kubeapt.io/description: Wildcard rules (apiGroups/resources/verbs with "*") are disallowed.
     security.kubeapt.io/resource: ClusterRoles
-    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/severity: "9"
     security.kubeapt.io/remediation: "Replace wildcard apiGroups/resources/verbs with explicit values. Fields: rules[*].apiGroups, rules[*].resources, rules[*].verbs."
     policies.kolteq.com/validatingAdmissionPolicy: c39ecc52-7627-502b-836c-5541f2b50a0b
 spec:

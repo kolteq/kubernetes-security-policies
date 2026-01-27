@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Volume Types'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for volume-types.
     security.kubeapt.io/resource: Pods
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the volume-types policy.
     policies.kolteq.com/validatingAdmissionPolicy: 361630ea-550f-5e1c-a01a-3a5180700395
   labels:

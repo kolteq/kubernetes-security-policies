@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Infra Cluster Resources'
     security.kubeapt.io/description: ClusterRoles must not grant broad access to nodes (read/proxy), persistent volumes, storageclasses,
     security.kubeapt.io/resource: ClusterRoles
-    security.kubeapt.io/severity: "9"
+    security.kubeapt.io/severity: "10"
     security.kubeapt.io/remediation: "Remove broad access to nodes, PVs, storageclasses, and namespace write verbs. Fields: rules[*].apiGroups, rules[*].resources, rules[*].verbs."
     policies.kolteq.com/validatingAdmissionPolicy: abd5b0ed-46e2-599e-aa8a-273ea8b3e3fa
 spec:

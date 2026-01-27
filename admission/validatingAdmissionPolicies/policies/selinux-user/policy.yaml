@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Selinux User'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for selinux-user.
     security.kubeapt.io/resource: Pods
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the selinux-user policy.
     policies.kolteq.com/validatingAdmissionPolicy: 678216cd-a01a-5f28-a28e-9a17e5993fbe
   labels:

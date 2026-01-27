@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Hostpath Volumes'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for hostpath-volumes.
     security.kubeapt.io/resource: Pods
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "10"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the hostpath-volumes policy.
     policies.kolteq.com/validatingAdmissionPolicy: 442539af-2016-5e89-9049-475db1b41f50
   labels:

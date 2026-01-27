@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'External Ips'
     security.kubeapt.io/description: spec.externalIPs must not be set.
     security.kubeapt.io/resource: Services
-    security.kubeapt.io/severity: "9"
+    security.kubeapt.io/severity: "7"
     security.kubeapt.io/remediation: "Remove spec.externalIPs. Fields: spec.externalIPs."
     policies.kolteq.com/validatingAdmissionPolicy: 6dfa90b1-5902-5a18-a066-ab0d84833bb6
   labels:

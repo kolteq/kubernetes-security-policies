@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: Sysctls
     security.kubeapt.io/description: ValidatingAdmissionPolicy for sysctls.
     security.kubeapt.io/resource: Pods
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "10"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the sysctls policy.
     policies.kolteq.com/validatingAdmissionPolicy: 61c33ae9-f1e3-5e45-b347-5e791865e313
   labels:

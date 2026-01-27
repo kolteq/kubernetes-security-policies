@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Selinux User'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for selinux-user/initcontainers.
     security.kubeapt.io/resource: Initcontainers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the selinux-user/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 84c37a26-8dad-569b-81b9-35eda037e453
   labels:

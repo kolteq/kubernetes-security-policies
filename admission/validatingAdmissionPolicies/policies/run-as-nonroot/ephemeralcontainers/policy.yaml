@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Run As Nonroot'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for run-as-nonroot/ephemeralcontainers.
     security.kubeapt.io/resource: Ephemeralcontainers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the run-as-nonroot/ephemeralcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: cb697975-f690-52c2-9770-2c0738845b34
   labels:

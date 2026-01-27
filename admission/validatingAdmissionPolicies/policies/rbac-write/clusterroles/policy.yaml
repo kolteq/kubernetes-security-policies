@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Rbac Write'
     security.kubeapt.io/description: ClusterRoles must not grant write/bind/escalate on RBAC resources.
     security.kubeapt.io/resource: ClusterRoles
-    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/severity: "9"
     security.kubeapt.io/remediation: "Remove write/bind/escalate on RBAC resources. Fields: rules[*].apiGroups, rules[*].resources, rules[*].verbs."
     policies.kolteq.com/validatingAdmissionPolicy: 9360a99b-6a87-5148-a60a-027fc8d839ab
 spec:

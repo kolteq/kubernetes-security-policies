@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'No Executable Code'
     security.kubeapt.io/description: Do not store executable code or scripts in ConfigMaps that applications run.
     security.kubeapt.io/resource: ConfigMaps
-    security.kubeapt.io/severity: "7"
+    security.kubeapt.io/severity: "3"
     security.kubeapt.io/remediation: "Remove executable code/scripts from ConfigMap data; bake into image or volume. Fields: data."
     policies.kolteq.com/validatingAdmissionPolicy: 7e9b70e6-e20d-5bbb-9069-03a99ebb5489
   labels:

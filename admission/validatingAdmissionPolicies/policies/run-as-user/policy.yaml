@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Run As User'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for run-as-user.
     security.kubeapt.io/resource: Pods
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the run-as-user policy.
     policies.kolteq.com/validatingAdmissionPolicy: 08819adb-4c93-5b34-9fd4-99e5b7087cf4
   labels:

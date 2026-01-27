@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Prestop Tcpsocket Host'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for prestop-tcpsocket-host/initcontainers.
     security.kubeapt.io/resource: Initcontainers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "3"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the prestop-tcpsocket-host/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: e9889cae-b014-521a-be39-a48c4e89e848
   labels:

@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Run As Group'
     security.kubeapt.io/description: spec.ephemeralContainers[*].securityContext.runAsGroup must be undefined or a non-zero
     security.kubeapt.io/resource: Ephemeralcontainers
-    security.kubeapt.io/severity: "6"
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: "Set spec.ephemeralContainers[*].securityContext.runAsGroup to >0 or omit it. Fields: spec.ephemeralContainers[*].securityContext.runAsGroup."
     policies.kolteq.com/validatingAdmissionPolicy: ab502359-d289-516a-a2db-df43d95b0808
   labels:

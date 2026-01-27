@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Apparmor Profile'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for apparmor-profile/ephemeralcontainers.
     security.kubeapt.io/resource: Ephemeralcontainers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the apparmor-profile/ephemeralcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 690a8643-3b65-5216-8c68-7357be3e7c85
   labels:

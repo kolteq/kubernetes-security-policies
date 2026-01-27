@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Windows Hostprocess'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for windows-hostprocess/ephemeralcontainers.
     security.kubeapt.io/resource: Ephemeralcontainers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "10"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the windows-hostprocess/ephemeralcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 46f861d0-ba59-515e-b36b-d8d11d521e96
   labels:

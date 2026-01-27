@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Run As Nonroot'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for run-as-nonroot.
     security.kubeapt.io/resource: Pods
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the run-as-nonroot policy.
     policies.kolteq.com/validatingAdmissionPolicy: 12155aa1-a5e2-5172-9425-cf3946cd6cbb
   labels:

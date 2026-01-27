@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Selinux Role'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for selinux-role.
     security.kubeapt.io/resource: Pods
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the selinux-role policy.
     policies.kolteq.com/validatingAdmissionPolicy: e1f18272-580d-5cb8-91d0-8b4c8d45a563
   labels:

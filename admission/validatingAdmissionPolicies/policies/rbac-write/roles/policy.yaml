@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Rbac Write'
     security.kubeapt.io/description: Roles must not grant write/bind/escalate permissions on RBAC resources.
     security.kubeapt.io/resource: Roles
-    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/severity: "9"
     security.kubeapt.io/remediation: "Remove write/bind/escalate on RBAC resources. Fields: rules[*].apiGroups, rules[*].resources, rules[*].verbs."
     policies.kolteq.com/validatingAdmissionPolicy: 1dea3c88-4df7-5d0d-9dfc-babfc0db4022
   labels:

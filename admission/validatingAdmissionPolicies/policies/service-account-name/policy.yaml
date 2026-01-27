@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Service Account Name'
     security.kubeapt.io/description: spec.serviceAccountName must be set to a non-default service account.
     security.kubeapt.io/resource: Pods
-    security.kubeapt.io/severity: "6"
+    security.kubeapt.io/severity: "3"
     security.kubeapt.io/remediation: "Set spec.serviceAccountName to a non-default ServiceAccount. Fields: spec.serviceAccountName."
     policies.kolteq.com/validatingAdmissionPolicy: d3543428-8c36-57dd-823f-a11d87da645e
   labels:

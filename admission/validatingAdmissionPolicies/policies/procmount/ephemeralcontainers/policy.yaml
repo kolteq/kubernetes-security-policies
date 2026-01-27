@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: Procmount
     security.kubeapt.io/description: ValidatingAdmissionPolicy for procmount/ephemeralcontainers.
     security.kubeapt.io/resource: Ephemeralcontainers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "10"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the procmount/ephemeralcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 809bccc7-f69b-5f9d-8202-b92acca96a69
   labels:

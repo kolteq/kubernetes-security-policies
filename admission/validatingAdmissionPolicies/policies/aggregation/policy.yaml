@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: Aggregation
     security.kubeapt.io/description: ClusterRoles must not use aggregationRule; avoid implicit privilege aggregation.
     security.kubeapt.io/resource: ClusterRoles
-    security.kubeapt.io/severity: "8"
+    security.kubeapt.io/severity: "10"
     security.kubeapt.io/remediation: "Remove aggregationRule or clusterRoleSelectors from ClusterRole. Fields: aggregationRule.clusterRoleSelectors."
     policies.kolteq.com/validatingAdmissionPolicy: ec416315-c4b8-5960-a2d0-4e7a2e171d35
 spec:

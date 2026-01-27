@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Windows Hostprocess'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for windows-hostprocess/containers.
     security.kubeapt.io/resource: Containers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "10"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the windows-hostprocess/containers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 24454df4-1625-5aa1-b0f1-ce92e28e9672
   labels:
