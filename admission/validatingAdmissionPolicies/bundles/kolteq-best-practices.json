@@ -1,6 +1,6 @@
 {
     "name": "KolTEQ Best Practices",
-    "description": "Our best practice bundle that enforces pod hardening, safer runtime defaults, and broader cluster guardrails (RBAC, secrets, exposure, and risky config restrictions) for a strong security baseline.",
+    "description": "Best practice validating admission bundle that enforces pod hardening, safer runtime defaults, and broader cluster guardrails (RBAC, secrets, exposure, and risky config restrictions) for a strong security baseline.",
     "deployment": "mkdir -p /tmp/kolteq && curl -L https://github.com/kolteq/kubernetes-security-policies/releases/latest/download/kolteq-best-practices.tar.gz | tar -xz -C /tmp/kolteq && kubectl apply -f /tmp/kolteq/kolteq-best-practices --recursive",
     "policies": [
         "00bccb24-48e9-569b-be4a-6263d3113604",

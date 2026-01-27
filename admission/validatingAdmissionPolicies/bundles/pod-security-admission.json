@@ -1,6 +1,6 @@
 {
     "name": "Pod Security Admission",
-    "description": " A focused bundle that implements the Pod Security Standards with the same levels (baseline and restricted).",
+    "description": "Pod Security Standards implemented as Validating Admission Policies, with the same levels (baseline and restricted).",
     "deployment": "mkdir -p /tmp/kolteq && curl -L https://github.com/kolteq/kubernetes-security-policies/releases/latest/download/pod-security-admission.tar.gz | tar -xz -C /tmp/kolteq && kubectl apply -f /tmp/kolteq/pod-security-admission --recursive",
     "policies": [
         "08819adb-4c93-5b34-9fd4-99e5b7087cf4",
