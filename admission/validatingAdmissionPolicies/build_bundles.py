@@ -150,10 +150,19 @@ def build_bundle_json_from_labels(
     bundle_slug = sanitize_label("+".join(labels))
     bundle_path = output or (bundles_dir / f"{bundle_slug}.json")
 
+    default_deployment = (
+        "mkdir -p /tmp/kolteq && curl -L https://github.com/kolteq/kubernetes-security-policies/releases/latest/download/"
+        f"{bundle_slug}.tar.gz | tar -xz -C /tmp/kolteq && kubectl apply -f /tmp/kolteq/{bundle_slug} --recursive"
+    )
+    sources = [
+        f"https://github.com/kolteq/kubernetes-security-policies/releases/latest/download/{bundle_slug}.tar.gz",
+        f"https://github.com/kolteq/kubernetes-security-policies/releases/latest/download/{bundle_slug}.zip",
+    ]
     data = {
         "name": name or ", ".join(labels),
         "description": description or f"Bundle generated for labels: {', '.join(labels)}.",
-        "deployment": deployment or "kubectl apply -f . --recursive",
+        "deployment": deployment or default_deployment,
+        "sources": sources,
         "policies": sorted(policy_ids),
     }
     bundle_path.write_text(json.dumps(data, indent=4) + "\n")
