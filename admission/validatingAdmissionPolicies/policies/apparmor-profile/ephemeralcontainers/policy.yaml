@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the apparmor-profile/ephemeralcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 690a8643-3b65-5216-8c68-7357be3e7c85
   labels:
-    apparmor-profile-ephemeralcontainers.security.kolteq.com/audit: 'false,true'
-    apparmor-profile-ephemeralcontainers.security.kolteq.com/enforce: 'false,true'
-    apparmor-profile-ephemeralcontainers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    apparmor-profile-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
+    apparmor-profile-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
+    apparmor-profile-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
+    pss.security.kolteq.com/audit: 'baseline - restricted'
+    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    pss.security.kolteq.com/warn: 'baseline - restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

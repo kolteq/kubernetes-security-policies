@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the prestop-tcpsocket-host/containers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 867449cc-6334-5de8-8297-ed1fc38d214a
   labels:
-    prestop-tcpsocket-host-containers.security.kolteq.com/audit: 'false,true'
-    prestop-tcpsocket-host-containers.security.kolteq.com/enforce: 'false,true'
-    prestop-tcpsocket-host-containers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    prestop-tcpsocket-host-containers.security.kolteq.com/audit: 'false - true'
+    prestop-tcpsocket-host-containers.security.kolteq.com/enforce: 'false - true'
+    prestop-tcpsocket-host-containers.security.kolteq.com/warn: 'false - true'
+    pss.security.kolteq.com/audit: 'baseline - restricted'
+    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    pss.security.kolteq.com/warn: 'baseline - restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

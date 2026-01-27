@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Set spec.containers[*].securityContext.runAsGroup to >0 or omit it. Fields: spec.containers[*].securityContext.runAsGroup."
     policies.kolteq.com/validatingAdmissionPolicy: 657580a6-fbdb-5107-a076-6ebc8e529ea9
   labels:
-    check-run-as-group-containers.security.kolteq.com/audit: 'false,true'
-    check-run-as-group-containers.security.kolteq.com/enforce: 'false,true'
-    check-run-as-group-containers.security.kolteq.com/warn: 'false,true'
+    check-run-as-group-containers.security.kolteq.com/audit: 'false - true'
+    check-run-as-group-containers.security.kolteq.com/enforce: 'false - true'
+    check-run-as-group-containers.security.kolteq.com/warn: 'false - true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Replace wildcard apiGroups/resources/verbs with explicit values. Fields: rules[*].apiGroups, rules[*].resources, rules[*].verbs."
     policies.kolteq.com/validatingAdmissionPolicy: 3c995f70-3150-56d0-b682-82c7e55e8a1b
   labels:
-    check-role-wildcard-rules.security.kolteq.com/audit: 'false,true'
-    check-role-wildcard-rules.security.kolteq.com/enforce: 'false,true'
-    check-role-wildcard-rules.security.kolteq.com/warn: 'false,true'
+    check-role-wildcard-rules.security.kolteq.com/audit: 'false - true'
+    check-role-wildcard-rules.security.kolteq.com/enforce: 'false - true'
+    check-role-wildcard-rules.security.kolteq.com/warn: 'false - true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

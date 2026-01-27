@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Set spec.securityContext.fsGroup to >0 or omit it. Fields: spec.securityContext.fsGroup."
     policies.kolteq.com/validatingAdmissionPolicy: 4f688ec5-d914-51b4-86b5-c204447bae99
   labels:
-    check-fsgroup-pod.security.kolteq.com/audit: 'false,true'
-    check-fsgroup-pod.security.kolteq.com/enforce: 'false,true'
-    check-fsgroup-pod.security.kolteq.com/warn: 'false,true'
+    check-fsgroup-pod.security.kolteq.com/audit: 'false - true'
+    check-fsgroup-pod.security.kolteq.com/enforce: 'false - true'
+    check-fsgroup-pod.security.kolteq.com/warn: 'false - true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

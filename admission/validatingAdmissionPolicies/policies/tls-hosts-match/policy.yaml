@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Ensure every spec.rules[*].host appears in spec.tls[*].hosts. Fields: spec.rules[].host, spec.tls[].hosts."
     policies.kolteq.com/validatingAdmissionPolicy: 80c67576-1c3e-57d1-bef5-0a61666cd840
   labels:
-    check-ingress-tls-hosts-match.security.kolteq.com/audit: 'false,true'
-    check-ingress-tls-hosts-match.security.kolteq.com/enforce: 'false,true'
-    check-ingress-tls-hosts-match.security.kolteq.com/warn: 'false,true'
+    check-ingress-tls-hosts-match.security.kolteq.com/audit: 'false - true'
+    check-ingress-tls-hosts-match.security.kolteq.com/enforce: 'false - true'
+    check-ingress-tls-hosts-match.security.kolteq.com/warn: 'false - true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Remove create/update/patch/delete on workload controllers. Fields: rules[*].apiGroups, rules[*].resources, rules[*].verbs."
     policies.kolteq.com/validatingAdmissionPolicy: 2d501f5f-51f1-58b9-bc5c-5498831392da
   labels:
-    check-role-workloads-write.security.kolteq.com/audit: 'false,true'
-    check-role-workloads-write.security.kolteq.com/enforce: 'false,true'
-    check-role-workloads-write.security.kolteq.com/warn: 'false,true'
+    check-role-workloads-write.security.kolteq.com/audit: 'false - true'
+    check-role-workloads-write.security.kolteq.com/enforce: 'false - true'
+    check-role-workloads-write.security.kolteq.com/warn: 'false - true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

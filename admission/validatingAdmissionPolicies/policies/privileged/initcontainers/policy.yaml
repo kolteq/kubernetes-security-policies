@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the privileged/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: c1aacfa1-05e7-5e41-b5fe-8e62a643ec0b
   labels:
-    privileged-initcontainers.security.kolteq.com/audit: 'false,true'
-    privileged-initcontainers.security.kolteq.com/enforce: 'false,true'
-    privileged-initcontainers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    privileged-initcontainers.security.kolteq.com/audit: 'false - true'
+    privileged-initcontainers.security.kolteq.com/enforce: 'false - true'
+    privileged-initcontainers.security.kolteq.com/warn: 'false - true'
+    pss.security.kolteq.com/audit: 'baseline - restricted'
+    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    pss.security.kolteq.com/warn: 'baseline - restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

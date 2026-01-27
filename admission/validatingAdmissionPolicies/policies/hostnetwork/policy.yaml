@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the hostnetwork policy.
     policies.kolteq.com/validatingAdmissionPolicy: 4d8ef6f6-a6aa-5cdc-aa65-050431083b71
   labels:
-    hostnetwork.security.kolteq.com/audit: 'false,true'
-    hostnetwork.security.kolteq.com/enforce: 'false,true'
-    hostnetwork.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    hostnetwork.security.kolteq.com/audit: 'false - true'
+    hostnetwork.security.kolteq.com/enforce: 'false - true'
+    hostnetwork.security.kolteq.com/warn: 'false - true'
+    pss.security.kolteq.com/audit: 'baseline - restricted'
+    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    pss.security.kolteq.com/warn: 'baseline - restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

@@ -5,12 +5,12 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
   labels:
-    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
-    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
-    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false - true'
+    pss.security.kolteq.com/warn: 'baseline - restricted'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false - true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false - true'
+    pss.security.kolteq.com/audit: 'baseline - restricted'
+    pss.security.kolteq.com/enforce: 'baseline - restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
@@ -38,13 +38,13 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
   labels:
-    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false - true'
     security.kolteq.com/warn: enabled
-    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
-    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false - true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false - true'
+    pss.security.kolteq.com/audit: 'baseline - restricted'
+    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    pss.security.kolteq.com/warn: 'baseline - restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
 spec:
@@ -70,12 +70,12 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
   labels:
-    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
-    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
-    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false - true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false - true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false - true'
+    pss.security.kolteq.com/audit: 'baseline - restricted'
+    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    pss.security.kolteq.com/warn: 'baseline - restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
@@ -98,12 +98,12 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
   labels:
-    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
-    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false - true'
+    pss.security.kolteq.com/audit: 'baseline - restricted'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false - true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false - true'
+    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    pss.security.kolteq.com/warn: 'baseline - restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
@@ -131,13 +131,13 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
   labels:
-    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false - true'
     security.kolteq.com/audit: enabled
-    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
-    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false - true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false - true'
+    pss.security.kolteq.com/audit: 'baseline - restricted'
+    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    pss.security.kolteq.com/warn: 'baseline - restricted'
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
 spec:
@@ -163,12 +163,12 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
   labels:
-    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
-    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
-    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false - true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false - true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false - true'
+    pss.security.kolteq.com/audit: 'baseline - restricted'
+    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    pss.security.kolteq.com/warn: 'baseline - restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
@@ -191,12 +191,12 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
   labels:
-    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
-    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false - true'
+    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false - true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false - true'
+    pss.security.kolteq.com/audit: 'baseline - restricted'
+    pss.security.kolteq.com/warn: 'baseline - restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
@@ -224,13 +224,13 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
   labels:
-    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false - true'
     security.kolteq.com/enforce: enabled
-    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
-    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false - true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false - true'
+    pss.security.kolteq.com/audit: 'baseline - restricted'
+    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    pss.security.kolteq.com/warn: 'baseline - restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/warn: enabled
 spec:
@@ -256,12 +256,12 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
   labels:
-    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
-    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
-    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false - true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false - true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false - true'
+    pss.security.kolteq.com/audit: 'baseline - restricted'
+    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    pss.security.kolteq.com/warn: 'baseline - restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

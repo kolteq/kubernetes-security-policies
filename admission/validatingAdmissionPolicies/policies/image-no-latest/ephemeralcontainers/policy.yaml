@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Use an immutable digest or a non-latest tag for ephemeral container images. Fields: spec.ephemeralContainers[*].image."
     policies.kolteq.com/validatingAdmissionPolicy: 04c55983-a52d-5d6b-93be-361f75995a16
   labels:
-    check-image-no-latest-ephemeralcontainers.security.kolteq.com/audit: 'false,true'
-    check-image-no-latest-ephemeralcontainers.security.kolteq.com/enforce: 'false,true'
-    check-image-no-latest-ephemeralcontainers.security.kolteq.com/warn: 'false,true'
+    check-image-no-latest-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
+    check-image-no-latest-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
+    check-image-no-latest-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

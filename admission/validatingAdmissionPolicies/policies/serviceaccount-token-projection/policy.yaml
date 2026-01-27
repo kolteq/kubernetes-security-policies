@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Add projected serviceAccountToken volume when using serviceAccountName. Fields: spec.serviceAccountName, spec.volumes[].projected.sources[].serviceAccountToken."
     policies.kolteq.com/validatingAdmissionPolicy: 84b2a590-8503-5c53-bde9-96ff9c294616
   labels:
-    check-serviceaccount-token-projection.security.kolteq.com/audit: 'false,true'
-    check-serviceaccount-token-projection.security.kolteq.com/enforce: 'false,true'
-    check-serviceaccount-token-projection.security.kolteq.com/warn: 'false,true'
+    check-serviceaccount-token-projection.security.kolteq.com/audit: 'false - true'
+    check-serviceaccount-token-projection.security.kolteq.com/enforce: 'false - true'
+    check-serviceaccount-token-projection.security.kolteq.com/warn: 'false - true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

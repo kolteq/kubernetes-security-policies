@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Remove executable code/scripts from ConfigMap data; bake into image or volume. Fields: data."
     policies.kolteq.com/validatingAdmissionPolicy: 7e9b70e6-e20d-5bbb-9069-03a99ebb5489
   labels:
-    check-configmap-no-executable-code.security.kolteq.com/audit: 'false,true'
-    check-configmap-no-executable-code.security.kolteq.com/enforce: 'false,true'
-    check-configmap-no-executable-code.security.kolteq.com/warn: 'false,true'
+    check-configmap-no-executable-code.security.kolteq.com/audit: 'false - true'
+    check-configmap-no-executable-code.security.kolteq.com/enforce: 'false - true'
+    check-configmap-no-executable-code.security.kolteq.com/warn: 'false - true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

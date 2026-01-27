@@ -5,10 +5,10 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: f6a72ed9-d64b-5e78-93ca-8d78ce3e4c83
   labels:
-    check-serviceaccount-no-token-secrets.security.kolteq.com/warn: 'false,true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/warn: 'false - true'
     security.kolteq.com/warn: enabled
-    check-serviceaccount-no-token-secrets.security.kolteq.com/audit: 'false,true'
-    check-serviceaccount-no-token-secrets.security.kolteq.com/enforce: 'false,true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/audit: 'false - true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/enforce: 'false - true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
 spec:
@@ -34,9 +34,9 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: f6a72ed9-d64b-5e78-93ca-8d78ce3e4c83
   labels:
-    check-serviceaccount-no-token-secrets.security.kolteq.com/warn: 'false,true'
-    check-serviceaccount-no-token-secrets.security.kolteq.com/audit: 'false,true'
-    check-serviceaccount-no-token-secrets.security.kolteq.com/enforce: 'false,true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/warn: 'false - true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/audit: 'false - true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/enforce: 'false - true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
@@ -59,10 +59,10 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: f6a72ed9-d64b-5e78-93ca-8d78ce3e4c83
   labels:
-    check-serviceaccount-no-token-secrets.security.kolteq.com/audit: 'false,true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/audit: 'false - true'
     security.kolteq.com/audit: enabled
-    check-serviceaccount-no-token-secrets.security.kolteq.com/enforce: 'false,true'
-    check-serviceaccount-no-token-secrets.security.kolteq.com/warn: 'false,true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/enforce: 'false - true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/warn: 'false - true'
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
 spec:
@@ -88,9 +88,9 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: f6a72ed9-d64b-5e78-93ca-8d78ce3e4c83
   labels:
-    check-serviceaccount-no-token-secrets.security.kolteq.com/audit: 'false,true'
-    check-serviceaccount-no-token-secrets.security.kolteq.com/enforce: 'false,true'
-    check-serviceaccount-no-token-secrets.security.kolteq.com/warn: 'false,true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/audit: 'false - true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/enforce: 'false - true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/warn: 'false - true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
@@ -113,10 +113,10 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: f6a72ed9-d64b-5e78-93ca-8d78ce3e4c83
   labels:
-    check-serviceaccount-no-token-secrets.security.kolteq.com/enforce: 'false,true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/enforce: 'false - true'
     security.kolteq.com/enforce: enabled
-    check-serviceaccount-no-token-secrets.security.kolteq.com/audit: 'false,true'
-    check-serviceaccount-no-token-secrets.security.kolteq.com/warn: 'false,true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/audit: 'false - true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/warn: 'false - true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/warn: enabled
 spec:
@@ -142,9 +142,9 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: f6a72ed9-d64b-5e78-93ca-8d78ce3e4c83
   labels:
-    check-serviceaccount-no-token-secrets.security.kolteq.com/enforce: 'false,true'
-    check-serviceaccount-no-token-secrets.security.kolteq.com/audit: 'false,true'
-    check-serviceaccount-no-token-secrets.security.kolteq.com/warn: 'false,true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/enforce: 'false - true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/audit: 'false - true'
+    check-serviceaccount-no-token-secrets.security.kolteq.com/warn: 'false - true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Remove admin/debug/metrics ports from external Services or split into an internal Service. Fields: spec.type, spec.ports[].name."
     policies.kolteq.com/validatingAdmissionPolicy: 2f913b3b-1da0-5d39-b5fb-393a6cb0ed66
   labels:
-    check-service-no-admin-ports.security.kolteq.com/audit: 'false,true'
-    check-service-no-admin-ports.security.kolteq.com/enforce: 'false,true'
-    check-service-no-admin-ports.security.kolteq.com/warn: 'false,true'
+    check-service-no-admin-ports.security.kolteq.com/audit: 'false - true'
+    check-service-no-admin-ports.security.kolteq.com/enforce: 'false - true'
+    check-service-no-admin-ports.security.kolteq.com/warn: 'false - true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

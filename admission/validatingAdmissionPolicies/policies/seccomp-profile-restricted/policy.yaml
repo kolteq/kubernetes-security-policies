@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the seccomp-profile-restricted policy.
     policies.kolteq.com/validatingAdmissionPolicy: e2d471ed-f030-54d9-833d-0f9915d14a63
   labels:
-    pss.security.kolteq.com/audit: 'baseline,restricted'
-    pss.security.kolteq.com/enforce: 'baseline,restricted'
-    pss.security.kolteq.com/warn: 'baseline,restricted'
-    seccomp-profile-pod-restricted.security.kolteq.com/audit: 'false,true'
-    seccomp-profile-pod-restricted.security.kolteq.com/enforce: 'false,true'
-    seccomp-profile-pod-restricted.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline - restricted'
+    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    pss.security.kolteq.com/warn: 'baseline - restricted'
+    seccomp-profile-pod-restricted.security.kolteq.com/audit: 'false - true'
+    seccomp-profile-pod-restricted.security.kolteq.com/enforce: 'false - true'
+    seccomp-profile-pod-restricted.security.kolteq.com/warn: 'false - true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
