@@ -5,15 +5,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: c7fc514c-62c7-5d26-81e1-ef742402f859
   labels:
-    pss.security.kolteq.com/warn: 'baseline - restricted'
-    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
+    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
 spec:
   policyName: selinux-type-ephemeralcontainers
   validationActions:
@@ -39,14 +39,14 @@ metadata:
     policies.kolteq.com/validatingAdmissionPolicy: c7fc514c-62c7-5d26-81e1-ef742402f859
   labels:
     security.kolteq.com/warn: enabled
-    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
-    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
 spec:
   policyName: selinux-type-ephemeralcontainers
   validationActions:
@@ -70,15 +70,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: c7fc514c-62c7-5d26-81e1-ef742402f859
   labels:
-    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
 spec:
   policyName: selinux-type-ephemeralcontainers
   validationActions:
@@ -98,15 +98,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: c7fc514c-62c7-5d26-81e1-ef742402f859
   labels:
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
-    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-type-ephemeralcontainers
   validationActions:
@@ -132,14 +132,14 @@ metadata:
     policies.kolteq.com/validatingAdmissionPolicy: c7fc514c-62c7-5d26-81e1-ef742402f859
   labels:
     security.kolteq.com/audit: enabled
-    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
-    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-type-ephemeralcontainers
   validationActions:
@@ -163,15 +163,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: c7fc514c-62c7-5d26-81e1-ef742402f859
   labels:
-    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
-    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-type-ephemeralcontainers
   validationActions:
@@ -191,15 +191,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: c7fc514c-62c7-5d26-81e1-ef742402f859
   labels:
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-type-ephemeralcontainers
   validationActions:
@@ -225,14 +225,14 @@ metadata:
     policies.kolteq.com/validatingAdmissionPolicy: c7fc514c-62c7-5d26-81e1-ef742402f859
   labels:
     security.kolteq.com/enforce: enabled
-    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/warn: enabled
-    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-type-ephemeralcontainers
   validationActions:
@@ -256,15 +256,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: c7fc514c-62c7-5d26-81e1-ef742402f859
   labels:
-    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    selinux-type-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    selinux-type-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-type-ephemeralcontainers
   validationActions:

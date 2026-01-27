@@ -5,15 +5,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: f78d62d0-2cb5-56e5-91cd-b6a322cb0e0a
   labels:
-    pss.security.kolteq.com/warn: 'baseline - restricted'
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false - true'
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false - true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false-true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false-true'
 spec:
   policyName: startupprobe-tcpsocket-host-containers
   validationActions:
@@ -39,14 +39,14 @@ metadata:
     policies.kolteq.com/validatingAdmissionPolicy: f78d62d0-2cb5-56e5-91cd-b6a322cb0e0a
   labels:
     security.kolteq.com/warn: enabled
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false - true'
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false - true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false-true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false-true'
 spec:
   policyName: startupprobe-tcpsocket-host-containers
   validationActions:
@@ -70,15 +70,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: f78d62d0-2cb5-56e5-91cd-b6a322cb0e0a
   labels:
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false - true'
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false - true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false-true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false-true'
 spec:
   policyName: startupprobe-tcpsocket-host-containers
   validationActions:
@@ -98,15 +98,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: f78d62d0-2cb5-56e5-91cd-b6a322cb0e0a
   labels:
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false - true'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false-true'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false - true'
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false - true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false-true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: startupprobe-tcpsocket-host-containers
   validationActions:
@@ -132,14 +132,14 @@ metadata:
     policies.kolteq.com/validatingAdmissionPolicy: f78d62d0-2cb5-56e5-91cd-b6a322cb0e0a
   labels:
     security.kolteq.com/audit: enabled
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false - true'
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false - true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false-true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: startupprobe-tcpsocket-host-containers
   validationActions:
@@ -163,15 +163,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: f78d62d0-2cb5-56e5-91cd-b6a322cb0e0a
   labels:
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false - true'
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false - true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false-true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: startupprobe-tcpsocket-host-containers
   validationActions:
@@ -191,15 +191,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: f78d62d0-2cb5-56e5-91cd-b6a322cb0e0a
   labels:
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false - true'
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false - true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false-true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: startupprobe-tcpsocket-host-containers
   validationActions:
@@ -225,14 +225,14 @@ metadata:
     policies.kolteq.com/validatingAdmissionPolicy: f78d62d0-2cb5-56e5-91cd-b6a322cb0e0a
   labels:
     security.kolteq.com/enforce: enabled
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/warn: enabled
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false - true'
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false - true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false-true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: startupprobe-tcpsocket-host-containers
   validationActions:
@@ -256,15 +256,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: f78d62d0-2cb5-56e5-91cd-b6a322cb0e0a
   labels:
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false - true'
-    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false - true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false-true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: startupprobe-tcpsocket-host-containers
   validationActions:

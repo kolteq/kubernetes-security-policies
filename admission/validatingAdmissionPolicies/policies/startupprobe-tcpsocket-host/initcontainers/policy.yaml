@@ -10,15 +10,15 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the startupprobe-tcpsocket-host/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 470b05b3-302c-506c-8564-71abfcfc212c
   labels:
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    startupprobe-tcpsocket-host-initcontainers.security.kolteq.com/audit: 'false - true'
-    startupprobe-tcpsocket-host-initcontainers.security.kolteq.com/enforce: 'false - true'
-    startupprobe-tcpsocket-host-initcontainers.security.kolteq.com/warn: 'false - true'
+    startupprobe-tcpsocket-host-initcontainers.security.kolteq.com/audit: 'false-true'
+    startupprobe-tcpsocket-host-initcontainers.security.kolteq.com/enforce: 'false-true'
+    startupprobe-tcpsocket-host-initcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   failurePolicy: Fail
   matchConstraints:

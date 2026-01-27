@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the run-as-user/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: b0b12148-6f01-5444-af4f-61e5de824ba2
   labels:
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
-    run-as-user-initcontainers.security.kolteq.com/audit: 'false - true'
-    run-as-user-initcontainers.security.kolteq.com/enforce: 'false - true'
-    run-as-user-initcontainers.security.kolteq.com/warn: 'false - true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
+    run-as-user-initcontainers.security.kolteq.com/audit: 'false-true'
+    run-as-user-initcontainers.security.kolteq.com/enforce: 'false-true'
+    run-as-user-initcontainers.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

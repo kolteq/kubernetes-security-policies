@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Avoid binding broad system groups; use specific groups. Fields: subjects[*].kind, subjects[*].name."
     policies.kolteq.com/validatingAdmissionPolicy: cc396951-a7b9-533f-a1c9-213f44798c41
   labels:
-    check-rolebinding-system-groups.security.kolteq.com/audit: 'false - true'
-    check-rolebinding-system-groups.security.kolteq.com/enforce: 'false - true'
-    check-rolebinding-system-groups.security.kolteq.com/warn: 'false - true'
+    check-rolebinding-system-groups.security.kolteq.com/audit: 'false-true'
+    check-rolebinding-system-groups.security.kolteq.com/enforce: 'false-true'
+    check-rolebinding-system-groups.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

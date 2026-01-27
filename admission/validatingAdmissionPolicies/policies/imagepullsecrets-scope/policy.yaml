@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Limit ServiceAccount imagePullSecrets to at most one. Fields: imagePullSecrets."
     policies.kolteq.com/validatingAdmissionPolicy: 35f446c8-61f2-5ffb-84ea-e829901e6ca9
   labels:
-    check-serviceaccount-imagepullsecrets-scope.security.kolteq.com/audit: 'false - true'
-    check-serviceaccount-imagepullsecrets-scope.security.kolteq.com/enforce: 'false - true'
-    check-serviceaccount-imagepullsecrets-scope.security.kolteq.com/warn: 'false - true'
+    check-serviceaccount-imagepullsecrets-scope.security.kolteq.com/audit: 'false-true'
+    check-serviceaccount-imagepullsecrets-scope.security.kolteq.com/enforce: 'false-true'
+    check-serviceaccount-imagepullsecrets-scope.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

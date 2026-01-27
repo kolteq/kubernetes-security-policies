@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Change roleRef to a non-privileged role. Fields: roleRef.kind, roleRef.name."
     policies.kolteq.com/validatingAdmissionPolicy: a5d51949-a61d-5aa5-9bca-9c34da17f9aa
   labels:
-    check-rolebinding-powerful-roles.security.kolteq.com/audit: 'false - true'
-    check-rolebinding-powerful-roles.security.kolteq.com/enforce: 'false - true'
-    check-rolebinding-powerful-roles.security.kolteq.com/warn: 'false - true'
+    check-rolebinding-powerful-roles.security.kolteq.com/audit: 'false-true'
+    check-rolebinding-powerful-roles.security.kolteq.com/enforce: 'false-true'
+    check-rolebinding-powerful-roles.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

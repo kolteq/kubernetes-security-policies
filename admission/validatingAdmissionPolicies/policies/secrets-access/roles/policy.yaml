@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Remove read/write on secrets. Fields: rules[*].resources, rules[*].verbs."
     policies.kolteq.com/validatingAdmissionPolicy: 100e5b48-60df-58ff-b773-18b83ba858b1
   labels:
-    check-role-secrets-access.security.kolteq.com/audit: 'false - true'
-    check-role-secrets-access.security.kolteq.com/enforce: 'false - true'
-    check-role-secrets-access.security.kolteq.com/warn: 'false - true'
+    check-role-secrets-access.security.kolteq.com/audit: 'false-true'
+    check-role-secrets-access.security.kolteq.com/enforce: 'false-true'
+    check-role-secrets-access.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

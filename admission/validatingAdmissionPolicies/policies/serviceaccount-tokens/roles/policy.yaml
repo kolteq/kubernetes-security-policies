@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Remove create on serviceaccounts/token. Fields: rules[*].resources, rules[*].verbs."
     policies.kolteq.com/validatingAdmissionPolicy: f421b021-cfd2-543e-b153-0f68a50f9668
   labels:
-    check-role-serviceaccount-tokens.security.kolteq.com/audit: 'false - true'
-    check-role-serviceaccount-tokens.security.kolteq.com/enforce: 'false - true'
-    check-role-serviceaccount-tokens.security.kolteq.com/warn: 'false - true'
+    check-role-serviceaccount-tokens.security.kolteq.com/audit: 'false-true'
+    check-role-serviceaccount-tokens.security.kolteq.com/enforce: 'false-true'
+    check-role-serviceaccount-tokens.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

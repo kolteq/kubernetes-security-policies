@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Remove write/bind/escalate on RBAC resources. Fields: rules[*].apiGroups, rules[*].resources, rules[*].verbs."
     policies.kolteq.com/validatingAdmissionPolicy: 1dea3c88-4df7-5d0d-9dfc-babfc0db4022
   labels:
-    check-role-rbac-write.security.kolteq.com/audit: 'false - true'
-    check-role-rbac-write.security.kolteq.com/enforce: 'false - true'
-    check-role-rbac-write.security.kolteq.com/warn: 'false - true'
+    check-role-rbac-write.security.kolteq.com/audit: 'false-true'
+    check-role-rbac-write.security.kolteq.com/enforce: 'false-true'
+    check-role-rbac-write.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

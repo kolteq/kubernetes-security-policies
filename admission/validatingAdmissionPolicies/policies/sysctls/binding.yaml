@@ -5,12 +5,12 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 61c33ae9-f1e3-5e45-b347-5e791865e313
   labels:
-    allowed-sysctls.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
-    allowed-sysctls.security.kolteq.com/audit: 'false - true'
-    allowed-sysctls.security.kolteq.com/enforce: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    allowed-sysctls.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
+    allowed-sysctls.security.kolteq.com/audit: 'false-true'
+    allowed-sysctls.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
@@ -38,13 +38,13 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 61c33ae9-f1e3-5e45-b347-5e791865e313
   labels:
-    allowed-sysctls.security.kolteq.com/warn: 'false - true'
+    allowed-sysctls.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/warn: enabled
-    allowed-sysctls.security.kolteq.com/audit: 'false - true'
-    allowed-sysctls.security.kolteq.com/enforce: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    allowed-sysctls.security.kolteq.com/audit: 'false-true'
+    allowed-sysctls.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
 spec:
@@ -70,12 +70,12 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 61c33ae9-f1e3-5e45-b347-5e791865e313
   labels:
-    allowed-sysctls.security.kolteq.com/warn: 'false - true'
-    allowed-sysctls.security.kolteq.com/audit: 'false - true'
-    allowed-sysctls.security.kolteq.com/enforce: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    allowed-sysctls.security.kolteq.com/warn: 'false-true'
+    allowed-sysctls.security.kolteq.com/audit: 'false-true'
+    allowed-sysctls.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
@@ -98,12 +98,12 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 61c33ae9-f1e3-5e45-b347-5e791865e313
   labels:
-    allowed-sysctls.security.kolteq.com/audit: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    allowed-sysctls.security.kolteq.com/enforce: 'false - true'
-    allowed-sysctls.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    allowed-sysctls.security.kolteq.com/audit: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    allowed-sysctls.security.kolteq.com/enforce: 'false-true'
+    allowed-sysctls.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
@@ -131,13 +131,13 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 61c33ae9-f1e3-5e45-b347-5e791865e313
   labels:
-    allowed-sysctls.security.kolteq.com/audit: 'false - true'
+    allowed-sysctls.security.kolteq.com/audit: 'false-true'
     security.kolteq.com/audit: enabled
-    allowed-sysctls.security.kolteq.com/enforce: 'false - true'
-    allowed-sysctls.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    allowed-sysctls.security.kolteq.com/enforce: 'false-true'
+    allowed-sysctls.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
 spec:
@@ -163,12 +163,12 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 61c33ae9-f1e3-5e45-b347-5e791865e313
   labels:
-    allowed-sysctls.security.kolteq.com/audit: 'false - true'
-    allowed-sysctls.security.kolteq.com/enforce: 'false - true'
-    allowed-sysctls.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    allowed-sysctls.security.kolteq.com/audit: 'false-true'
+    allowed-sysctls.security.kolteq.com/enforce: 'false-true'
+    allowed-sysctls.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
@@ -191,12 +191,12 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 61c33ae9-f1e3-5e45-b347-5e791865e313
   labels:
-    allowed-sysctls.security.kolteq.com/enforce: 'false - true'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    allowed-sysctls.security.kolteq.com/audit: 'false - true'
-    allowed-sysctls.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    allowed-sysctls.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    allowed-sysctls.security.kolteq.com/audit: 'false-true'
+    allowed-sysctls.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
@@ -224,13 +224,13 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 61c33ae9-f1e3-5e45-b347-5e791865e313
   labels:
-    allowed-sysctls.security.kolteq.com/enforce: 'false - true'
+    allowed-sysctls.security.kolteq.com/enforce: 'false-true'
     security.kolteq.com/enforce: enabled
-    allowed-sysctls.security.kolteq.com/audit: 'false - true'
-    allowed-sysctls.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    allowed-sysctls.security.kolteq.com/audit: 'false-true'
+    allowed-sysctls.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/warn: enabled
 spec:
@@ -256,12 +256,12 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 61c33ae9-f1e3-5e45-b347-5e791865e313
   labels:
-    allowed-sysctls.security.kolteq.com/enforce: 'false - true'
-    allowed-sysctls.security.kolteq.com/audit: 'false - true'
-    allowed-sysctls.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    allowed-sysctls.security.kolteq.com/enforce: 'false-true'
+    allowed-sysctls.security.kolteq.com/audit: 'false-true'
+    allowed-sysctls.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

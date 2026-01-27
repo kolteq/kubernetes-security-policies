@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the capabilities-add-netbindservice/ephemeralcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: d9312350-f973-5628-9d46-969cc5ba4a6b
   labels:
-    capabilities-add-netbindservice-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    capabilities-add-netbindservice-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
-    capabilities-add-netbindservice-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    capabilities-add-netbindservice-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    capabilities-add-netbindservice-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
+    capabilities-add-netbindservice-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

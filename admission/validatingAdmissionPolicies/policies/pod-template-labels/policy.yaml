@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Add at least one label to metadata.labels. Fields: metadata.labels."
     policies.kolteq.com/validatingAdmissionPolicy: d0486c50-071d-570c-8bf9-8506f9b9dd53
   labels:
-    check-pod-template-labels.security.kolteq.com/audit: 'false - true'
-    check-pod-template-labels.security.kolteq.com/enforce: 'false - true'
-    check-pod-template-labels.security.kolteq.com/warn: 'false - true'
+    check-pod-template-labels.security.kolteq.com/audit: 'false-true'
+    check-pod-template-labels.security.kolteq.com/enforce: 'false-true'
+    check-pod-template-labels.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the poststart-tcpsocket-host/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 32986670-7359-54d8-b223-1fb7e00b70d4
   labels:
-    poststart-tcpsocket-host-initcontainers.security.kolteq.com/audit: 'false - true'
-    poststart-tcpsocket-host-initcontainers.security.kolteq.com/enforce: 'false - true'
-    poststart-tcpsocket-host-initcontainers.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    poststart-tcpsocket-host-initcontainers.security.kolteq.com/audit: 'false-true'
+    poststart-tcpsocket-host-initcontainers.security.kolteq.com/enforce: 'false-true'
+    poststart-tcpsocket-host-initcontainers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

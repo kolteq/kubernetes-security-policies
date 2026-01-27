@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Remove dangerous ingress snippet annotations. Fields: metadata.annotations."
     policies.kolteq.com/validatingAdmissionPolicy: 717a3ee4-314c-5faa-baa1-9b13cda9b236
   labels:
-    check-ingress-no-dangerous-snippets.security.kolteq.com/audit: 'false - true'
-    check-ingress-no-dangerous-snippets.security.kolteq.com/enforce: 'false - true'
-    check-ingress-no-dangerous-snippets.security.kolteq.com/warn: 'false - true'
+    check-ingress-no-dangerous-snippets.security.kolteq.com/audit: 'false-true'
+    check-ingress-no-dangerous-snippets.security.kolteq.com/enforce: 'false-true'
+    check-ingress-no-dangerous-snippets.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

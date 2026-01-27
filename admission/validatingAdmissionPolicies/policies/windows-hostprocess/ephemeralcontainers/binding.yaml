@@ -5,15 +5,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 46f861d0-ba59-515e-b36b-d8d11d521e96
   labels:
-    pss.security.kolteq.com/warn: 'baseline - restricted'
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
 spec:
   policyName: windows-hostprocess-ephemeralcontainers
   validationActions:
@@ -39,14 +39,14 @@ metadata:
     policies.kolteq.com/validatingAdmissionPolicy: 46f861d0-ba59-515e-b36b-d8d11d521e96
   labels:
     security.kolteq.com/warn: enabled
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
 spec:
   policyName: windows-hostprocess-ephemeralcontainers
   validationActions:
@@ -70,15 +70,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 46f861d0-ba59-515e-b36b-d8d11d521e96
   labels:
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
 spec:
   policyName: windows-hostprocess-ephemeralcontainers
   validationActions:
@@ -98,15 +98,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 46f861d0-ba59-515e-b36b-d8d11d521e96
   labels:
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: windows-hostprocess-ephemeralcontainers
   validationActions:
@@ -132,14 +132,14 @@ metadata:
     policies.kolteq.com/validatingAdmissionPolicy: 46f861d0-ba59-515e-b36b-d8d11d521e96
   labels:
     security.kolteq.com/audit: enabled
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: windows-hostprocess-ephemeralcontainers
   validationActions:
@@ -163,15 +163,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 46f861d0-ba59-515e-b36b-d8d11d521e96
   labels:
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: windows-hostprocess-ephemeralcontainers
   validationActions:
@@ -191,15 +191,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 46f861d0-ba59-515e-b36b-d8d11d521e96
   labels:
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: windows-hostprocess-ephemeralcontainers
   validationActions:
@@ -225,14 +225,14 @@ metadata:
     policies.kolteq.com/validatingAdmissionPolicy: 46f861d0-ba59-515e-b36b-d8d11d521e96
   labels:
     security.kolteq.com/enforce: enabled
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/warn: enabled
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: windows-hostprocess-ephemeralcontainers
   validationActions:
@@ -256,15 +256,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: 46f861d0-ba59-515e-b36b-d8d11d521e96
   labels:
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false - true'
-    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false - true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false-true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: windows-hostprocess-ephemeralcontainers
   validationActions:

@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the readinessprobe-httpget-host/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: be118e0d-3e1d-527e-8bc2-212ffa0edee6
   labels:
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
-    readinessprobe-httpget-host-initcontainers.security.kolteq.com/audit: 'false - true'
-    readinessprobe-httpget-host-initcontainers.security.kolteq.com/enforce: 'false - true'
-    readinessprobe-httpget-host-initcontainers.security.kolteq.com/warn: 'false - true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
+    readinessprobe-httpget-host-initcontainers.security.kolteq.com/audit: 'false-true'
+    readinessprobe-httpget-host-initcontainers.security.kolteq.com/enforce: 'false-true'
+    readinessprobe-httpget-host-initcontainers.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Set spec.serviceAccountName to a non-default ServiceAccount. Fields: spec.serviceAccountName."
     policies.kolteq.com/validatingAdmissionPolicy: d3543428-8c36-57dd-823f-a11d87da645e
   labels:
-    check-service-account-name.security.kolteq.com/audit: 'false - true'
-    check-service-account-name.security.kolteq.com/enforce: 'false - true'
-    check-service-account-name.security.kolteq.com/warn: 'false - true'
+    check-service-account-name.security.kolteq.com/audit: 'false-true'
+    check-service-account-name.security.kolteq.com/enforce: 'false-true'
+    check-service-account-name.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the livenessprobe-tcpsocket-host/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: a2453cfe-50a8-5541-b5b4-408ee94b390a
   labels:
-    livenessprobe-tcpsocket-host-initcontainers.security.kolteq.com/audit: 'false - true'
-    livenessprobe-tcpsocket-host-initcontainers.security.kolteq.com/enforce: 'false - true'
-    livenessprobe-tcpsocket-host-initcontainers.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    livenessprobe-tcpsocket-host-initcontainers.security.kolteq.com/audit: 'false-true'
+    livenessprobe-tcpsocket-host-initcontainers.security.kolteq.com/enforce: 'false-true'
+    livenessprobe-tcpsocket-host-initcontainers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

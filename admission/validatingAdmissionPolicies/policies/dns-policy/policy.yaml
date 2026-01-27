@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Set spec.dnsPolicy to ClusterFirst or Default (not ClusterFirstWithHostNet). Fields: spec.dnsPolicy."
     policies.kolteq.com/validatingAdmissionPolicy: 93de9df9-a4f9-5575-880f-03ad83338b6a
   labels:
-    check-dns-policy.security.kolteq.com/audit: 'false - true'
-    check-dns-policy.security.kolteq.com/enforce: 'false - true'
-    check-dns-policy.security.kolteq.com/warn: 'false - true'
+    check-dns-policy.security.kolteq.com/audit: 'false-true'
+    check-dns-policy.security.kolteq.com/enforce: 'false-true'
+    check-dns-policy.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

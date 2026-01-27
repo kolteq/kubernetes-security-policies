@@ -10,15 +10,15 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the selinux-type/containers policy.
     policies.kolteq.com/validatingAdmissionPolicy: fdb4702d-0701-5694-ba33-8ad0b874da2c
   labels:
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-type-containers.security.kolteq.com/audit: 'false - true'
-    selinux-type-containers.security.kolteq.com/enforce: 'false - true'
-    selinux-type-containers.security.kolteq.com/warn: 'false - true'
+    selinux-type-containers.security.kolteq.com/audit: 'false-true'
+    selinux-type-containers.security.kolteq.com/enforce: 'false-true'
+    selinux-type-containers.security.kolteq.com/warn: 'false-true'
 spec:
   failurePolicy: Fail
   matchConstraints:

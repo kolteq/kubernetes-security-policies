@@ -5,15 +5,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: fdb4702d-0701-5694-ba33-8ad0b874da2c
   labels:
-    pss.security.kolteq.com/warn: 'baseline - restricted'
-    selinux-type-containers.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
+    selinux-type-containers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-type-containers.security.kolteq.com/audit: 'false - true'
-    selinux-type-containers.security.kolteq.com/enforce: 'false - true'
+    selinux-type-containers.security.kolteq.com/audit: 'false-true'
+    selinux-type-containers.security.kolteq.com/enforce: 'false-true'
 spec:
   policyName: selinux-type-containers
   validationActions:
@@ -39,14 +39,14 @@ metadata:
     policies.kolteq.com/validatingAdmissionPolicy: fdb4702d-0701-5694-ba33-8ad0b874da2c
   labels:
     security.kolteq.com/warn: enabled
-    selinux-type-containers.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    selinux-type-containers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
-    selinux-type-containers.security.kolteq.com/audit: 'false - true'
-    selinux-type-containers.security.kolteq.com/enforce: 'false - true'
+    selinux-type-containers.security.kolteq.com/audit: 'false-true'
+    selinux-type-containers.security.kolteq.com/enforce: 'false-true'
 spec:
   policyName: selinux-type-containers
   validationActions:
@@ -70,15 +70,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: fdb4702d-0701-5694-ba33-8ad0b874da2c
   labels:
-    selinux-type-containers.security.kolteq.com/warn: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    selinux-type-containers.security.kolteq.com/warn: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-type-containers.security.kolteq.com/audit: 'false - true'
-    selinux-type-containers.security.kolteq.com/enforce: 'false - true'
+    selinux-type-containers.security.kolteq.com/audit: 'false-true'
+    selinux-type-containers.security.kolteq.com/enforce: 'false-true'
 spec:
   policyName: selinux-type-containers
   validationActions:
@@ -98,15 +98,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: fdb4702d-0701-5694-ba33-8ad0b874da2c
   labels:
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    selinux-type-containers.security.kolteq.com/audit: 'false - true'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    selinux-type-containers.security.kolteq.com/audit: 'false-true'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-type-containers.security.kolteq.com/enforce: 'false - true'
-    selinux-type-containers.security.kolteq.com/warn: 'false - true'
+    selinux-type-containers.security.kolteq.com/enforce: 'false-true'
+    selinux-type-containers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-type-containers
   validationActions:
@@ -132,14 +132,14 @@ metadata:
     policies.kolteq.com/validatingAdmissionPolicy: fdb4702d-0701-5694-ba33-8ad0b874da2c
   labels:
     security.kolteq.com/audit: enabled
-    selinux-type-containers.security.kolteq.com/audit: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    selinux-type-containers.security.kolteq.com/audit: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-type-containers.security.kolteq.com/enforce: 'false - true'
-    selinux-type-containers.security.kolteq.com/warn: 'false - true'
+    selinux-type-containers.security.kolteq.com/enforce: 'false-true'
+    selinux-type-containers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-type-containers
   validationActions:
@@ -163,15 +163,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: fdb4702d-0701-5694-ba33-8ad0b874da2c
   labels:
-    selinux-type-containers.security.kolteq.com/audit: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    selinux-type-containers.security.kolteq.com/audit: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-type-containers.security.kolteq.com/enforce: 'false - true'
-    selinux-type-containers.security.kolteq.com/warn: 'false - true'
+    selinux-type-containers.security.kolteq.com/enforce: 'false-true'
+    selinux-type-containers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-type-containers
   validationActions:
@@ -191,15 +191,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: fdb4702d-0701-5694-ba33-8ad0b874da2c
   labels:
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    selinux-type-containers.security.kolteq.com/enforce: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    selinux-type-containers.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-type-containers.security.kolteq.com/audit: 'false - true'
-    selinux-type-containers.security.kolteq.com/warn: 'false - true'
+    selinux-type-containers.security.kolteq.com/audit: 'false-true'
+    selinux-type-containers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-type-containers
   validationActions:
@@ -225,14 +225,14 @@ metadata:
     policies.kolteq.com/validatingAdmissionPolicy: fdb4702d-0701-5694-ba33-8ad0b874da2c
   labels:
     security.kolteq.com/enforce: enabled
-    selinux-type-containers.security.kolteq.com/enforce: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    selinux-type-containers.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/warn: enabled
-    selinux-type-containers.security.kolteq.com/audit: 'false - true'
-    selinux-type-containers.security.kolteq.com/warn: 'false - true'
+    selinux-type-containers.security.kolteq.com/audit: 'false-true'
+    selinux-type-containers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-type-containers
   validationActions:
@@ -256,15 +256,15 @@ metadata:
   annotations:
     policies.kolteq.com/validatingAdmissionPolicy: fdb4702d-0701-5694-ba33-8ad0b874da2c
   labels:
-    selinux-type-containers.security.kolteq.com/enforce: 'false - true'
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
+    selinux-type-containers.security.kolteq.com/enforce: 'false-true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
-    selinux-type-containers.security.kolteq.com/audit: 'false - true'
-    selinux-type-containers.security.kolteq.com/warn: 'false - true'
+    selinux-type-containers.security.kolteq.com/audit: 'false-true'
+    selinux-type-containers.security.kolteq.com/warn: 'false-true'
 spec:
   policyName: selinux-type-containers
   validationActions:

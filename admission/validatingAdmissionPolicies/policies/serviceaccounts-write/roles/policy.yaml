@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Remove create/update/patch/delete on serviceaccounts. Fields: rules[*].resources, rules[*].verbs."
     policies.kolteq.com/validatingAdmissionPolicy: cc916b1d-3a80-5ac5-9445-4f8b438f534b
   labels:
-    check-role-serviceaccounts-write.security.kolteq.com/audit: 'false - true'
-    check-role-serviceaccounts-write.security.kolteq.com/enforce: 'false - true'
-    check-role-serviceaccounts-write.security.kolteq.com/warn: 'false - true'
+    check-role-serviceaccounts-write.security.kolteq.com/audit: 'false-true'
+    check-role-serviceaccounts-write.security.kolteq.com/enforce: 'false-true'
+    check-role-serviceaccounts-write.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

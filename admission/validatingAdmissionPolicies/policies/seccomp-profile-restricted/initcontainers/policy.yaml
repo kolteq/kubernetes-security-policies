@@ -10,12 +10,12 @@ metadata:
     security.kubeapt.io/remediation: Adjust workloads to satisfy the seccomp-profile-restricted/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: ec5b97a4-4cc0-5ab0-980a-924f130eb4f4
   labels:
-    pss.security.kolteq.com/audit: 'baseline - restricted'
-    pss.security.kolteq.com/enforce: 'baseline - restricted'
-    pss.security.kolteq.com/warn: 'baseline - restricted'
-    seccomp-profile-initcontainers-restricted.security.kolteq.com/audit: 'false - true'
-    seccomp-profile-initcontainers-restricted.security.kolteq.com/enforce: 'false - true'
-    seccomp-profile-initcontainers-restricted.security.kolteq.com/warn: 'false - true'
+    pss.security.kolteq.com/audit: 'baseline-restricted'
+    pss.security.kolteq.com/enforce: 'baseline-restricted'
+    pss.security.kolteq.com/warn: 'baseline-restricted'
+    seccomp-profile-initcontainers-restricted.security.kolteq.com/audit: 'false-true'
+    seccomp-profile-initcontainers-restricted.security.kolteq.com/enforce: 'false-true'
+    seccomp-profile-initcontainers-restricted.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled

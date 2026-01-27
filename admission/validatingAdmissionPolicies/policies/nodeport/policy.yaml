@@ -10,9 +10,9 @@ metadata:
     security.kubeapt.io/remediation: "Use ClusterIP or LoadBalancer instead of NodePort. Fields: spec.type."
     policies.kolteq.com/validatingAdmissionPolicy: 0478b47e-f601-59c1-a372-f35eeb2d1c55
   labels:
-    check-service-nodeport.security.kolteq.com/audit: 'false - true'
-    check-service-nodeport.security.kolteq.com/enforce: 'false - true'
-    check-service-nodeport.security.kolteq.com/warn: 'false - true'
+    check-service-nodeport.security.kolteq.com/audit: 'false-true'
+    check-service-nodeport.security.kolteq.com/enforce: 'false-true'
+    check-service-nodeport.security.kolteq.com/warn: 'false-true'
     security.kolteq.com/audit: enabled
     security.kolteq.com/enforce: enabled
     security.kolteq.com/warn: enabled
