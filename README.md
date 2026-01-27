@@ -1,2 +1,3 @@
-# kubernetes-security-policies
-A collection of Kubernetes security policies. These policies may be suitable for production use; however, they are provided without warranty and should be evaluated for your specific environment.  For tailored, production-ready policies adapted to your organization’s needs, please contact KolTEQ.
+# KolTEQ's Kubernetes Security Policies
+
+Collection of Kubernetes security policies built by KolTEQ to help secure Kubernetes clusters and workloads. Documentation will be available at [kubernetes-security.com](https://kubernetes-security.com), while the repository contains only the source files to simplify monitoring changes and contributions.

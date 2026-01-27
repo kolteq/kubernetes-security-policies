@@ -1,0 +1,161 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: role-serviceaccounts-write-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: cc916b1d-3a80-5ac5-9445-4f8b438f534b
+  labels:
+    check-role-serviceaccounts-write.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/warn: enabled
+    check-role-serviceaccounts-write.security.kolteq.com/audit: 'false,true'
+    check-role-serviceaccounts-write.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+spec:
+  policyName: role-serviceaccounts-write
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/warn
+        operator: In
+        values:
+        - enabled
+      - key: check-role-serviceaccounts-write.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: role-serviceaccounts-write-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: cc916b1d-3a80-5ac5-9445-4f8b438f534b
+  labels:
+    check-role-serviceaccounts-write.security.kolteq.com/warn: 'false,true'
+    check-role-serviceaccounts-write.security.kolteq.com/audit: 'false,true'
+    check-role-serviceaccounts-write.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: role-serviceaccounts-write
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-role-serviceaccounts-write.security.kolteq.com/warn
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: role-serviceaccounts-write-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: cc916b1d-3a80-5ac5-9445-4f8b438f534b
+  labels:
+    check-role-serviceaccounts-write.security.kolteq.com/audit: 'false,true'
+    security.kolteq.com/audit: enabled
+    check-role-serviceaccounts-write.security.kolteq.com/enforce: 'false,true'
+    check-role-serviceaccounts-write.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: role-serviceaccounts-write
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/audit
+        operator: In
+        values:
+        - enabled
+      - key: check-role-serviceaccounts-write.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: role-serviceaccounts-write-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: cc916b1d-3a80-5ac5-9445-4f8b438f534b
+  labels:
+    check-role-serviceaccounts-write.security.kolteq.com/audit: 'false,true'
+    check-role-serviceaccounts-write.security.kolteq.com/enforce: 'false,true'
+    check-role-serviceaccounts-write.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: role-serviceaccounts-write
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-role-serviceaccounts-write.security.kolteq.com/audit
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: role-serviceaccounts-write-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: cc916b1d-3a80-5ac5-9445-4f8b438f534b
+  labels:
+    check-role-serviceaccounts-write.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/enforce: enabled
+    check-role-serviceaccounts-write.security.kolteq.com/audit: 'false,true'
+    check-role-serviceaccounts-write.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: role-serviceaccounts-write
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/enforce
+        operator: In
+        values:
+        - enabled
+      - key: check-role-serviceaccounts-write.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: role-serviceaccounts-write-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: cc916b1d-3a80-5ac5-9445-4f8b438f534b
+  labels:
+    check-role-serviceaccounts-write.security.kolteq.com/enforce: 'false,true'
+    check-role-serviceaccounts-write.security.kolteq.com/audit: 'false,true'
+    check-role-serviceaccounts-write.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: role-serviceaccounts-write
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-role-serviceaccounts-write.security.kolteq.com/enforce
+        operator: In
+        values:
+        - 'true'

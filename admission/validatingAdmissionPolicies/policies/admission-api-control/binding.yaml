@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-admission-api-control-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 4222b890-5360-5667-8da8-b35822c143f6
+spec:
+  policyName: clusterrole-admission-api-control
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-admission-api-control-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 4222b890-5360-5667-8da8-b35822c143f6
+spec:
+  policyName: clusterrole-admission-api-control
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-admission-api-control-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 4222b890-5360-5667-8da8-b35822c143f6
+spec:
+  policyName: clusterrole-admission-api-control
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-admission-api-control-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 4222b890-5360-5667-8da8-b35822c143f6
+spec:
+  policyName: clusterrole-admission-api-control
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-admission-api-control-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 4222b890-5360-5667-8da8-b35822c143f6
+spec:
+  policyName: clusterrole-admission-api-control
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-admission-api-control-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 4222b890-5360-5667-8da8-b35822c143f6
+spec:
+  policyName: clusterrole-admission-api-control
+  validationActions:
+  - Deny

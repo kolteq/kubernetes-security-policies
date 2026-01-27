@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-nodes-proxy-get-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 60af13ff-0b27-4502-8f62-afcd53148fa5
+spec:
+  policyName: clusterrole-nodes-proxy-get
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-nodes-proxy-get-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 60af13ff-0b27-4502-8f62-afcd53148fa5
+spec:
+  policyName: clusterrole-nodes-proxy-get
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-nodes-proxy-get-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 60af13ff-0b27-4502-8f62-afcd53148fa5
+spec:
+  policyName: clusterrole-nodes-proxy-get
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-nodes-proxy-get-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 60af13ff-0b27-4502-8f62-afcd53148fa5
+spec:
+  policyName: clusterrole-nodes-proxy-get
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-nodes-proxy-get-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 60af13ff-0b27-4502-8f62-afcd53148fa5
+spec:
+  policyName: clusterrole-nodes-proxy-get
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-nodes-proxy-get-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 60af13ff-0b27-4502-8f62-afcd53148fa5
+spec:
+  policyName: clusterrole-nodes-proxy-get
+  validationActions:
+  - Deny

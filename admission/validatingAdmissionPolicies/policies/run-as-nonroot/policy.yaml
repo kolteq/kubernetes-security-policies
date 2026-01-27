@@ -1,0 +1,36 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: run-as-nonroot-pod
+  annotations:
+    security.kubeapt.io/displayName: 'Run As Nonroot'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for run-as-nonroot.
+    security.kubeapt.io/resource: Pods
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the run-as-nonroot policy.
+    policies.kolteq.com/validatingAdmissionPolicy: 12155aa1-a5e2-5172-9425-cf3946cd6cbb
+  labels:
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    run-as-nonroot-pod.security.kolteq.com/audit: 'false,true'
+    run-as-nonroot-pod.security.kolteq.com/enforce: 'false,true'
+    run-as-nonroot-pod.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  validations:
+    - expression: >
+        has(object.spec.securityContext) &&
+        has(object.spec.securityContext.runAsNonRoot) &&
+        object.spec.securityContext.runAsNonRoot == true
+      message: >
+        spec.securityContext.runAsNonRoot must be set to true. Container-level fields may be undefined/nil when this is true.

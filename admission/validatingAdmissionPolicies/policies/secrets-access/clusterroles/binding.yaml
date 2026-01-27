@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-secrets-access-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 629f0fa4-eb53-5ac0-822f-214e5a6c7330
+spec:
+  policyName: clusterrole-secrets-access
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-secrets-access-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 629f0fa4-eb53-5ac0-822f-214e5a6c7330
+spec:
+  policyName: clusterrole-secrets-access
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-secrets-access-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 629f0fa4-eb53-5ac0-822f-214e5a6c7330
+spec:
+  policyName: clusterrole-secrets-access
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-secrets-access-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 629f0fa4-eb53-5ac0-822f-214e5a6c7330
+spec:
+  policyName: clusterrole-secrets-access
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-secrets-access-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 629f0fa4-eb53-5ac0-822f-214e5a6c7330
+spec:
+  policyName: clusterrole-secrets-access
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-secrets-access-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 629f0fa4-eb53-5ac0-822f-214e5a6c7330
+spec:
+  policyName: clusterrole-secrets-access
+  validationActions:
+  - Deny

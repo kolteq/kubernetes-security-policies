@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-pvc-write-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 8eab4861-118d-59ab-962b-e64960ebde99
+spec:
+  policyName: clusterrole-pvc-write
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-pvc-write-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 8eab4861-118d-59ab-962b-e64960ebde99
+spec:
+  policyName: clusterrole-pvc-write
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-pvc-write-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 8eab4861-118d-59ab-962b-e64960ebde99
+spec:
+  policyName: clusterrole-pvc-write
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-pvc-write-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 8eab4861-118d-59ab-962b-e64960ebde99
+spec:
+  policyName: clusterrole-pvc-write
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-pvc-write-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 8eab4861-118d-59ab-962b-e64960ebde99
+spec:
+  policyName: clusterrole-pvc-write
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-pvc-write-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 8eab4861-118d-59ab-962b-e64960ebde99
+spec:
+  policyName: clusterrole-pvc-write
+  validationActions:
+  - Deny

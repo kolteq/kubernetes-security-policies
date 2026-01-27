@@ -1,0 +1,40 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: livenessprobe-tcpsocket-host-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: 'Livenessprobe Tcpsocket Host'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for livenessprobe-tcpsocket-host/initcontainers.
+    security.kubeapt.io/resource: Initcontainers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the livenessprobe-tcpsocket-host/initcontainers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: a2453cfe-50a8-5541-b5b4-408ee94b390a
+  labels:
+    livenessprobe-tcpsocket-host-initcontainers.security.kolteq.com/audit: 'false,true'
+    livenessprobe-tcpsocket-host-initcontainers.security.kolteq.com/enforce: 'false,true'
+    livenessprobe-tcpsocket-host-initcontainers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  validations:
+    - expression: >
+        !has(object.spec.initContainers) ||
+        object.spec.initContainers.all(ic,
+          !has(ic.livenessProbe) ||
+          !has(ic.livenessProbe.tcpSocket) ||
+          !has(ic.livenessProbe.tcpSocket.host) ||
+          ic.livenessProbe.tcpSocket.host == ""
+        )
+      message: >
+        spec.initContainers[*].livenessProbe.tcpSocket.host must be undefined or empty ("").

@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: control-plane-schedulable-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 5464eb3d-1e70-5477-899c-433479f00147
+spec:
+  policyName: control-plane-schedulable
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: control-plane-schedulable-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 5464eb3d-1e70-5477-899c-433479f00147
+spec:
+  policyName: control-plane-schedulable
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: control-plane-schedulable-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 5464eb3d-1e70-5477-899c-433479f00147
+spec:
+  policyName: control-plane-schedulable
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: control-plane-schedulable-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 5464eb3d-1e70-5477-899c-433479f00147
+spec:
+  policyName: control-plane-schedulable
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: control-plane-schedulable-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 5464eb3d-1e70-5477-899c-433479f00147
+spec:
+  policyName: control-plane-schedulable
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: control-plane-schedulable-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 5464eb3d-1e70-5477-899c-433479f00147
+spec:
+  policyName: control-plane-schedulable
+  validationActions:
+  - Deny

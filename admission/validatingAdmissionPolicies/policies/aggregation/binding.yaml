@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-aggregation-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: ec416315-c4b8-5960-a2d0-4e7a2e171d35
+spec:
+  policyName: clusterrole-aggregation
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-aggregation-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: ec416315-c4b8-5960-a2d0-4e7a2e171d35
+spec:
+  policyName: clusterrole-aggregation
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-aggregation-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: ec416315-c4b8-5960-a2d0-4e7a2e171d35
+spec:
+  policyName: clusterrole-aggregation
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-aggregation-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: ec416315-c4b8-5960-a2d0-4e7a2e171d35
+spec:
+  policyName: clusterrole-aggregation
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-aggregation-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: ec416315-c4b8-5960-a2d0-4e7a2e171d35
+spec:
+  policyName: clusterrole-aggregation
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-aggregation-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: ec416315-c4b8-5960-a2d0-4e7a2e171d35
+spec:
+  policyName: clusterrole-aggregation
+  validationActions:
+  - Deny

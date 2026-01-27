@@ -1,0 +1,39 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: readinessprobe-httpget-host-containers
+  annotations:
+    security.kubeapt.io/displayName: 'Readinessprobe Httpget Host'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for readinessprobe-httpget-host/containers.
+    security.kubeapt.io/resource: Containers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the readinessprobe-httpget-host/containers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: 5f5fc77a-ad90-5ca9-8991-f084d666cea8
+  labels:
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    readinessprobe-httpget-host-containers.security.kolteq.com/audit: 'false,true'
+    readinessprobe-httpget-host-containers.security.kolteq.com/enforce: 'false,true'
+    readinessprobe-httpget-host-containers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  validations:
+    - expression: >
+        object.spec.containers.all(c,
+          !has(c.readinessProbe) ||
+          !has(c.readinessProbe.httpGet) ||
+          !has(c.readinessProbe.httpGet.host) ||
+          c.readinessProbe.httpGet.host == ""
+        )
+      message: >
+        spec.containers[*].readinessProbe.httpGet.host must be undefined or empty ("").

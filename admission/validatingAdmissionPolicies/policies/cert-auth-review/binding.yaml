@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-cert-auth-review-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 9eb3da31-8c21-5178-99da-794d48d419d3
+spec:
+  policyName: clusterrole-cert-auth-review
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-cert-auth-review-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 9eb3da31-8c21-5178-99da-794d48d419d3
+spec:
+  policyName: clusterrole-cert-auth-review
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-cert-auth-review-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 9eb3da31-8c21-5178-99da-794d48d419d3
+spec:
+  policyName: clusterrole-cert-auth-review
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-cert-auth-review-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 9eb3da31-8c21-5178-99da-794d48d419d3
+spec:
+  policyName: clusterrole-cert-auth-review
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-cert-auth-review-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 9eb3da31-8c21-5178-99da-794d48d419d3
+spec:
+  policyName: clusterrole-cert-auth-review
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-cert-auth-review-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 9eb3da31-8c21-5178-99da-794d48d419d3
+spec:
+  policyName: clusterrole-cert-auth-review
+  validationActions:
+  - Deny

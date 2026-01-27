@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-powerful-roles-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 26924755-9e36-52b6-b19d-7ef5f37738cf
+spec:
+  policyName: clusterrolebinding-powerful-roles
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-powerful-roles-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 26924755-9e36-52b6-b19d-7ef5f37738cf
+spec:
+  policyName: clusterrolebinding-powerful-roles
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-powerful-roles-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 26924755-9e36-52b6-b19d-7ef5f37738cf
+spec:
+  policyName: clusterrolebinding-powerful-roles
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-powerful-roles-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 26924755-9e36-52b6-b19d-7ef5f37738cf
+spec:
+  policyName: clusterrolebinding-powerful-roles
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-powerful-roles-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 26924755-9e36-52b6-b19d-7ef5f37738cf
+spec:
+  policyName: clusterrolebinding-powerful-roles
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-powerful-roles-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 26924755-9e36-52b6-b19d-7ef5f37738cf
+spec:
+  policyName: clusterrolebinding-powerful-roles
+  validationActions:
+  - Deny

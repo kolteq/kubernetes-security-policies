@@ -1,0 +1,39 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: selinux-role-containers
+  annotations:
+    security.kubeapt.io/displayName: 'Selinux Role'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for selinux-role/containers.
+    security.kubeapt.io/resource: Containers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the selinux-role/containers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: 58b41051-3020-5ce1-9ad3-b8f2765af65c
+  labels:
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+    selinux-role-containers.security.kolteq.com/audit: 'false,true'
+    selinux-role-containers.security.kolteq.com/enforce: 'false,true'
+    selinux-role-containers.security.kolteq.com/warn: 'false,true'
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  validations:
+    - expression: >
+        object.spec.containers.all(c,
+          !has(c.securityContext) ||
+          !has(c.securityContext.seLinuxOptions) ||
+          !has(c.securityContext.seLinuxOptions.role) ||
+          c.securityContext.seLinuxOptions.role == ""
+        )
+      message: >
+        spec.containers[*].securityContext.seLinuxOptions.role must be undefined or an empty string ("").

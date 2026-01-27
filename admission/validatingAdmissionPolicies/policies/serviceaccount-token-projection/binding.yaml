@@ -1,0 +1,161 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: serviceaccount-token-projection-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 84b2a590-8503-5c53-bde9-96ff9c294616
+  labels:
+    check-serviceaccount-token-projection.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/warn: enabled
+    check-serviceaccount-token-projection.security.kolteq.com/audit: 'false,true'
+    check-serviceaccount-token-projection.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+spec:
+  policyName: serviceaccount-token-projection
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/warn
+        operator: In
+        values:
+        - enabled
+      - key: check-serviceaccount-token-projection.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: serviceaccount-token-projection-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 84b2a590-8503-5c53-bde9-96ff9c294616
+  labels:
+    check-serviceaccount-token-projection.security.kolteq.com/warn: 'false,true'
+    check-serviceaccount-token-projection.security.kolteq.com/audit: 'false,true'
+    check-serviceaccount-token-projection.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: serviceaccount-token-projection
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-serviceaccount-token-projection.security.kolteq.com/warn
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: serviceaccount-token-projection-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 84b2a590-8503-5c53-bde9-96ff9c294616
+  labels:
+    check-serviceaccount-token-projection.security.kolteq.com/audit: 'false,true'
+    security.kolteq.com/audit: enabled
+    check-serviceaccount-token-projection.security.kolteq.com/enforce: 'false,true'
+    check-serviceaccount-token-projection.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: serviceaccount-token-projection
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/audit
+        operator: In
+        values:
+        - enabled
+      - key: check-serviceaccount-token-projection.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: serviceaccount-token-projection-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 84b2a590-8503-5c53-bde9-96ff9c294616
+  labels:
+    check-serviceaccount-token-projection.security.kolteq.com/audit: 'false,true'
+    check-serviceaccount-token-projection.security.kolteq.com/enforce: 'false,true'
+    check-serviceaccount-token-projection.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: serviceaccount-token-projection
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-serviceaccount-token-projection.security.kolteq.com/audit
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: serviceaccount-token-projection-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 84b2a590-8503-5c53-bde9-96ff9c294616
+  labels:
+    check-serviceaccount-token-projection.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/enforce: enabled
+    check-serviceaccount-token-projection.security.kolteq.com/audit: 'false,true'
+    check-serviceaccount-token-projection.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: serviceaccount-token-projection
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/enforce
+        operator: In
+        values:
+        - enabled
+      - key: check-serviceaccount-token-projection.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: serviceaccount-token-projection-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 84b2a590-8503-5c53-bde9-96ff9c294616
+  labels:
+    check-serviceaccount-token-projection.security.kolteq.com/enforce: 'false,true'
+    check-serviceaccount-token-projection.security.kolteq.com/audit: 'false,true'
+    check-serviceaccount-token-projection.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: serviceaccount-token-projection
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-serviceaccount-token-projection.security.kolteq.com/enforce
+        operator: In
+        values:
+        - 'true'

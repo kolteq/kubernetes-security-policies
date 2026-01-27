@@ -1,0 +1,161 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: rolebinding-system-groups-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: cc396951-a7b9-533f-a1c9-213f44798c41
+  labels:
+    check-rolebinding-system-groups.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/warn: enabled
+    check-rolebinding-system-groups.security.kolteq.com/audit: 'false,true'
+    check-rolebinding-system-groups.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+spec:
+  policyName: rolebinding-system-groups
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/warn
+        operator: In
+        values:
+        - enabled
+      - key: check-rolebinding-system-groups.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: rolebinding-system-groups-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: cc396951-a7b9-533f-a1c9-213f44798c41
+  labels:
+    check-rolebinding-system-groups.security.kolteq.com/warn: 'false,true'
+    check-rolebinding-system-groups.security.kolteq.com/audit: 'false,true'
+    check-rolebinding-system-groups.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: rolebinding-system-groups
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-rolebinding-system-groups.security.kolteq.com/warn
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: rolebinding-system-groups-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: cc396951-a7b9-533f-a1c9-213f44798c41
+  labels:
+    check-rolebinding-system-groups.security.kolteq.com/audit: 'false,true'
+    security.kolteq.com/audit: enabled
+    check-rolebinding-system-groups.security.kolteq.com/enforce: 'false,true'
+    check-rolebinding-system-groups.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: rolebinding-system-groups
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/audit
+        operator: In
+        values:
+        - enabled
+      - key: check-rolebinding-system-groups.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: rolebinding-system-groups-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: cc396951-a7b9-533f-a1c9-213f44798c41
+  labels:
+    check-rolebinding-system-groups.security.kolteq.com/audit: 'false,true'
+    check-rolebinding-system-groups.security.kolteq.com/enforce: 'false,true'
+    check-rolebinding-system-groups.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: rolebinding-system-groups
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-rolebinding-system-groups.security.kolteq.com/audit
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: rolebinding-system-groups-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: cc396951-a7b9-533f-a1c9-213f44798c41
+  labels:
+    check-rolebinding-system-groups.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/enforce: enabled
+    check-rolebinding-system-groups.security.kolteq.com/audit: 'false,true'
+    check-rolebinding-system-groups.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: rolebinding-system-groups
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/enforce
+        operator: In
+        values:
+        - enabled
+      - key: check-rolebinding-system-groups.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: rolebinding-system-groups-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: cc396951-a7b9-533f-a1c9-213f44798c41
+  labels:
+    check-rolebinding-system-groups.security.kolteq.com/enforce: 'false,true'
+    check-rolebinding-system-groups.security.kolteq.com/audit: 'false,true'
+    check-rolebinding-system-groups.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: rolebinding-system-groups
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-rolebinding-system-groups.security.kolteq.com/enforce
+        operator: In
+        values:
+        - 'true'

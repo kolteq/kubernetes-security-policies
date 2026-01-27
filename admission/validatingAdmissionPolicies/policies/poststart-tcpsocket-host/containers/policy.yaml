@@ -1,0 +1,40 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: poststart-tcpsocket-host-containers
+  annotations:
+    security.kubeapt.io/displayName: 'Poststart Tcpsocket Host'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for poststart-tcpsocket-host/containers.
+    security.kubeapt.io/resource: Containers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the poststart-tcpsocket-host/containers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: 3065f651-c199-5ca2-aefc-eb906fc0115f
+  labels:
+    poststart-tcpsocket-host-containers.security.kolteq.com/audit: 'false,true'
+    poststart-tcpsocket-host-containers.security.kolteq.com/enforce: 'false,true'
+    poststart-tcpsocket-host-containers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  validations:
+    - expression: >
+        object.spec.containers.all(c,
+          !has(c.lifecycle) ||
+          !has(c.lifecycle.postStart) ||
+          !has(c.lifecycle.postStart.tcpSocket) ||
+          !has(c.lifecycle.postStart.tcpSocket.host) ||
+          c.lifecycle.postStart.tcpSocket.host == ""
+        )
+      message: >
+        spec.containers[*].lifecycle.postStart.tcpSocket.host must be undefined or empty ("").

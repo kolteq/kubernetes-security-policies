@@ -1,0 +1,161 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: rolebinding-powerful-roles-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: a5d51949-a61d-5aa5-9bca-9c34da17f9aa
+  labels:
+    check-rolebinding-powerful-roles.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/warn: enabled
+    check-rolebinding-powerful-roles.security.kolteq.com/audit: 'false,true'
+    check-rolebinding-powerful-roles.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+spec:
+  policyName: rolebinding-powerful-roles
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/warn
+        operator: In
+        values:
+        - enabled
+      - key: check-rolebinding-powerful-roles.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: rolebinding-powerful-roles-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: a5d51949-a61d-5aa5-9bca-9c34da17f9aa
+  labels:
+    check-rolebinding-powerful-roles.security.kolteq.com/warn: 'false,true'
+    check-rolebinding-powerful-roles.security.kolteq.com/audit: 'false,true'
+    check-rolebinding-powerful-roles.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: rolebinding-powerful-roles
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-rolebinding-powerful-roles.security.kolteq.com/warn
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: rolebinding-powerful-roles-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: a5d51949-a61d-5aa5-9bca-9c34da17f9aa
+  labels:
+    check-rolebinding-powerful-roles.security.kolteq.com/audit: 'false,true'
+    security.kolteq.com/audit: enabled
+    check-rolebinding-powerful-roles.security.kolteq.com/enforce: 'false,true'
+    check-rolebinding-powerful-roles.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: rolebinding-powerful-roles
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/audit
+        operator: In
+        values:
+        - enabled
+      - key: check-rolebinding-powerful-roles.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: rolebinding-powerful-roles-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: a5d51949-a61d-5aa5-9bca-9c34da17f9aa
+  labels:
+    check-rolebinding-powerful-roles.security.kolteq.com/audit: 'false,true'
+    check-rolebinding-powerful-roles.security.kolteq.com/enforce: 'false,true'
+    check-rolebinding-powerful-roles.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: rolebinding-powerful-roles
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-rolebinding-powerful-roles.security.kolteq.com/audit
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: rolebinding-powerful-roles-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: a5d51949-a61d-5aa5-9bca-9c34da17f9aa
+  labels:
+    check-rolebinding-powerful-roles.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/enforce: enabled
+    check-rolebinding-powerful-roles.security.kolteq.com/audit: 'false,true'
+    check-rolebinding-powerful-roles.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: rolebinding-powerful-roles
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/enforce
+        operator: In
+        values:
+        - enabled
+      - key: check-rolebinding-powerful-roles.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: rolebinding-powerful-roles-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: a5d51949-a61d-5aa5-9bca-9c34da17f9aa
+  labels:
+    check-rolebinding-powerful-roles.security.kolteq.com/enforce: 'false,true'
+    check-rolebinding-powerful-roles.security.kolteq.com/audit: 'false,true'
+    check-rolebinding-powerful-roles.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: rolebinding-powerful-roles
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-rolebinding-powerful-roles.security.kolteq.com/enforce
+        operator: In
+        values:
+        - 'true'

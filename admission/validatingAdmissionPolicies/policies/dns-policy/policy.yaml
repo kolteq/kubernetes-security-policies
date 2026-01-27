@@ -1,0 +1,36 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: dns-policy
+  annotations:
+    security.kubeapt.io/displayName: 'Dns Policy'
+    security.kubeapt.io/description: spec.dnsPolicy must not be set to ClusterFirstWithHostNet.
+    security.kubeapt.io/resource: Pods
+    security.kubeapt.io/severity: "3"
+    security.kubeapt.io/remediation: "Set spec.dnsPolicy to ClusterFirst or Default (not ClusterFirstWithHostNet). Fields: spec.dnsPolicy."
+    policies.kolteq.com/validatingAdmissionPolicy: 93de9df9-a4f9-5575-880f-03ad83338b6a
+  labels:
+    check-dns-policy.security.kolteq.com/audit: 'false,true'
+    check-dns-policy.security.kolteq.com/enforce: 'false,true'
+    check-dns-policy.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ""
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      !has(object.spec.dnsPolicy) || object.spec.dnsPolicy != "ClusterFirstWithHostNet"
+    message: |
+      spec.dnsPolicy must not be set to ClusterFirstWithHostNet.

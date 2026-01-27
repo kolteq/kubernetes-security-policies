@@ -1,0 +1,44 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: apparmor-profile-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: 'Apparmor Profile'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for apparmor-profile/initcontainers.
+    security.kubeapt.io/resource: Initcontainers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the apparmor-profile/initcontainers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: 73b9e59e-4497-50a5-9318-90e26d15b14a
+  labels:
+    apparmor-profile-initcontainers.security.kolteq.com/audit: 'false,true'
+    apparmor-profile-initcontainers.security.kolteq.com/enforce: 'false,true'
+    apparmor-profile-initcontainers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  variables:
+    - name: allowedAppArmorTypes
+      expression: >
+        ["RuntimeDefault","Localhost"]
+  validations:
+    - expression: >
+        !has(object.spec.initContainers) ||
+        object.spec.initContainers.all(ic,
+          !has(ic.securityContext) ||
+          !has(ic.securityContext.appArmorProfile) ||
+          !has(ic.securityContext.appArmorProfile.type) ||
+          variables.allowedAppArmorTypes.exists(t, t == ic.securityContext.appArmorProfile.type)
+        )
+      message: >
+        spec.initContainers[*].securityContext.appArmorProfile.type must be undefined, RuntimeDefault, or Localhost.

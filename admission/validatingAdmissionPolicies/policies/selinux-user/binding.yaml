@@ -1,0 +1,278 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: selinux-user-namespace-optout-warn-pss
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 678216cd-a01a-5f28-a28e-9a17e5993fbe
+  labels:
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    selinux-user.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+    selinux-user.security.kolteq.com/audit: 'false,true'
+    selinux-user.security.kolteq.com/enforce: 'false,true'
+spec:
+  policyName: selinux-user
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: pss.security.kolteq.com/warn
+        operator: In
+        values:
+        - baseline
+        - restricted
+      - key: selinux-user.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: selinux-user-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 678216cd-a01a-5f28-a28e-9a17e5993fbe
+  labels:
+    security.kolteq.com/warn: enabled
+    selinux-user.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    selinux-user.security.kolteq.com/audit: 'false,true'
+    selinux-user.security.kolteq.com/enforce: 'false,true'
+spec:
+  policyName: selinux-user
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/warn
+        operator: In
+        values:
+        - enabled
+      - key: selinux-user.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: selinux-user-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 678216cd-a01a-5f28-a28e-9a17e5993fbe
+  labels:
+    selinux-user.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+    selinux-user.security.kolteq.com/audit: 'false,true'
+    selinux-user.security.kolteq.com/enforce: 'false,true'
+spec:
+  policyName: selinux-user
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: selinux-user.security.kolteq.com/warn
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: selinux-user-namespace-optout-audit-pss
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 678216cd-a01a-5f28-a28e-9a17e5993fbe
+  labels:
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    selinux-user.security.kolteq.com/audit: 'false,true'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+    selinux-user.security.kolteq.com/enforce: 'false,true'
+    selinux-user.security.kolteq.com/warn: 'false,true'
+spec:
+  policyName: selinux-user
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: pss.security.kolteq.com/audit
+        operator: In
+        values:
+        - baseline
+        - restricted
+      - key: selinux-user.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: selinux-user-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 678216cd-a01a-5f28-a28e-9a17e5993fbe
+  labels:
+    security.kolteq.com/audit: enabled
+    selinux-user.security.kolteq.com/audit: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+    selinux-user.security.kolteq.com/enforce: 'false,true'
+    selinux-user.security.kolteq.com/warn: 'false,true'
+spec:
+  policyName: selinux-user
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/audit
+        operator: In
+        values:
+        - enabled
+      - key: selinux-user.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: selinux-user-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 678216cd-a01a-5f28-a28e-9a17e5993fbe
+  labels:
+    selinux-user.security.kolteq.com/audit: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+    selinux-user.security.kolteq.com/enforce: 'false,true'
+    selinux-user.security.kolteq.com/warn: 'false,true'
+spec:
+  policyName: selinux-user
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: selinux-user.security.kolteq.com/audit
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: selinux-user-namespace-optout-deny-pss
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 678216cd-a01a-5f28-a28e-9a17e5993fbe
+  labels:
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    selinux-user.security.kolteq.com/enforce: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+    selinux-user.security.kolteq.com/audit: 'false,true'
+    selinux-user.security.kolteq.com/warn: 'false,true'
+spec:
+  policyName: selinux-user
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: pss.security.kolteq.com/enforce
+        operator: In
+        values:
+        - baseline
+        - restricted
+      - key: selinux-user.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: selinux-user-namespace-optout-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 678216cd-a01a-5f28-a28e-9a17e5993fbe
+  labels:
+    security.kolteq.com/enforce: enabled
+    selinux-user.security.kolteq.com/enforce: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/warn: enabled
+    selinux-user.security.kolteq.com/audit: 'false,true'
+    selinux-user.security.kolteq.com/warn: 'false,true'
+spec:
+  policyName: selinux-user
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/enforce
+        operator: In
+        values:
+        - enabled
+      - key: selinux-user.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: selinux-user-namespace-optin-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 678216cd-a01a-5f28-a28e-9a17e5993fbe
+  labels:
+    selinux-user.security.kolteq.com/enforce: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+    selinux-user.security.kolteq.com/audit: 'false,true'
+    selinux-user.security.kolteq.com/warn: 'false,true'
+spec:
+  policyName: selinux-user
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: selinux-user.security.kolteq.com/enforce
+        operator: In
+        values:
+        - 'true'

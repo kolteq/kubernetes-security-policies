@@ -1,0 +1,43 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: apparmor-profile-containers
+  annotations:
+    security.kubeapt.io/displayName: 'Apparmor Profile'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for apparmor-profile/containers.
+    security.kubeapt.io/resource: Containers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the apparmor-profile/containers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: 729e55cd-8106-5cf0-b359-6d9bff405b0a
+  labels:
+    apparmor-profile-containers.security.kolteq.com/audit: 'false,true'
+    apparmor-profile-containers.security.kolteq.com/enforce: 'false,true'
+    apparmor-profile-containers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  variables:
+    - name: allowedAppArmorTypes
+      expression: >
+        ["RuntimeDefault","Localhost"]
+  validations:
+    - expression: >
+        object.spec.containers.all(c,
+          !has(c.securityContext) ||
+          !has(c.securityContext.appArmorProfile) ||
+          !has(c.securityContext.appArmorProfile.type) ||
+          variables.allowedAppArmorTypes.exists(t, t == c.securityContext.appArmorProfile.type)
+        )
+      message: >
+        spec.containers[*].securityContext.appArmorProfile.type must be undefined, RuntimeDefault, or Localhost.

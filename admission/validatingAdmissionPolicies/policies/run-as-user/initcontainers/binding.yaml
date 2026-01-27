@@ -1,0 +1,278 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: run-as-user-initcontainers-namespace-optout-warn-pss
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: b0b12148-6f01-5444-af4f-61e5de824ba2
+  labels:
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    run-as-user-initcontainers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    run-as-user-initcontainers.security.kolteq.com/audit: 'false,true'
+    run-as-user-initcontainers.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: run-as-user-initcontainers
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: pss.security.kolteq.com/warn
+        operator: In
+        values:
+        - baseline
+        - restricted
+      - key: run-as-user-initcontainers.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: run-as-user-initcontainers-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: b0b12148-6f01-5444-af4f-61e5de824ba2
+  labels:
+    run-as-user-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/warn: enabled
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    run-as-user-initcontainers.security.kolteq.com/audit: 'false,true'
+    run-as-user-initcontainers.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+spec:
+  policyName: run-as-user-initcontainers
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/warn
+        operator: In
+        values:
+        - enabled
+      - key: run-as-user-initcontainers.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: run-as-user-initcontainers-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: b0b12148-6f01-5444-af4f-61e5de824ba2
+  labels:
+    run-as-user-initcontainers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    run-as-user-initcontainers.security.kolteq.com/audit: 'false,true'
+    run-as-user-initcontainers.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: run-as-user-initcontainers
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: run-as-user-initcontainers.security.kolteq.com/warn
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: run-as-user-initcontainers-namespace-optout-audit-pss
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: b0b12148-6f01-5444-af4f-61e5de824ba2
+  labels:
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    run-as-user-initcontainers.security.kolteq.com/audit: 'false,true'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    run-as-user-initcontainers.security.kolteq.com/enforce: 'false,true'
+    run-as-user-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: run-as-user-initcontainers
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: pss.security.kolteq.com/audit
+        operator: In
+        values:
+        - baseline
+        - restricted
+      - key: run-as-user-initcontainers.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: run-as-user-initcontainers-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: b0b12148-6f01-5444-af4f-61e5de824ba2
+  labels:
+    run-as-user-initcontainers.security.kolteq.com/audit: 'false,true'
+    security.kolteq.com/audit: enabled
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    run-as-user-initcontainers.security.kolteq.com/enforce: 'false,true'
+    run-as-user-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: run-as-user-initcontainers
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/audit
+        operator: In
+        values:
+        - enabled
+      - key: run-as-user-initcontainers.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: run-as-user-initcontainers-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: b0b12148-6f01-5444-af4f-61e5de824ba2
+  labels:
+    run-as-user-initcontainers.security.kolteq.com/audit: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    run-as-user-initcontainers.security.kolteq.com/enforce: 'false,true'
+    run-as-user-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: run-as-user-initcontainers
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: run-as-user-initcontainers.security.kolteq.com/audit
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: run-as-user-initcontainers-namespace-optout-deny-pss
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: b0b12148-6f01-5444-af4f-61e5de824ba2
+  labels:
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    run-as-user-initcontainers.security.kolteq.com/enforce: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    run-as-user-initcontainers.security.kolteq.com/audit: 'false,true'
+    run-as-user-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: run-as-user-initcontainers
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: pss.security.kolteq.com/enforce
+        operator: In
+        values:
+        - baseline
+        - restricted
+      - key: run-as-user-initcontainers.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: run-as-user-initcontainers-namespace-optout-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: b0b12148-6f01-5444-af4f-61e5de824ba2
+  labels:
+    run-as-user-initcontainers.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/enforce: enabled
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    run-as-user-initcontainers.security.kolteq.com/audit: 'false,true'
+    run-as-user-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: run-as-user-initcontainers
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/enforce
+        operator: In
+        values:
+        - enabled
+      - key: run-as-user-initcontainers.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: run-as-user-initcontainers-namespace-optin-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: b0b12148-6f01-5444-af4f-61e5de824ba2
+  labels:
+    run-as-user-initcontainers.security.kolteq.com/enforce: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    run-as-user-initcontainers.security.kolteq.com/audit: 'false,true'
+    run-as-user-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: run-as-user-initcontainers
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: run-as-user-initcontainers.security.kolteq.com/enforce
+        operator: In
+        values:
+        - 'true'

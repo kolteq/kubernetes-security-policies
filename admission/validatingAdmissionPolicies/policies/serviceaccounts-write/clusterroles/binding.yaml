@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-serviceaccounts-write-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c2751a05-1009-572f-bb3d-6804d2d573b5
+spec:
+  policyName: clusterrole-serviceaccounts-write
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-serviceaccounts-write-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c2751a05-1009-572f-bb3d-6804d2d573b5
+spec:
+  policyName: clusterrole-serviceaccounts-write
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-serviceaccounts-write-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c2751a05-1009-572f-bb3d-6804d2d573b5
+spec:
+  policyName: clusterrole-serviceaccounts-write
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-serviceaccounts-write-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c2751a05-1009-572f-bb3d-6804d2d573b5
+spec:
+  policyName: clusterrole-serviceaccounts-write
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-serviceaccounts-write-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c2751a05-1009-572f-bb3d-6804d2d573b5
+spec:
+  policyName: clusterrole-serviceaccounts-write
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-serviceaccounts-write-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c2751a05-1009-572f-bb3d-6804d2d573b5
+spec:
+  policyName: clusterrole-serviceaccounts-write
+  validationActions:
+  - Deny

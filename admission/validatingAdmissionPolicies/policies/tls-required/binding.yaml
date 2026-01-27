@@ -1,0 +1,161 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: ingress-tls-required-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: ad5c2c5d-ae2c-599a-8bb1-56968e55ff5d
+  labels:
+    check-ingress-tls-required.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/warn: enabled
+    check-ingress-tls-required.security.kolteq.com/audit: 'false,true'
+    check-ingress-tls-required.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+spec:
+  policyName: ingress-tls-required
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/warn
+        operator: In
+        values:
+        - enabled
+      - key: check-ingress-tls-required.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: ingress-tls-required-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: ad5c2c5d-ae2c-599a-8bb1-56968e55ff5d
+  labels:
+    check-ingress-tls-required.security.kolteq.com/warn: 'false,true'
+    check-ingress-tls-required.security.kolteq.com/audit: 'false,true'
+    check-ingress-tls-required.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: ingress-tls-required
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-ingress-tls-required.security.kolteq.com/warn
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: ingress-tls-required-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: ad5c2c5d-ae2c-599a-8bb1-56968e55ff5d
+  labels:
+    check-ingress-tls-required.security.kolteq.com/audit: 'false,true'
+    security.kolteq.com/audit: enabled
+    check-ingress-tls-required.security.kolteq.com/enforce: 'false,true'
+    check-ingress-tls-required.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: ingress-tls-required
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/audit
+        operator: In
+        values:
+        - enabled
+      - key: check-ingress-tls-required.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: ingress-tls-required-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: ad5c2c5d-ae2c-599a-8bb1-56968e55ff5d
+  labels:
+    check-ingress-tls-required.security.kolteq.com/audit: 'false,true'
+    check-ingress-tls-required.security.kolteq.com/enforce: 'false,true'
+    check-ingress-tls-required.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: ingress-tls-required
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-ingress-tls-required.security.kolteq.com/audit
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: ingress-tls-required-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: ad5c2c5d-ae2c-599a-8bb1-56968e55ff5d
+  labels:
+    check-ingress-tls-required.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/enforce: enabled
+    check-ingress-tls-required.security.kolteq.com/audit: 'false,true'
+    check-ingress-tls-required.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: ingress-tls-required
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/enforce
+        operator: In
+        values:
+        - enabled
+      - key: check-ingress-tls-required.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: ingress-tls-required-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: ad5c2c5d-ae2c-599a-8bb1-56968e55ff5d
+  labels:
+    check-ingress-tls-required.security.kolteq.com/enforce: 'false,true'
+    check-ingress-tls-required.security.kolteq.com/audit: 'false,true'
+    check-ingress-tls-required.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: ingress-tls-required
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-ingress-tls-required.security.kolteq.com/enforce
+        operator: In
+        values:
+        - 'true'

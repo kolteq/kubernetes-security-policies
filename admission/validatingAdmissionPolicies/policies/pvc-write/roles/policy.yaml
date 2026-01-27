@@ -1,0 +1,40 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: role-pvc-write
+  annotations:
+    security.kubeapt.io/displayName: 'Pvc Write'
+    security.kubeapt.io/description: Roles must not grant create/update/patch/delete on PersistentVolumeClaims without tight
+    security.kubeapt.io/resource: Roles
+    security.kubeapt.io/severity: "7"
+    security.kubeapt.io/remediation: "Remove create/update/patch/delete on persistentvolumeclaims. Fields: rules[*].resources, rules[*].verbs."
+    policies.kolteq.com/validatingAdmissionPolicy: 6a6c33ca-e7e7-527d-9f8e-ca5a456b9dda
+  labels:
+    check-role-pvc-write.security.kolteq.com/audit: 'false,true'
+    check-role-pvc-write.security.kolteq.com/enforce: 'false,true'
+    check-role-pvc-write.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - roles
+  validations:
+  - expression: |
+      !has(object.rules) || object.rules.all(r,
+        !(r.apiGroups.exists(ag, ag == "") &&
+          r.resources.exists(res, res == "persistentvolumeclaims") &&
+          r.verbs.exists(v, v in ["create","update","patch","delete"]))
+      )
+    message: |
+      Roles must not grant create/update/patch/delete on PersistentVolumeClaims without tight controls.

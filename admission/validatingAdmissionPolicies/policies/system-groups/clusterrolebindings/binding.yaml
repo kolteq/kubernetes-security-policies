@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-system-groups-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c25c05e1-f529-571d-98f3-ad30ad83d9b9
+spec:
+  policyName: clusterrolebinding-system-groups
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-system-groups-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c25c05e1-f529-571d-98f3-ad30ad83d9b9
+spec:
+  policyName: clusterrolebinding-system-groups
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-system-groups-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c25c05e1-f529-571d-98f3-ad30ad83d9b9
+spec:
+  policyName: clusterrolebinding-system-groups
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-system-groups-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c25c05e1-f529-571d-98f3-ad30ad83d9b9
+spec:
+  policyName: clusterrolebinding-system-groups
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-system-groups-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c25c05e1-f529-571d-98f3-ad30ad83d9b9
+spec:
+  policyName: clusterrolebinding-system-groups
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-system-groups-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c25c05e1-f529-571d-98f3-ad30ad83d9b9
+spec:
+  policyName: clusterrolebinding-system-groups
+  validationActions:
+  - Deny

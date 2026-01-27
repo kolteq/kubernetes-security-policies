@@ -1,0 +1,40 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: startupprobe-httpget-host-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: 'Startupprobe Httpget Host'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for startupprobe-httpget-host/initcontainers.
+    security.kubeapt.io/resource: Initcontainers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the startupprobe-httpget-host/initcontainers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: ed98fd19-0e62-55e8-b64a-ec413f01be61
+  labels:
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+    startupprobe-httpget-host-initcontainers.security.kolteq.com/audit: 'false,true'
+    startupprobe-httpget-host-initcontainers.security.kolteq.com/enforce: 'false,true'
+    startupprobe-httpget-host-initcontainers.security.kolteq.com/warn: 'false,true'
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  validations:
+    - expression: >
+        !has(object.spec.initContainers) ||
+        object.spec.initContainers.all(ic,
+          !has(ic.startupProbe) ||
+          !has(ic.startupProbe.httpGet) ||
+          !has(ic.startupProbe.httpGet.host) ||
+          ic.startupProbe.httpGet.host == ""
+        )
+      message: >
+        spec.initContainers[*].startupProbe.httpGet.host must be undefined or empty ("").

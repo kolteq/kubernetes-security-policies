@@ -1,0 +1,50 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: capabilities-add-netbindservice-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: 'Capabilities Add Netbindservice'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for capabilities-add-netbindservice/initcontainers.
+    security.kubeapt.io/resource: Initcontainers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the capabilities-add-netbindservice/initcontainers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: b1d74c80-e560-5ddc-a082-72016a6f37e9
+  labels:
+    capabilities-add-netbindservice-initcontainers.security.kolteq.com/audit: 'false,true'
+    capabilities-add-netbindservice-initcontainers.security.kolteq.com/enforce: 'false,true'
+    capabilities-add-netbindservice-initcontainers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  variables:
+    - name: allowedCaps
+      expression: >
+        ["NET_BIND_SERVICE"]
+  validations:
+    - expression: >
+        (has(object.spec.os) &&
+         has(object.spec.os.name) &&
+         object.spec.os.name.lowerAscii() == "windows") ||
+        !has(object.spec.initContainers) ||
+        object.spec.initContainers.all(ic,
+          !has(ic.securityContext) ||
+          !has(ic.securityContext.capabilities) ||
+          !has(ic.securityContext.capabilities.add) ||
+          ic.securityContext.capabilities.add.all(cap,
+            variables.allowedCaps.exists(a, a == cap)
+          )
+        )
+      message: >
+        spec.initContainers[*].securityContext.capabilities.add must be undefined/nil
+        or contain only "NET_BIND_SERVICE".

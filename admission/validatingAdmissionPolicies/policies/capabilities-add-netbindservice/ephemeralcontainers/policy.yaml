@@ -1,0 +1,54 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: capabilities-add-netbindservice-ephemeralcontainers
+  annotations:
+    security.kubeapt.io/displayName: 'Capabilities Add Netbindservice'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for capabilities-add-netbindservice/ephemeralcontainers.
+    security.kubeapt.io/resource: Ephemeralcontainers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the capabilities-add-netbindservice/ephemeralcontainers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: d9312350-f973-5628-9d46-969cc5ba4a6b
+  labels:
+    capabilities-add-netbindservice-ephemeralcontainers.security.kolteq.com/audit: 'false,true'
+    capabilities-add-netbindservice-ephemeralcontainers.security.kolteq.com/enforce: 'false,true'
+    capabilities-add-netbindservice-ephemeralcontainers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods/ephemeralcontainers"]
+  variables:
+    - name: allowedCaps
+      expression: >
+        ["NET_BIND_SERVICE"]
+  validations:
+    - expression: >
+        (has(object.spec.os) &&
+         has(object.spec.os.name) &&
+         object.spec.os.name.lowerAscii() == "windows") ||
+        !has(object.spec.ephemeralContainers) ||
+        object.spec.ephemeralContainers.all(ec,
+          !has(ec.securityContext) ||
+          !has(ec.securityContext.capabilities) ||
+          !has(ec.securityContext.capabilities.add) ||
+          ec.securityContext.capabilities.add.all(cap,
+            variables.allowedCaps.exists(a, a == cap)
+          )
+        )
+      message: >
+        spec.ephemeralContainers[*].securityContext.capabilities.add must be undefined/nil
+        or contain only "NET_BIND_SERVICE".

@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-nonresource-urls-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 8baea175-e03d-5e05-946b-7d98f8a07055
+spec:
+  policyName: clusterrole-nonresource-urls
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-nonresource-urls-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 8baea175-e03d-5e05-946b-7d98f8a07055
+spec:
+  policyName: clusterrole-nonresource-urls
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-nonresource-urls-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 8baea175-e03d-5e05-946b-7d98f8a07055
+spec:
+  policyName: clusterrole-nonresource-urls
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-nonresource-urls-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 8baea175-e03d-5e05-946b-7d98f8a07055
+spec:
+  policyName: clusterrole-nonresource-urls
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-nonresource-urls-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 8baea175-e03d-5e05-946b-7d98f8a07055
+spec:
+  policyName: clusterrole-nonresource-urls
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-nonresource-urls-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 8baea175-e03d-5e05-946b-7d98f8a07055
+spec:
+  policyName: clusterrole-nonresource-urls
+  validationActions:
+  - Deny

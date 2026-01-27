@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-infra-cluster-resources-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: abd5b0ed-46e2-599e-aa8a-273ea8b3e3fa
+spec:
+  policyName: clusterrole-infra-cluster-resources
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-infra-cluster-resources-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: abd5b0ed-46e2-599e-aa8a-273ea8b3e3fa
+spec:
+  policyName: clusterrole-infra-cluster-resources
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-infra-cluster-resources-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: abd5b0ed-46e2-599e-aa8a-273ea8b3e3fa
+spec:
+  policyName: clusterrole-infra-cluster-resources
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-infra-cluster-resources-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: abd5b0ed-46e2-599e-aa8a-273ea8b3e3fa
+spec:
+  policyName: clusterrole-infra-cluster-resources
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-infra-cluster-resources-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: abd5b0ed-46e2-599e-aa8a-273ea8b3e3fa
+spec:
+  policyName: clusterrole-infra-cluster-resources
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-infra-cluster-resources-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: abd5b0ed-46e2-599e-aa8a-273ea8b3e3fa
+spec:
+  policyName: clusterrole-infra-cluster-resources
+  validationActions:
+  - Deny

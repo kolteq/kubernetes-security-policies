@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-anonymous-subjects-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 25586c9e-dc4b-5a4c-88e2-50dd316a6a07
+spec:
+  policyName: clusterrolebinding-anonymous-subjects
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-anonymous-subjects-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 25586c9e-dc4b-5a4c-88e2-50dd316a6a07
+spec:
+  policyName: clusterrolebinding-anonymous-subjects
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-anonymous-subjects-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 25586c9e-dc4b-5a4c-88e2-50dd316a6a07
+spec:
+  policyName: clusterrolebinding-anonymous-subjects
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-anonymous-subjects-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 25586c9e-dc4b-5a4c-88e2-50dd316a6a07
+spec:
+  policyName: clusterrolebinding-anonymous-subjects
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-anonymous-subjects-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 25586c9e-dc4b-5a4c-88e2-50dd316a6a07
+spec:
+  policyName: clusterrolebinding-anonymous-subjects
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-anonymous-subjects-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 25586c9e-dc4b-5a4c-88e2-50dd316a6a07
+spec:
+  policyName: clusterrolebinding-anonymous-subjects
+  validationActions:
+  - Deny

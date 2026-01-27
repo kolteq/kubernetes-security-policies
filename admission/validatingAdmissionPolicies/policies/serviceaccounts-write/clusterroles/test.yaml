@@ -1,0 +1,8 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: violating-clusterrole-serviceaccounts-write
+rules:
+- apiGroups: [""]
+  resources: ["serviceaccounts"]
+  verbs: ["delete"]

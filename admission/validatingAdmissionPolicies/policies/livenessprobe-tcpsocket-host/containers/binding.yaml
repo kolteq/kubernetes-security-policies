@@ -1,0 +1,278 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: livenessprobe-tcpsocket-host-containers-namespace-optout-warn-pss
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: da5bd56f-2be3-5b62-8b73-663c531ffc9c
+  labels:
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false,true'
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: livenessprobe-tcpsocket-host-containers
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: pss.security.kolteq.com/warn
+        operator: In
+        values:
+        - baseline
+        - restricted
+      - key: livenessprobe-tcpsocket-host-containers.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: livenessprobe-tcpsocket-host-containers-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: da5bd56f-2be3-5b62-8b73-663c531ffc9c
+  labels:
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/warn: enabled
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false,true'
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+spec:
+  policyName: livenessprobe-tcpsocket-host-containers
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/warn
+        operator: In
+        values:
+        - enabled
+      - key: livenessprobe-tcpsocket-host-containers.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: livenessprobe-tcpsocket-host-containers-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: da5bd56f-2be3-5b62-8b73-663c531ffc9c
+  labels:
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false,true'
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false,true'
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: livenessprobe-tcpsocket-host-containers
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: livenessprobe-tcpsocket-host-containers.security.kolteq.com/warn
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: livenessprobe-tcpsocket-host-containers-namespace-optout-audit-pss
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: da5bd56f-2be3-5b62-8b73-663c531ffc9c
+  labels:
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false,true'
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: livenessprobe-tcpsocket-host-containers
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: pss.security.kolteq.com/audit
+        operator: In
+        values:
+        - baseline
+        - restricted
+      - key: livenessprobe-tcpsocket-host-containers.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: livenessprobe-tcpsocket-host-containers-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: da5bd56f-2be3-5b62-8b73-663c531ffc9c
+  labels:
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false,true'
+    security.kolteq.com/audit: enabled
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false,true'
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: livenessprobe-tcpsocket-host-containers
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/audit
+        operator: In
+        values:
+        - enabled
+      - key: livenessprobe-tcpsocket-host-containers.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: livenessprobe-tcpsocket-host-containers-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: da5bd56f-2be3-5b62-8b73-663c531ffc9c
+  labels:
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false,true'
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false,true'
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: livenessprobe-tcpsocket-host-containers
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: livenessprobe-tcpsocket-host-containers.security.kolteq.com/audit
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: livenessprobe-tcpsocket-host-containers-namespace-optout-deny-pss
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: da5bd56f-2be3-5b62-8b73-663c531ffc9c
+  labels:
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false,true'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false,true'
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: livenessprobe-tcpsocket-host-containers
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: pss.security.kolteq.com/enforce
+        operator: In
+        values:
+        - baseline
+        - restricted
+      - key: livenessprobe-tcpsocket-host-containers.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: livenessprobe-tcpsocket-host-containers-namespace-optout-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: da5bd56f-2be3-5b62-8b73-663c531ffc9c
+  labels:
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/enforce: enabled
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false,true'
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: livenessprobe-tcpsocket-host-containers
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/enforce
+        operator: In
+        values:
+        - enabled
+      - key: livenessprobe-tcpsocket-host-containers.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: livenessprobe-tcpsocket-host-containers-namespace-optin-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: da5bd56f-2be3-5b62-8b73-663c531ffc9c
+  labels:
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false,true'
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false,true'
+    livenessprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: livenessprobe-tcpsocket-host-containers
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: livenessprobe-tcpsocket-host-containers.security.kolteq.com/enforce
+        operator: In
+        values:
+        - 'true'

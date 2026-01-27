@@ -1,0 +1,40 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: role-serviceaccount-tokens
+  annotations:
+    security.kubeapt.io/displayName: 'Serviceaccount Tokens'
+    security.kubeapt.io/description: Roles must not allow creating serviceaccount/token subresource.
+    security.kubeapt.io/resource: Roles
+    security.kubeapt.io/severity: "9"
+    security.kubeapt.io/remediation: "Remove create on serviceaccounts/token. Fields: rules[*].resources, rules[*].verbs."
+    policies.kolteq.com/validatingAdmissionPolicy: f421b021-cfd2-543e-b153-0f68a50f9668
+  labels:
+    check-role-serviceaccount-tokens.security.kolteq.com/audit: 'false,true'
+    check-role-serviceaccount-tokens.security.kolteq.com/enforce: 'false,true'
+    check-role-serviceaccount-tokens.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - roles
+  validations:
+  - expression: |
+      !has(object.rules) || object.rules.all(r,
+        !(r.apiGroups.exists(ag, ag == "") &&
+          r.resources.exists(res, res == "serviceaccounts/token") &&
+          r.verbs.exists(v, v in ["create"]))
+      )
+    message: |
+      Roles must not allow creating serviceaccount/token subresource.

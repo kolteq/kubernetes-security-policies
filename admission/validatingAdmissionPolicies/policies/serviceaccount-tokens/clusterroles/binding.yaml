@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-serviceaccount-tokens-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 88c6e994-adb9-51c8-b392-2986ce277581
+spec:
+  policyName: clusterrole-serviceaccount-tokens
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-serviceaccount-tokens-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 88c6e994-adb9-51c8-b392-2986ce277581
+spec:
+  policyName: clusterrole-serviceaccount-tokens
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-serviceaccount-tokens-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 88c6e994-adb9-51c8-b392-2986ce277581
+spec:
+  policyName: clusterrole-serviceaccount-tokens
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-serviceaccount-tokens-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 88c6e994-adb9-51c8-b392-2986ce277581
+spec:
+  policyName: clusterrole-serviceaccount-tokens
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-serviceaccount-tokens-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 88c6e994-adb9-51c8-b392-2986ce277581
+spec:
+  policyName: clusterrole-serviceaccount-tokens
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-serviceaccount-tokens-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 88c6e994-adb9-51c8-b392-2986ce277581
+spec:
+  policyName: clusterrole-serviceaccount-tokens
+  validationActions:
+  - Deny

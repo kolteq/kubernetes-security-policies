@@ -1,0 +1,39 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: procmount-ephemeralcontainers
+  annotations:
+    security.kubeapt.io/displayName: Procmount
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for procmount/ephemeralcontainers.
+    security.kubeapt.io/resource: Ephemeralcontainers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the procmount/ephemeralcontainers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: 809bccc7-f69b-5f9d-8202-b92acca96a69
+  labels:
+    procmount-ephemeralcontainers.security.kolteq.com/audit: 'false,true'
+    procmount-ephemeralcontainers.security.kolteq.com/enforce: 'false,true'
+    procmount-ephemeralcontainers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods/ephemeralcontainers"]
+  validations:
+    - expression: >
+        !has(object.spec.ephemeralContainers) ||
+        object.spec.ephemeralContainers.all(ec,
+          !has(ec.securityContext) ||
+          !has(ec.securityContext.procMount) ||
+          ec.securityContext.procMount == "Default"
+        )
+      message: >
+        spec.ephemeralContainers[*].securityContext.procMount must be undefined or "Default".

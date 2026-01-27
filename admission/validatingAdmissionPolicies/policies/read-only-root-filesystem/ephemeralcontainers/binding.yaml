@@ -1,0 +1,161 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: read-only-root-filesystem-ephemeralcontainers-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: f5f9d5a7-bb06-5a85-abd6-3ae7f877f941
+  labels:
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/warn: enabled
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/audit: 'false,true'
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+spec:
+  policyName: read-only-root-filesystem-ephemeralcontainers
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/warn
+        operator: In
+        values:
+        - enabled
+      - key: check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: read-only-root-filesystem-ephemeralcontainers-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: f5f9d5a7-bb06-5a85-abd6-3ae7f877f941
+  labels:
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/warn: 'false,true'
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/audit: 'false,true'
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: read-only-root-filesystem-ephemeralcontainers
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/warn
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: read-only-root-filesystem-ephemeralcontainers-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: f5f9d5a7-bb06-5a85-abd6-3ae7f877f941
+  labels:
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/audit: 'false,true'
+    security.kolteq.com/audit: enabled
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/enforce: 'false,true'
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: read-only-root-filesystem-ephemeralcontainers
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/audit
+        operator: In
+        values:
+        - enabled
+      - key: check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: read-only-root-filesystem-ephemeralcontainers-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: f5f9d5a7-bb06-5a85-abd6-3ae7f877f941
+  labels:
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/audit: 'false,true'
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/enforce: 'false,true'
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: read-only-root-filesystem-ephemeralcontainers
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/audit
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: read-only-root-filesystem-ephemeralcontainers-namespace-optout-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: f5f9d5a7-bb06-5a85-abd6-3ae7f877f941
+  labels:
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/enforce: enabled
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/audit: 'false,true'
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: read-only-root-filesystem-ephemeralcontainers
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/enforce
+        operator: In
+        values:
+        - enabled
+      - key: check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: read-only-root-filesystem-ephemeralcontainers-namespace-optin-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: f5f9d5a7-bb06-5a85-abd6-3ae7f877f941
+  labels:
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/enforce: 'false,true'
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/audit: 'false,true'
+    check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: read-only-root-filesystem-ephemeralcontainers
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-read-only-root-filesystem-ephemeralcontainers.security.kolteq.com/enforce
+        operator: In
+        values:
+        - 'true'

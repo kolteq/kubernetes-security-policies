@@ -1,0 +1,43 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: ingress-tls-required
+  annotations:
+    security.kubeapt.io/displayName: 'Tls Required'
+    security.kubeapt.io/description: Ingress must include a TLS entry covering every host in spec.rules[*].host.
+    security.kubeapt.io/resource: Ingresses
+    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/remediation: "Add spec.tls entries covering all spec.rules[*].host values. Fields: spec.rules[].host, spec.tls[].hosts."
+    policies.kolteq.com/validatingAdmissionPolicy: ad5c2c5d-ae2c-599a-8bb1-56968e55ff5d
+  labels:
+    check-ingress-tls-required.security.kolteq.com/audit: 'false,true'
+    check-ingress-tls-required.security.kolteq.com/enforce: 'false,true'
+    check-ingress-tls-required.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - networking.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - ingresses
+  variables:
+  - name: hosts
+    expression: |
+      has(object.spec.rules) ? object.spec.rules.filter(r, has(r.host)).map(r, r.host) : []
+  validations:
+  - expression: |
+      size(variables.hosts) == 0 || (has(object.spec.tls) &&
+       object.spec.tls.exists(t,
+         has(t.hosts) && variables.hosts.all(h, t.hosts.exists(th, th == h))
+       ))
+    message: |
+      Ingress must include a TLS entry covering every host in spec.rules[*].host.

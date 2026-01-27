@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: violating-tls-hosts
+  namespace: policy-test
+spec:
+  tls:
+  - hosts:
+    - other.example.com
+    secretName: tls-other
+  rules:
+  - host: app.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: demo
+            port:
+              number: 80

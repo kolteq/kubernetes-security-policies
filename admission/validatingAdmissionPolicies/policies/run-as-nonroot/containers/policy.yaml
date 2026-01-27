@@ -1,0 +1,44 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: run-as-nonroot-containers
+  annotations:
+    security.kubeapt.io/displayName: 'Run As Nonroot'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for run-as-nonroot/containers.
+    security.kubeapt.io/resource: Containers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the run-as-nonroot/containers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: 6094b39a-822e-5b30-aa6c-5bfb3419eb2d
+  labels:
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    run-as-nonroot-containers.security.kolteq.com/audit: 'false,true'
+    run-as-nonroot-containers.security.kolteq.com/enforce: 'false,true'
+    run-as-nonroot-containers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  variables:
+    - name: podNonRootTrue
+      expression: >
+        has(object.spec.securityContext) &&
+        has(object.spec.securityContext.runAsNonRoot) &&
+        object.spec.securityContext.runAsNonRoot == true
+  validations:
+    - expression: >
+        object.spec.containers.all(c,
+          variables.podNonRootTrue
+          ? (!has(c.securityContext) || !has(c.securityContext.runAsNonRoot) || c.securityContext.runAsNonRoot == true)
+          : (has(c.securityContext) && has(c.securityContext.runAsNonRoot) && c.securityContext.runAsNonRoot == true)
+        )
+      message: >
+        spec.containers[*].securityContext.runAsNonRoot must be set to true, unless the Pod-level spec.securityContext.runAsNonRoot is true—in which case it may be undefined or true.

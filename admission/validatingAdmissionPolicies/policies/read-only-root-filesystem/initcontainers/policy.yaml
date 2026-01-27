@@ -1,0 +1,43 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: read-only-root-filesystem-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: 'Read Only Root Filesystem'
+    security.kubeapt.io/description: spec.initContainers[*].securityContext.readOnlyRootFilesystem must be set to true.
+    security.kubeapt.io/resource: Initcontainers
+    security.kubeapt.io/severity: "7"
+    security.kubeapt.io/remediation: "Set readOnlyRootFilesystem=true for initContainers. Fields: spec.initContainers[*].securityContext.readOnlyRootFilesystem."
+    policies.kolteq.com/validatingAdmissionPolicy: 9666b2c3-0114-5b8e-abbd-9bf37b4a3a1d
+  labels:
+    check-read-only-root-filesystem-initcontainers.security.kolteq.com/audit: 'false,true'
+    check-read-only-root-filesystem-initcontainers.security.kolteq.com/enforce: 'false,true'
+    check-read-only-root-filesystem-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ""
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      (has(object.spec.os) &&
+       has(object.spec.os.name) &&
+       object.spec.os.name.lowerAscii() == "windows") ||
+      !has(object.spec.initContainers) || object.spec.initContainers.all(ic,
+        has(ic.securityContext) &&
+        has(ic.securityContext.readOnlyRootFilesystem) &&
+        ic.securityContext.readOnlyRootFilesystem == true
+      )
+    message: |
+      spec.initContainers[*].securityContext.readOnlyRootFilesystem must be set to true.

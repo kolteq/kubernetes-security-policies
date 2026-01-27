@@ -1,0 +1,2 @@
+securityContext:
+  runAsGroup: 0

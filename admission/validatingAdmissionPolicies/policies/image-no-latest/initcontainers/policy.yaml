@@ -1,0 +1,46 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: image-no-latest-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: 'Image No Latest'
+    security.kubeapt.io/description: spec.initContainers[*].image must use an immutable digest or a non-latest tag.
+    security.kubeapt.io/resource: Initcontainers
+    security.kubeapt.io/severity: "4"
+    security.kubeapt.io/remediation: "Use an immutable digest or a non-latest tag for init container images. Fields: spec.initContainers[*].image."
+    policies.kolteq.com/validatingAdmissionPolicy: e5b14d9b-ae1c-531d-8f5a-401fe7ab3c2e
+  labels:
+    check-image-no-latest-initcontainers.security.kolteq.com/audit: 'false,true'
+    check-image-no-latest-initcontainers.security.kolteq.com/enforce: 'false,true'
+    check-image-no-latest-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ""
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  variables:
+  - name: isWindows
+    expression: |
+      has(object.spec.os) && has(object.spec.os.name) && object.spec.os.name.lowerAscii() == "windows"
+  validations:
+  - expression: |
+      variables.isWindows || !has(object.spec.initContainers) || object.spec.initContainers.all(ic,
+        ic.image.matches(".*@sha256:[0-9A-Fa-f]{64}") ||
+        (
+          ic.image.lastIndexOf(":") > ic.image.lastIndexOf("/") &&
+          !ic.image.lowerAscii().endsWith(":latest")
+        )
+      )
+    message: |
+      spec.initContainers[*].image must use an immutable digest or a non-latest tag.

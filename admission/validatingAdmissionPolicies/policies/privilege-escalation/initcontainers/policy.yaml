@@ -1,0 +1,42 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: allow-privilege-escalation-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: 'Privilege Escalation'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for privilege-escalation/initcontainers.
+    security.kubeapt.io/resource: Initcontainers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the privilege-escalation/initcontainers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: f7e195cd-ddc8-587c-bdc9-8275fdc1bd88
+  labels:
+    allow-privilege-escalation-initcontainers.security.kolteq.com/audit: 'false,true'
+    allow-privilege-escalation-initcontainers.security.kolteq.com/enforce: 'false,true'
+    allow-privilege-escalation-initcontainers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  validations:
+    - expression: >
+        (has(object.spec.os) &&
+         has(object.spec.os.name) &&
+         object.spec.os.name.lowerAscii() == "windows") ||
+        !has(object.spec.initContainers) ||
+        object.spec.initContainers.all(ic,
+          has(ic.securityContext) &&
+          has(ic.securityContext.allowPrivilegeEscalation) &&
+          ic.securityContext.allowPrivilegeEscalation == false
+        )
+      message: >
+        spec.initContainers[*].securityContext.allowPrivilegeEscalation must be set to false.

@@ -1,0 +1,42 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: windows-hostprocess-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: 'Windows Hostprocess'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for windows-hostprocess/initcontainers.
+    security.kubeapt.io/resource: Initcontainers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the windows-hostprocess/initcontainers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: a4d318d5-4d35-5139-9959-914d2b6054c3
+  labels:
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+    windows-hostprocess-initcontainers.security.kolteq.com/audit: 'false,true'
+    windows-hostprocess-initcontainers.security.kolteq.com/enforce: 'false,true'
+    windows-hostprocess-initcontainers.security.kolteq.com/warn: 'false,true'
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE", "UPDATE"]
+        resources: ["pods"]
+  validations:
+    - expression: >
+        !has(object.spec.initContainers) ||
+        object.spec.initContainers.all(c,
+          !has(c.securityContext) ||
+          !has(c.securityContext.windowsOptions) ||
+          !has(c.securityContext.windowsOptions.hostProcess) ||
+          c.securityContext.windowsOptions.hostProcess == false
+        )
+      message: >
+        HostProcess is not allowed for initContainers. Each
+        spec.initContainers[*].securityContext.windowsOptions.hostProcess
+        must be undefined or set to false.

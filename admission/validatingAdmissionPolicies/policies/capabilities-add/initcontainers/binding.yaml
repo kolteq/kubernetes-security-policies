@@ -1,0 +1,278 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: allowed-capabilities-add-initcontainers-namespace-optout-warn-pss
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
+  labels:
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: allowed-capabilities-add-initcontainers
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: pss.security.kolteq.com/warn
+        operator: In
+        values:
+        - baseline
+        - restricted
+      - key: allowed-capabilities-add-initcontainers.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: allowed-capabilities-add-initcontainers-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
+  labels:
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/warn: enabled
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+spec:
+  policyName: allowed-capabilities-add-initcontainers
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/warn
+        operator: In
+        values:
+        - enabled
+      - key: allowed-capabilities-add-initcontainers.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: allowed-capabilities-add-initcontainers-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
+  labels:
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: allowed-capabilities-add-initcontainers
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: allowed-capabilities-add-initcontainers.security.kolteq.com/warn
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: allowed-capabilities-add-initcontainers-namespace-optout-audit-pss
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
+  labels:
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: allowed-capabilities-add-initcontainers
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: pss.security.kolteq.com/audit
+        operator: In
+        values:
+        - baseline
+        - restricted
+      - key: allowed-capabilities-add-initcontainers.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: allowed-capabilities-add-initcontainers-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
+  labels:
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
+    security.kolteq.com/audit: enabled
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: allowed-capabilities-add-initcontainers
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/audit
+        operator: In
+        values:
+        - enabled
+      - key: allowed-capabilities-add-initcontainers.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: allowed-capabilities-add-initcontainers-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
+  labels:
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: allowed-capabilities-add-initcontainers
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: allowed-capabilities-add-initcontainers.security.kolteq.com/audit
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: allowed-capabilities-add-initcontainers-namespace-optout-deny-pss
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
+  labels:
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: allowed-capabilities-add-initcontainers
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: pss.security.kolteq.com/enforce
+        operator: In
+        values:
+        - baseline
+        - restricted
+      - key: allowed-capabilities-add-initcontainers.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: allowed-capabilities-add-initcontainers-namespace-optout-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
+  labels:
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/enforce: enabled
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: allowed-capabilities-add-initcontainers
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/enforce
+        operator: In
+        values:
+        - enabled
+      - key: allowed-capabilities-add-initcontainers.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: allowed-capabilities-add-initcontainers-namespace-optin-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
+  labels:
+    allowed-capabilities-add-initcontainers.security.kolteq.com/enforce: 'false,true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/audit: 'false,true'
+    allowed-capabilities-add-initcontainers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: allowed-capabilities-add-initcontainers
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: allowed-capabilities-add-initcontainers.security.kolteq.com/enforce
+        operator: In
+        values:
+        - 'true'

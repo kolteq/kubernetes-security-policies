@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-workloads-write-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 1d7a8097-468c-5f7d-805c-3696c1603a82
+spec:
+  policyName: clusterrole-workloads-write
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-workloads-write-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 1d7a8097-468c-5f7d-805c-3696c1603a82
+spec:
+  policyName: clusterrole-workloads-write
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-workloads-write-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 1d7a8097-468c-5f7d-805c-3696c1603a82
+spec:
+  policyName: clusterrole-workloads-write
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-workloads-write-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 1d7a8097-468c-5f7d-805c-3696c1603a82
+spec:
+  policyName: clusterrole-workloads-write
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-workloads-write-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 1d7a8097-468c-5f7d-805c-3696c1603a82
+spec:
+  policyName: clusterrole-workloads-write
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-workloads-write-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 1d7a8097-468c-5f7d-805c-3696c1603a82
+spec:
+  policyName: clusterrole-workloads-write
+  validationActions:
+  - Deny

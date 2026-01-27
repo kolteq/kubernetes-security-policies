@@ -1,0 +1,36 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: run-as-user-pod
+  annotations:
+    security.kubeapt.io/displayName: 'Run As User'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for run-as-user.
+    security.kubeapt.io/resource: Pods
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the run-as-user policy.
+    policies.kolteq.com/validatingAdmissionPolicy: 08819adb-4c93-5b34-9fd4-99e5b7087cf4
+  labels:
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    run-as-user-pod.security.kolteq.com/audit: 'false,true'
+    run-as-user-pod.security.kolteq.com/enforce: 'false,true'
+    run-as-user-pod.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  validations:
+    - expression: >
+        !has(object.spec.securityContext) ||
+        !has(object.spec.securityContext.runAsUser) ||
+        object.spec.securityContext.runAsUser > 0
+      message: >
+        spec.securityContext.runAsUser must be undefined or a non-zero value (> 0).

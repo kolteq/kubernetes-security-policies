@@ -1,0 +1,139 @@
+apiVersion: audit.k8s.io/v1
+kind: Policy
+rules:
+
+- level: None
+  resources:
+  - group: "coordination.k8s.io"
+    resources: ["leases"]
+  - group: ""
+    resources: ["events"]
+
+- level: None
+  userGroups: ["system:nodes"]
+  verbs: ["get"]
+  resources:
+    - group: ""
+      resources: ["nodes", "nodes/status"]
+
+- level: None
+  verbs: ["get"]
+  users:
+    - "system:apiserver"
+  resources:
+  - group: "discovery.k8s.io"
+    resources: ["endpointslices"]
+    resourceNames: ["kubernetes"]
+  - group: ""
+    resources: ["endpoints"]
+    resourceNames: ["kubernetes"]
+  namespaces:
+    - "default"
+
+- level: None
+  verbs: ["get"]
+  users:
+    - "system:serviceaccount:kube-system:resourcequota-controller"
+    - "system:serviceaccount:kube-system:generic-garbage-collector"
+  nonResourceURLs:
+    - "/api"
+    - "/apis"
+
+- level: None
+  users:
+    - system:kube-controller-manager
+  verbs: ["get", "list"]
+  resources:
+    - group: "metrics.k8s.io"
+
+- level: None
+  users:
+    - system:apiserver
+    - system:kube-controller-manager
+    - system:kube-scheduler
+  verbs: ["watch"]
+
+- level: None
+  users:
+  - "system:anonymous"
+  nonResourceURLs:
+  - "/readyz"
+  - "/livez"
+
+- level: Metadata
+  resources:
+  - group: ""
+    resources: ["secrets", "configmaps", "serviceaccounts/token"]
+  - group: authentication.k8s.io
+    resources: ["tokenreviews"]
+  omitStages:
+    - "RequestReceived"
+
+- level: Request
+  resources:
+  - group: ""
+    resources: ["*/status"]
+  - group: "admissionregistration.k8s.io"
+    resources: ["*/status"]
+  - group: "apiextensions.k8s.io"
+    resources: ["*/status"]
+  - group: "apiregistration.k8s.io"
+    resources: ["*/status"]
+  - group: "apps"
+    resources: ["*/status"]
+  - group: "authentication.k8s.io"
+    resources: ["*/status"]
+  - group: "authorization.k8s.io"
+    resources: ["*/status"]
+  - group: "autoscaling"
+    resources: ["*/status"]
+  - group: "batch"
+    resources: ["*/status"]
+  - group: "certificates.k8s.io"
+    resources: ["*/status"]
+  - group: "coordination.k8s.io"
+    resources: ["*/status"]
+  - group: "discovery.k8s.io"
+    resources: ["*/status"]
+  - group: "events.k8s.io"
+    resources: ["*/status"]
+  - group: "flowcontrol.apiserver.k8s.io"
+    resources: ["*/status"]
+  - group: "networking.k8s.io"
+    resources: ["*/status"]
+  - group: "node.k8s.io"
+    resources: ["*/status"]
+  - group: "policy"
+    resources: ["*/status"]
+  - group: "rbac.authorization.k8s.io"
+    resources: ["*/status"]
+  - group: "resource.k8s.io"
+    resources: ["*/status"]
+  - group: "scheduling.k8s.io"
+    resources: ["*/status"]
+  - group: "storage.k8s.io"
+    resources: ["*/status"]
+  omitStages:
+    - "RequestReceived"
+
+- level: RequestResponse
+  resources:
+  - group: ""
+    resources: ["pods/exec", "pods/attach", "pods/portforward", "pods/proxy", "services/proxy", "nodes/proxy"]
+  omitStages:
+    - "RequestReceived"
+
+- level: RequestResponse
+  users:
+     - "system:anonymous"
+  omitStages:
+    - "RequestReceived"
+
+- level: Metadata
+  verbs: ["get", "list", "watch"]
+  omitStages:
+    - "RequestReceived"
+
+- level: RequestResponse
+  omitStages:
+    - "RequestReceived"

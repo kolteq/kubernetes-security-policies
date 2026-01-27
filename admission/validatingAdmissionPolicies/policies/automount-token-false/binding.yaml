@@ -1,0 +1,161 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: serviceaccount-automount-token-false-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 288fb92b-4b29-5439-85e7-2f73cf881a9e
+  labels:
+    check-serviceaccount-automount-token-false.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/warn: enabled
+    check-serviceaccount-automount-token-false.security.kolteq.com/audit: 'false,true'
+    check-serviceaccount-automount-token-false.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+spec:
+  policyName: serviceaccount-automount-token-false
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/warn
+        operator: In
+        values:
+        - enabled
+      - key: check-serviceaccount-automount-token-false.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: serviceaccount-automount-token-false-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 288fb92b-4b29-5439-85e7-2f73cf881a9e
+  labels:
+    check-serviceaccount-automount-token-false.security.kolteq.com/warn: 'false,true'
+    check-serviceaccount-automount-token-false.security.kolteq.com/audit: 'false,true'
+    check-serviceaccount-automount-token-false.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: serviceaccount-automount-token-false
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-serviceaccount-automount-token-false.security.kolteq.com/warn
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: serviceaccount-automount-token-false-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 288fb92b-4b29-5439-85e7-2f73cf881a9e
+  labels:
+    check-serviceaccount-automount-token-false.security.kolteq.com/audit: 'false,true'
+    security.kolteq.com/audit: enabled
+    check-serviceaccount-automount-token-false.security.kolteq.com/enforce: 'false,true'
+    check-serviceaccount-automount-token-false.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: serviceaccount-automount-token-false
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/audit
+        operator: In
+        values:
+        - enabled
+      - key: check-serviceaccount-automount-token-false.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: serviceaccount-automount-token-false-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 288fb92b-4b29-5439-85e7-2f73cf881a9e
+  labels:
+    check-serviceaccount-automount-token-false.security.kolteq.com/audit: 'false,true'
+    check-serviceaccount-automount-token-false.security.kolteq.com/enforce: 'false,true'
+    check-serviceaccount-automount-token-false.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: serviceaccount-automount-token-false
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-serviceaccount-automount-token-false.security.kolteq.com/audit
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: serviceaccount-automount-token-false-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 288fb92b-4b29-5439-85e7-2f73cf881a9e
+  labels:
+    check-serviceaccount-automount-token-false.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/enforce: enabled
+    check-serviceaccount-automount-token-false.security.kolteq.com/audit: 'false,true'
+    check-serviceaccount-automount-token-false.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: serviceaccount-automount-token-false
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/enforce
+        operator: In
+        values:
+        - enabled
+      - key: check-serviceaccount-automount-token-false.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: serviceaccount-automount-token-false-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 288fb92b-4b29-5439-85e7-2f73cf881a9e
+  labels:
+    check-serviceaccount-automount-token-false.security.kolteq.com/enforce: 'false,true'
+    check-serviceaccount-automount-token-false.security.kolteq.com/audit: 'false,true'
+    check-serviceaccount-automount-token-false.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: serviceaccount-automount-token-false
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-serviceaccount-automount-token-false.security.kolteq.com/enforce
+        operator: In
+        values:
+        - 'true'

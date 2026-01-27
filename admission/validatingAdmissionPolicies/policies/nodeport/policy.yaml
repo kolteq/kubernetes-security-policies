@@ -1,0 +1,36 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: service-nodeport
+  annotations:
+    security.kubeapt.io/displayName: Nodeport
+    security.kubeapt.io/description: Service type NodePort is disallowed; use ClusterIP/LoadBalancer with proper controls.
+    security.kubeapt.io/resource: Services
+    security.kubeapt.io/severity: "6"
+    security.kubeapt.io/remediation: "Use ClusterIP or LoadBalancer instead of NodePort. Fields: spec.type."
+    policies.kolteq.com/validatingAdmissionPolicy: 0478b47e-f601-59c1-a372-f35eeb2d1c55
+  labels:
+    check-service-nodeport.security.kolteq.com/audit: 'false,true'
+    check-service-nodeport.security.kolteq.com/enforce: 'false,true'
+    check-service-nodeport.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ""
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - services
+  validations:
+  - expression: |
+      !has(object.spec.type) || object.spec.type != "NodePort"
+    message: |
+      Service type NodePort is disallowed; use ClusterIP/LoadBalancer with proper controls.

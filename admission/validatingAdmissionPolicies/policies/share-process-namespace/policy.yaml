@@ -1,0 +1,36 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: share-process-namespace
+  annotations:
+    security.kubeapt.io/displayName: 'Share Process Namespace'
+    security.kubeapt.io/description: Sharing a process namespace is disallowed. spec.shareProcessNamespace must be undefined
+    security.kubeapt.io/resource: Pods
+    security.kubeapt.io/severity: "7"
+    security.kubeapt.io/remediation: "Set spec.shareProcessNamespace=false or omit it. Fields: spec.shareProcessNamespace."
+    policies.kolteq.com/validatingAdmissionPolicy: 85a69817-a81a-5768-9494-92363b7400a9
+  labels:
+    check-share-process-namespace.security.kolteq.com/audit: 'false,true'
+    check-share-process-namespace.security.kolteq.com/enforce: 'false,true'
+    check-share-process-namespace.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ""
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      !has(object.spec.shareProcessNamespace) || object.spec.shareProcessNamespace == false
+    message: |
+      Sharing a process namespace is disallowed. spec.shareProcessNamespace must be undefined or set to false.

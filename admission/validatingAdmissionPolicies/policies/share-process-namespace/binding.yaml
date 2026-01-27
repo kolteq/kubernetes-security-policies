@@ -1,0 +1,161 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: share-process-namespace-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 85a69817-a81a-5768-9494-92363b7400a9
+  labels:
+    check-share-process-namespace.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/warn: enabled
+    check-share-process-namespace.security.kolteq.com/audit: 'false,true'
+    check-share-process-namespace.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+spec:
+  policyName: share-process-namespace
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/warn
+        operator: In
+        values:
+        - enabled
+      - key: check-share-process-namespace.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: share-process-namespace-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 85a69817-a81a-5768-9494-92363b7400a9
+  labels:
+    check-share-process-namespace.security.kolteq.com/warn: 'false,true'
+    check-share-process-namespace.security.kolteq.com/audit: 'false,true'
+    check-share-process-namespace.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: share-process-namespace
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-share-process-namespace.security.kolteq.com/warn
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: share-process-namespace-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 85a69817-a81a-5768-9494-92363b7400a9
+  labels:
+    check-share-process-namespace.security.kolteq.com/audit: 'false,true'
+    security.kolteq.com/audit: enabled
+    check-share-process-namespace.security.kolteq.com/enforce: 'false,true'
+    check-share-process-namespace.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: share-process-namespace
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/audit
+        operator: In
+        values:
+        - enabled
+      - key: check-share-process-namespace.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: share-process-namespace-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 85a69817-a81a-5768-9494-92363b7400a9
+  labels:
+    check-share-process-namespace.security.kolteq.com/audit: 'false,true'
+    check-share-process-namespace.security.kolteq.com/enforce: 'false,true'
+    check-share-process-namespace.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: share-process-namespace
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-share-process-namespace.security.kolteq.com/audit
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: share-process-namespace-namespace-optout-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 85a69817-a81a-5768-9494-92363b7400a9
+  labels:
+    check-share-process-namespace.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/enforce: enabled
+    check-share-process-namespace.security.kolteq.com/audit: 'false,true'
+    check-share-process-namespace.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: share-process-namespace
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/enforce
+        operator: In
+        values:
+        - enabled
+      - key: check-share-process-namespace.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: share-process-namespace-namespace-optin-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 85a69817-a81a-5768-9494-92363b7400a9
+  labels:
+    check-share-process-namespace.security.kolteq.com/enforce: 'false,true'
+    check-share-process-namespace.security.kolteq.com/audit: 'false,true'
+    check-share-process-namespace.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: share-process-namespace
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-share-process-namespace.security.kolteq.com/enforce
+        operator: In
+        values:
+        - 'true'

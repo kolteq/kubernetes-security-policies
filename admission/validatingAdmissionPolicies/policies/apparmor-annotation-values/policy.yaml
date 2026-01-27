@@ -1,0 +1,40 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: apparmor-annotation-values
+  annotations:
+    security.kubeapt.io/displayName: 'Apparmor Annotation Values'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for apparmor-annotation-values.
+    security.kubeapt.io/resource: Pods
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the apparmor-annotation-values policy.
+    policies.kolteq.com/validatingAdmissionPolicy: 934375f3-3b04-5b5b-937c-24c962bb253b
+  labels:
+    apparmor-annotation-values.security.kolteq.com/audit: 'false,true'
+    apparmor-annotation-values.security.kolteq.com/enforce: 'false,true'
+    apparmor-annotation-values.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  validations:
+    - expression: >
+        !has(object.metadata.annotations) ||
+        !object.metadata.annotations.exists(k,
+          k.startsWith("container.apparmor.security.beta.kubernetes.io/") &&
+          !(object.metadata.annotations[k] == "runtime/default" ||
+            object.metadata.annotations[k].startsWith("localhost/"))
+        )
+      message: >
+        Annotations under container.apparmor.security.beta.kubernetes.io/* must be
+        "runtime/default" or start with "localhost/". Other values are not allowed.

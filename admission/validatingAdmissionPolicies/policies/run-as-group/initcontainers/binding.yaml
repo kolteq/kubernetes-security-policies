@@ -1,0 +1,161 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: run-as-group-initcontainers-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: de80408d-f5d5-59bf-a38a-77a8452d4934
+  labels:
+    check-run-as-group-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/warn: enabled
+    check-run-as-group-initcontainers.security.kolteq.com/audit: 'false,true'
+    check-run-as-group-initcontainers.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+spec:
+  policyName: run-as-group-initcontainers
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/warn
+        operator: In
+        values:
+        - enabled
+      - key: check-run-as-group-initcontainers.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: run-as-group-initcontainers-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: de80408d-f5d5-59bf-a38a-77a8452d4934
+  labels:
+    check-run-as-group-initcontainers.security.kolteq.com/warn: 'false,true'
+    check-run-as-group-initcontainers.security.kolteq.com/audit: 'false,true'
+    check-run-as-group-initcontainers.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: run-as-group-initcontainers
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-run-as-group-initcontainers.security.kolteq.com/warn
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: run-as-group-initcontainers-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: de80408d-f5d5-59bf-a38a-77a8452d4934
+  labels:
+    check-run-as-group-initcontainers.security.kolteq.com/audit: 'false,true'
+    security.kolteq.com/audit: enabled
+    check-run-as-group-initcontainers.security.kolteq.com/enforce: 'false,true'
+    check-run-as-group-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: run-as-group-initcontainers
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/audit
+        operator: In
+        values:
+        - enabled
+      - key: check-run-as-group-initcontainers.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: run-as-group-initcontainers-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: de80408d-f5d5-59bf-a38a-77a8452d4934
+  labels:
+    check-run-as-group-initcontainers.security.kolteq.com/audit: 'false,true'
+    check-run-as-group-initcontainers.security.kolteq.com/enforce: 'false,true'
+    check-run-as-group-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: run-as-group-initcontainers
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-run-as-group-initcontainers.security.kolteq.com/audit
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: run-as-group-initcontainers-namespace-optout-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: de80408d-f5d5-59bf-a38a-77a8452d4934
+  labels:
+    check-run-as-group-initcontainers.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/enforce: enabled
+    check-run-as-group-initcontainers.security.kolteq.com/audit: 'false,true'
+    check-run-as-group-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: run-as-group-initcontainers
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/enforce
+        operator: In
+        values:
+        - enabled
+      - key: check-run-as-group-initcontainers.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: run-as-group-initcontainers-namespace-optin-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: de80408d-f5d5-59bf-a38a-77a8452d4934
+  labels:
+    check-run-as-group-initcontainers.security.kolteq.com/enforce: 'false,true'
+    check-run-as-group-initcontainers.security.kolteq.com/audit: 'false,true'
+    check-run-as-group-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: run-as-group-initcontainers
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-run-as-group-initcontainers.security.kolteq.com/enforce
+        operator: In
+        values:
+        - 'true'

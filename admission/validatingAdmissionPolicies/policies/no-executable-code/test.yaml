@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: violating-no-executable-code
+  namespace: policy-test
+immutable: true
+data:
+  run.sh: |
+    #!/bin/bash
+    echo "bad"

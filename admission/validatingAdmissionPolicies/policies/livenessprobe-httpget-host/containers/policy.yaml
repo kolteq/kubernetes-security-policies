@@ -1,0 +1,39 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: livenessprobe-httpget-host
+  annotations:
+    security.kubeapt.io/displayName: 'Livenessprobe Httpget Host'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for livenessprobe-httpget-host/container.
+    security.kubeapt.io/resource: Containers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the livenessprobe-httpget-host/container policy.
+    policies.kolteq.com/validatingAdmissionPolicy: 6fd9ec70-890d-526a-bb1d-535ce5d33bf9
+  labels:
+    livenessprobe-httpget-host.security.kolteq.com/audit: 'false,true'
+    livenessprobe-httpget-host.security.kolteq.com/enforce: 'false,true'
+    livenessprobe-httpget-host.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  validations:
+    - expression: >
+        object.spec.containers.all(c,
+          !has(c.livenessProbe) ||
+          !has(c.livenessProbe.httpGet) ||
+          !has(c.livenessProbe.httpGet.host) ||
+          c.livenessProbe.httpGet.host == ""
+        )
+      message: >
+        spec.containers[*].livenessProbe.httpGet.host must be undefined or empty ("").

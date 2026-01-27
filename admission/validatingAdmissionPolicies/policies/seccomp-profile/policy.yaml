@@ -1,0 +1,44 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: seccomp-profile-pod
+  annotations:
+    security.kubeapt.io/displayName: 'Seccomp Profile'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for seccomp-profile.
+    security.kubeapt.io/resource: Pods
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the seccomp-profile policy.
+    policies.kolteq.com/validatingAdmissionPolicy: 6659cce8-c19d-55e5-9051-4b2da4b8b5b8
+  labels:
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    seccomp-profile-pod.security.kolteq.com/audit: 'false,true'
+    seccomp-profile-pod.security.kolteq.com/enforce: 'false,true'
+    seccomp-profile-pod.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  variables:
+    - name: allowedSeccompTypes
+      expression: >
+        ["RuntimeDefault","Localhost"]
+  validations:
+    - expression: >
+        (has(object.spec.os) &&
+         has(object.spec.os.name) &&
+         object.spec.os.name.lowerAscii() == "windows") ||
+        !has(object.spec.securityContext) ||
+        !has(object.spec.securityContext.seccompProfile) ||
+        !has(object.spec.securityContext.seccompProfile.type) ||
+        variables.allowedSeccompTypes.exists(t, t == object.spec.securityContext.seccompProfile.type)
+      message: >
+        spec.securityContext.seccompProfile.type must be undefined, RuntimeDefault, or Localhost.

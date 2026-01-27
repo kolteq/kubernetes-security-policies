@@ -1,0 +1,45 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: run-as-nonroot-ephemeralcontainers
+  annotations:
+    security.kubeapt.io/displayName: 'Run As Nonroot'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for run-as-nonroot/ephemeralcontainers.
+    security.kubeapt.io/resource: Ephemeralcontainers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the run-as-nonroot/ephemeralcontainers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: cb697975-f690-52c2-9770-2c0738845b34
+  labels:
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    run-as-nonroot-ephemeralcontainers.security.kolteq.com/audit: 'false,true'
+    run-as-nonroot-ephemeralcontainers.security.kolteq.com/enforce: 'false,true'
+    run-as-nonroot-ephemeralcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods/ephemeralcontainers"]
+  variables:
+    - name: podNonRootTrue
+      expression: >
+        has(object.spec.securityContext) &&
+        has(object.spec.securityContext.runAsNonRoot) &&
+        object.spec.securityContext.runAsNonRoot == true
+  validations:
+    - expression: >
+        !has(object.spec.ephemeralContainers) ||
+        object.spec.ephemeralContainers.all(ec,
+          variables.podNonRootTrue
+          ? (!has(ec.securityContext) || !has(ec.securityContext.runAsNonRoot) || ec.securityContext.runAsNonRoot == true)
+          : (has(ec.securityContext) && has(ec.securityContext.runAsNonRoot) && ec.securityContext.runAsNonRoot == true)
+        )
+      message: >
+        spec.ephemeralContainers[*].securityContext.runAsNonRoot must be set to true, unless the Pod-level spec.securityContext.runAsNonRoot is true—in which case it may be undefined or true.

@@ -1,0 +1,39 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: startupprobe-tcpsocket-host-containers
+  annotations:
+    security.kubeapt.io/displayName: 'Startupprobe Tcpsocket Host'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for startupprobe-tcpsocket-host/containers.
+    security.kubeapt.io/resource: Containers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the startupprobe-tcpsocket-host/containers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: f78d62d0-2cb5-56e5-91cd-b6a322cb0e0a
+  labels:
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/audit: 'false,true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/enforce: 'false,true'
+    startupprobe-tcpsocket-host-containers.security.kolteq.com/warn: 'false,true'
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  validations:
+    - expression: >
+        object.spec.containers.all(c,
+          !has(c.startupProbe) ||
+          !has(c.startupProbe.tcpSocket) ||
+          !has(c.startupProbe.tcpSocket.host) ||
+          c.startupProbe.tcpSocket.host == ""
+        )
+      message: >
+        spec.containers[*].startupProbe.tcpSocket.host must be undefined or empty ("").

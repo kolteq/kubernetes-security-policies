@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-wildcard-rules-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c39ecc52-7627-502b-836c-5541f2b50a0b
+spec:
+  policyName: clusterrole-wildcard-rules
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-wildcard-rules-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c39ecc52-7627-502b-836c-5541f2b50a0b
+spec:
+  policyName: clusterrole-wildcard-rules
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-wildcard-rules-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c39ecc52-7627-502b-836c-5541f2b50a0b
+spec:
+  policyName: clusterrole-wildcard-rules
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-wildcard-rules-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c39ecc52-7627-502b-836c-5541f2b50a0b
+spec:
+  policyName: clusterrole-wildcard-rules
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-wildcard-rules-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c39ecc52-7627-502b-836c-5541f2b50a0b
+spec:
+  policyName: clusterrole-wildcard-rules
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-wildcard-rules-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: c39ecc52-7627-502b-836c-5541f2b50a0b
+spec:
+  policyName: clusterrole-wildcard-rules
+  validationActions:
+  - Deny

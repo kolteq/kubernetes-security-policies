@@ -1,0 +1,161 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: image-no-latest-initcontainers-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: e5b14d9b-ae1c-531d-8f5a-401fe7ab3c2e
+  labels:
+    check-image-no-latest-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/warn: enabled
+    check-image-no-latest-initcontainers.security.kolteq.com/audit: 'false,true'
+    check-image-no-latest-initcontainers.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+spec:
+  policyName: image-no-latest-initcontainers
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/warn
+        operator: In
+        values:
+        - enabled
+      - key: check-image-no-latest-initcontainers.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: image-no-latest-initcontainers-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: e5b14d9b-ae1c-531d-8f5a-401fe7ab3c2e
+  labels:
+    check-image-no-latest-initcontainers.security.kolteq.com/warn: 'false,true'
+    check-image-no-latest-initcontainers.security.kolteq.com/audit: 'false,true'
+    check-image-no-latest-initcontainers.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: image-no-latest-initcontainers
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-image-no-latest-initcontainers.security.kolteq.com/warn
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: image-no-latest-initcontainers-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: e5b14d9b-ae1c-531d-8f5a-401fe7ab3c2e
+  labels:
+    check-image-no-latest-initcontainers.security.kolteq.com/audit: 'false,true'
+    security.kolteq.com/audit: enabled
+    check-image-no-latest-initcontainers.security.kolteq.com/enforce: 'false,true'
+    check-image-no-latest-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: image-no-latest-initcontainers
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/audit
+        operator: In
+        values:
+        - enabled
+      - key: check-image-no-latest-initcontainers.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: image-no-latest-initcontainers-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: e5b14d9b-ae1c-531d-8f5a-401fe7ab3c2e
+  labels:
+    check-image-no-latest-initcontainers.security.kolteq.com/audit: 'false,true'
+    check-image-no-latest-initcontainers.security.kolteq.com/enforce: 'false,true'
+    check-image-no-latest-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: image-no-latest-initcontainers
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-image-no-latest-initcontainers.security.kolteq.com/audit
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: image-no-latest-initcontainers-namespace-optout-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: e5b14d9b-ae1c-531d-8f5a-401fe7ab3c2e
+  labels:
+    check-image-no-latest-initcontainers.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/enforce: enabled
+    check-image-no-latest-initcontainers.security.kolteq.com/audit: 'false,true'
+    check-image-no-latest-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: image-no-latest-initcontainers
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/enforce
+        operator: In
+        values:
+        - enabled
+      - key: check-image-no-latest-initcontainers.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: image-no-latest-initcontainers-namespace-optin-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: e5b14d9b-ae1c-531d-8f5a-401fe7ab3c2e
+  labels:
+    check-image-no-latest-initcontainers.security.kolteq.com/enforce: 'false,true'
+    check-image-no-latest-initcontainers.security.kolteq.com/audit: 'false,true'
+    check-image-no-latest-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: image-no-latest-initcontainers
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-image-no-latest-initcontainers.security.kolteq.com/enforce
+        operator: In
+        values:
+        - 'true'

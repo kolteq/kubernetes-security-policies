@@ -1,0 +1,161 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: configmap-no-executable-code-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 7e9b70e6-e20d-5bbb-9069-03a99ebb5489
+  labels:
+    check-configmap-no-executable-code.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/warn: enabled
+    check-configmap-no-executable-code.security.kolteq.com/audit: 'false,true'
+    check-configmap-no-executable-code.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+spec:
+  policyName: configmap-no-executable-code
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/warn
+        operator: In
+        values:
+        - enabled
+      - key: check-configmap-no-executable-code.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: configmap-no-executable-code-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 7e9b70e6-e20d-5bbb-9069-03a99ebb5489
+  labels:
+    check-configmap-no-executable-code.security.kolteq.com/warn: 'false,true'
+    check-configmap-no-executable-code.security.kolteq.com/audit: 'false,true'
+    check-configmap-no-executable-code.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: configmap-no-executable-code
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-configmap-no-executable-code.security.kolteq.com/warn
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: configmap-no-executable-code-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 7e9b70e6-e20d-5bbb-9069-03a99ebb5489
+  labels:
+    check-configmap-no-executable-code.security.kolteq.com/audit: 'false,true'
+    security.kolteq.com/audit: enabled
+    check-configmap-no-executable-code.security.kolteq.com/enforce: 'false,true'
+    check-configmap-no-executable-code.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: configmap-no-executable-code
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/audit
+        operator: In
+        values:
+        - enabled
+      - key: check-configmap-no-executable-code.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: configmap-no-executable-code-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 7e9b70e6-e20d-5bbb-9069-03a99ebb5489
+  labels:
+    check-configmap-no-executable-code.security.kolteq.com/audit: 'false,true'
+    check-configmap-no-executable-code.security.kolteq.com/enforce: 'false,true'
+    check-configmap-no-executable-code.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: configmap-no-executable-code
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-configmap-no-executable-code.security.kolteq.com/audit
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: configmap-no-executable-code-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 7e9b70e6-e20d-5bbb-9069-03a99ebb5489
+  labels:
+    check-configmap-no-executable-code.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/enforce: enabled
+    check-configmap-no-executable-code.security.kolteq.com/audit: 'false,true'
+    check-configmap-no-executable-code.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: configmap-no-executable-code
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/enforce
+        operator: In
+        values:
+        - enabled
+      - key: check-configmap-no-executable-code.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: configmap-no-executable-code-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 7e9b70e6-e20d-5bbb-9069-03a99ebb5489
+  labels:
+    check-configmap-no-executable-code.security.kolteq.com/enforce: 'false,true'
+    check-configmap-no-executable-code.security.kolteq.com/audit: 'false,true'
+    check-configmap-no-executable-code.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: configmap-no-executable-code
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-configmap-no-executable-code.security.kolteq.com/enforce
+        operator: In
+        values:
+        - 'true'

@@ -1,0 +1,43 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: selinux-type
+  annotations:
+    security.kubeapt.io/displayName: 'Selinux Type'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for selinux-type.
+    security.kubeapt.io/resource: Pods
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the selinux-type policy.
+    policies.kolteq.com/validatingAdmissionPolicy: dc82b9eb-6c91-58e0-b8fe-3e043fe48327
+  labels:
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+    selinux-type.security.kolteq.com/audit: 'false,true'
+    selinux-type.security.kolteq.com/enforce: 'false,true'
+    selinux-type.security.kolteq.com/warn: 'false,true'
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  variables:
+    - name: allowedSELinuxTypes
+      expression: >
+        ["container_t","container_init_t","container_kvm_t","container_engine_t"]
+  validations:
+    - expression: >
+        !has(object.spec.securityContext) ||
+        !has(object.spec.securityContext.seLinuxOptions) ||
+        !has(object.spec.securityContext.seLinuxOptions.type) ||
+        object.spec.securityContext.seLinuxOptions.type == "" ||
+        variables.allowedSELinuxTypes.exists(t, t == object.spec.securityContext.seLinuxOptions.type)
+      message: >
+        spec.securityContext.seLinuxOptions.type must be undefined, empty (""), or one of:
+        container_t, container_init_t, container_kvm_t, container_engine_t.

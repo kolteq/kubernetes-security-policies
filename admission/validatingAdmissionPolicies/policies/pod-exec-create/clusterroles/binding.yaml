@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-pod-exec-create-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 58b79d2c-e5b3-5e8c-bf88-1eaf79481677
+spec:
+  policyName: clusterrole-pod-exec-create
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-pod-exec-create-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 58b79d2c-e5b3-5e8c-bf88-1eaf79481677
+spec:
+  policyName: clusterrole-pod-exec-create
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-pod-exec-create-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 58b79d2c-e5b3-5e8c-bf88-1eaf79481677
+spec:
+  policyName: clusterrole-pod-exec-create
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-pod-exec-create-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 58b79d2c-e5b3-5e8c-bf88-1eaf79481677
+spec:
+  policyName: clusterrole-pod-exec-create
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-pod-exec-create-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 58b79d2c-e5b3-5e8c-bf88-1eaf79481677
+spec:
+  policyName: clusterrole-pod-exec-create
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrole-pod-exec-create-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 58b79d2c-e5b3-5e8c-bf88-1eaf79481677
+spec:
+  policyName: clusterrole-pod-exec-create
+  validationActions:
+  - Deny

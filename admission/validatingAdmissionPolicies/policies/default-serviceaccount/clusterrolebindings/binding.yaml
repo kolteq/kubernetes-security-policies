@@ -1,0 +1,65 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-default-serviceaccount-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 6c8dfce3-1e39-506d-923e-e9cdf21886ff
+spec:
+  policyName: clusterrolebinding-default-serviceaccount
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-default-serviceaccount-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 6c8dfce3-1e39-506d-923e-e9cdf21886ff
+spec:
+  policyName: clusterrolebinding-default-serviceaccount
+  validationActions:
+  - Warn
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-default-serviceaccount-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 6c8dfce3-1e39-506d-923e-e9cdf21886ff
+spec:
+  policyName: clusterrolebinding-default-serviceaccount
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-default-serviceaccount-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 6c8dfce3-1e39-506d-923e-e9cdf21886ff
+spec:
+  policyName: clusterrolebinding-default-serviceaccount
+  validationActions:
+  - Audit
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-default-serviceaccount-namespace-optout-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 6c8dfce3-1e39-506d-923e-e9cdf21886ff
+spec:
+  policyName: clusterrolebinding-default-serviceaccount
+  validationActions:
+  - Deny
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: clusterrolebinding-default-serviceaccount-namespace-optin-enforce
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: 6c8dfce3-1e39-506d-923e-e9cdf21886ff
+spec:
+  policyName: clusterrolebinding-default-serviceaccount
+  validationActions:
+  - Deny

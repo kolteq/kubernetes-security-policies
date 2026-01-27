@@ -1,0 +1,42 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: windows-hostprocess-ephemeralcontainers
+  annotations:
+    security.kubeapt.io/displayName: 'Windows Hostprocess'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for windows-hostprocess/ephemeralcontainers.
+    security.kubeapt.io/resource: Ephemeralcontainers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the windows-hostprocess/ephemeralcontainers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: 46f861d0-ba59-515e-b36b-d8d11d521e96
+  labels:
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/audit: 'false,true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/enforce: 'false,true'
+    windows-hostprocess-ephemeralcontainers.security.kolteq.com/warn: 'false,true'
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE", "UPDATE"]
+        resources: ["pods/ephemeralcontainers"]
+  validations:
+    - expression: >
+        !has(object.spec.ephemeralContainers) ||
+        object.spec.ephemeralContainers.all(c,
+          !has(c.securityContext) ||
+          !has(c.securityContext.windowsOptions) ||
+          !has(c.securityContext.windowsOptions.hostProcess) ||
+          c.securityContext.windowsOptions.hostProcess == false
+        )
+      message: >
+        HostProcess is not allowed for ephemeral containers. Each
+        spec.ephemeralContainers[*].securityContext.windowsOptions.hostProcess
+        must be undefined or set to false.

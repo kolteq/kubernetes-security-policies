@@ -1,0 +1,42 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: rolebinding-anonymous-subjects
+  annotations:
+    security.kubeapt.io/displayName: 'Anonymous Subjects'
+    security.kubeapt.io/description: RoleBindings must not bind roles to anonymous or broadly shared user identities.
+    security.kubeapt.io/resource: RoleBindings
+    security.kubeapt.io/severity: "9"
+    security.kubeapt.io/remediation: "Remove anonymous/broad user subjects from RoleBinding. Fields: subjects[*].kind, subjects[*].name."
+    policies.kolteq.com/validatingAdmissionPolicy: 3216e8b4-598d-5d00-a9ad-a3493b74a5ba
+  labels:
+    check-rolebinding-anonymous-subjects.security.kolteq.com/audit: 'false,true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/enforce: 'false,true'
+    check-rolebinding-anonymous-subjects.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - rolebindings
+  variables:
+  - name: anonymousNames
+    expression: |
+      ["system:anonymous","everyone","all-users"]
+  validations:
+  - expression: |
+      !has(object.subjects) || object.subjects.all(s,
+        !(s.kind == "User" && variables.anonymousNames.exists(n, n == s.name))
+      )
+    message: |
+      RoleBindings must not bind roles to anonymous or broadly shared user identities.

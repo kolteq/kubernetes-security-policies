@@ -1,0 +1,42 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: image-no-latest-ephemeralcontainers
+  annotations:
+    security.kubeapt.io/displayName: 'Image No Latest'
+    security.kubeapt.io/description: spec.ephemeralContainers[*].image must use an immutable digest or a non-latest tag.
+    security.kubeapt.io/resource: Ephemeralcontainers
+    security.kubeapt.io/severity: "4"
+    security.kubeapt.io/remediation: "Use an immutable digest or a non-latest tag for ephemeral container images. Fields: spec.ephemeralContainers[*].image."
+    policies.kolteq.com/validatingAdmissionPolicy: 04c55983-a52d-5d6b-93be-361f75995a16
+  labels:
+    check-image-no-latest-ephemeralcontainers.security.kolteq.com/audit: 'false,true'
+    check-image-no-latest-ephemeralcontainers.security.kolteq.com/enforce: 'false,true'
+    check-image-no-latest-ephemeralcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ""
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods/ephemeralcontainers
+  validations:
+  - expression: |
+      !has(object.spec.ephemeralContainers) || object.spec.ephemeralContainers.all(ec,
+        ec.image.matches(".*@sha256:[0-9A-Fa-f]{64}") ||
+        (
+          ec.image.lastIndexOf(":") > ec.image.lastIndexOf("/") &&
+          !ec.image.lowerAscii().endsWith(":latest")
+        )
+      )
+    message: |
+      spec.ephemeralContainers[*].image must use an immutable digest or a non-latest tag.

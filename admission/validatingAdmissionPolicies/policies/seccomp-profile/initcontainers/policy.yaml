@@ -1,0 +1,47 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: seccomp-profile-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: 'Seccomp Profile'
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for seccomp-profile/initcontainers.
+    security.kubeapt.io/resource: Initcontainers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the seccomp-profile/initcontainers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: a56ead5a-79d8-5ede-9dce-3960023aeac4
+  labels:
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    seccomp-profile-initcontainers.security.kolteq.com/audit: 'false,true'
+    seccomp-profile-initcontainers.security.kolteq.com/enforce: 'false,true'
+    seccomp-profile-initcontainers.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  variables:
+    - name: allowedSeccompTypes
+      expression: >
+        ["RuntimeDefault","Localhost"]
+  validations:
+    - expression: >
+        (has(object.spec.os) &&
+         has(object.spec.os.name) &&
+         object.spec.os.name.lowerAscii() == "windows") ||
+        !has(object.spec.initContainers) ||
+        object.spec.initContainers.all(ic,
+          !has(ic.securityContext) ||
+          !has(ic.securityContext.seccompProfile) ||
+          !has(ic.securityContext.seccompProfile.type) ||
+          variables.allowedSeccompTypes.exists(t, t == ic.securityContext.seccompProfile.type)
+        )
+      message: >
+        spec.initContainers[*].securityContext.seccompProfile.type must be undefined, RuntimeDefault, or Localhost.

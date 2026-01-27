@@ -1,0 +1,161 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: service-account-name-namespace-optout-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: d3543428-8c36-57dd-823f-a11d87da645e
+  labels:
+    check-service-account-name.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/warn: enabled
+    check-service-account-name.security.kolteq.com/audit: 'false,true'
+    check-service-account-name.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+spec:
+  policyName: service-account-name
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/warn
+        operator: In
+        values:
+        - enabled
+      - key: check-service-account-name.security.kolteq.com/warn
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: service-account-name-namespace-optin-warn
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: d3543428-8c36-57dd-823f-a11d87da645e
+  labels:
+    check-service-account-name.security.kolteq.com/warn: 'false,true'
+    check-service-account-name.security.kolteq.com/audit: 'false,true'
+    check-service-account-name.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: service-account-name
+  validationActions:
+  - Warn
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-service-account-name.security.kolteq.com/warn
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: service-account-name-namespace-optout-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: d3543428-8c36-57dd-823f-a11d87da645e
+  labels:
+    check-service-account-name.security.kolteq.com/audit: 'false,true'
+    security.kolteq.com/audit: enabled
+    check-service-account-name.security.kolteq.com/enforce: 'false,true'
+    check-service-account-name.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: service-account-name
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/audit
+        operator: In
+        values:
+        - enabled
+      - key: check-service-account-name.security.kolteq.com/audit
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: service-account-name-namespace-optin-audit
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: d3543428-8c36-57dd-823f-a11d87da645e
+  labels:
+    check-service-account-name.security.kolteq.com/audit: 'false,true'
+    check-service-account-name.security.kolteq.com/enforce: 'false,true'
+    check-service-account-name.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: service-account-name
+  validationActions:
+  - Audit
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-service-account-name.security.kolteq.com/audit
+        operator: In
+        values:
+        - 'true'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: service-account-name-namespace-optout-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: d3543428-8c36-57dd-823f-a11d87da645e
+  labels:
+    check-service-account-name.security.kolteq.com/enforce: 'false,true'
+    security.kolteq.com/enforce: enabled
+    check-service-account-name.security.kolteq.com/audit: 'false,true'
+    check-service-account-name.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: service-account-name
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: security.kolteq.com/enforce
+        operator: In
+        values:
+        - enabled
+      - key: check-service-account-name.security.kolteq.com/enforce
+        operator: NotIn
+        values:
+        - 'false'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: service-account-name-namespace-optin-deny
+  annotations:
+    policies.kolteq.com/validatingAdmissionPolicy: d3543428-8c36-57dd-823f-a11d87da645e
+  labels:
+    check-service-account-name.security.kolteq.com/enforce: 'false,true'
+    check-service-account-name.security.kolteq.com/audit: 'false,true'
+    check-service-account-name.security.kolteq.com/warn: 'false,true'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  policyName: service-account-name
+  validationActions:
+  - Deny
+  matchResources:
+    namespaceSelector:
+      matchExpressions:
+      - key: check-service-account-name.security.kolteq.com/enforce
+        operator: In
+        values:
+        - 'true'

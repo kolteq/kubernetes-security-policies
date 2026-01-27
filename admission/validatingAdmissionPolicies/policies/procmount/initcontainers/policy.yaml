@@ -1,0 +1,39 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: procmount-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: Procmount
+    security.kubeapt.io/description: ValidatingAdmissionPolicy for procmount/initcontainers.
+    security.kubeapt.io/resource: Initcontainers
+    security.kubeapt.io/severity: medium
+    security.kubeapt.io/remediation: Adjust workloads to satisfy the procmount/initcontainers policy.
+    policies.kolteq.com/validatingAdmissionPolicy: bd6f27d4-fdf4-5eb7-bbb0-5c0db070136f
+  labels:
+    procmount-initcontainers.security.kolteq.com/audit: 'false,true'
+    procmount-initcontainers.security.kolteq.com/enforce: 'false,true'
+    procmount-initcontainers.security.kolteq.com/warn: 'false,true'
+    pss.security.kolteq.com/audit: 'baseline,restricted'
+    pss.security.kolteq.com/enforce: 'baseline,restricted'
+    pss.security.kolteq.com/warn: 'baseline,restricted'
+    security.kolteq.com/audit: enabled
+    security.kolteq.com/enforce: enabled
+    security.kolteq.com/warn: enabled
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE","UPDATE"]
+        resources: ["pods"]
+  validations:
+    - expression: >
+        !has(object.spec.initContainers) ||
+        object.spec.initContainers.all(ic,
+          !has(ic.securityContext) ||
+          !has(ic.securityContext.procMount) ||
+          ic.securityContext.procMount == "Default"
+        )
+      message: >
+        spec.initContainers[*].securityContext.procMount must be undefined or "Default".
