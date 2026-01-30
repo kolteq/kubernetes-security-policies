@@ -1,4 +1,4 @@
-name: Test Policies
+name: Test Istio Policies
 
 on:
   pull_request:
@@ -8,11 +8,11 @@ on:
       - opened
       - reopened
       - synchronize
-    workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
-  test-policies:
-    name: Test Policies
+  test-istio:
+    name: Test Istio Policies
     runs-on: ubuntu-latest
 
     steps:
@@ -24,6 +24,5 @@ jobs:
         with:
           version: v0.31.0
 
-      - name: Run Policy Tests
-        run: make test
-
+      - name: Run Istio Policy Tests
+        run: make test-istio

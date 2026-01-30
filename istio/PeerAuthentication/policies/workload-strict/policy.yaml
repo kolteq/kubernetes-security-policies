@@ -1,0 +1,14 @@
+apiVersion: security.istio.io/v1
+kind: PeerAuthentication
+metadata:
+  name: app-strict
+  namespace: default
+  annotations:
+    kubedrill.io/displayName: "Workload mTLS Strict"
+    kubedrill.io/description: "Enforce STRICT mTLS for the payments workload."
+spec:
+  selector:
+    matchLabels:
+      app: payments
+  mtls:
+    mode: STRICT

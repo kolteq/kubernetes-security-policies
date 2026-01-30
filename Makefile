@@ -1,9 +1,12 @@
-.PHONY: test test-vap build build-vap-bundles clean clean-vap-bundles
+.PHONY: test test-vap test-istio build build-vap-bundles clean clean-vap-bundles
 
-test: test-vap
+test: test-vap test-istio
 
 test-vap:
 	./admission/ValidatingAdmissionPolicy/test_ValidatingAdmissionPolicy.sh
+
+test-istio:
+	./istio/test_all.sh
 
 build: build-vap-bundles
 

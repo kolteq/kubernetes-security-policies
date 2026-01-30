@@ -1,0 +1,18 @@
+apiVersion: security.istio.io/v1
+kind: RequestAuthentication
+metadata:
+  name: jwt-audience
+  namespace: default
+  annotations:
+    kubedrill.io/displayName: "JWT Audience Validation"
+    kubedrill.io/description: "Validate JWT issuer and required audience for the api-gateway workload."
+spec:
+  selector:
+    matchLabels:
+      app: api-gateway
+  jwtRules:
+  - issuer: "https://issuer.example.com"
+    audiences:
+    - "api"
+    jwks: |
+      {"keys":[{"kty":"RSA","alg":"RS256","use":"sig","kid":"test-key-1","n":"l_ptJ-F--JPERDGfP08z6_Qx2nt9a3fWjYiDRI3ZGSjjnYfLFfcktla7iBkYfO2fgo2T_qQj1rk_pOQQEhEtoG0EzJo0VRq-M_YtYuvQkRzBd8BKYHH4wu2Pr31li5Izf5zSLD_8712kRmOHcy0eEIDuXFF6EC5aoosROLXDYu4eZRybFQQSBuwdZD4qruQ7FNb-NrAuMLkV5tjkeGab1bJdNqTuSYt8ZOrD900swPub4w_2zEqvfJjl3FbpWxQX4rkRcI8TK7lc2AeOX6tWJwlRqkBMv_FsEtmYcKz31yjWPyUehgHsYCF6SbDRDdhz5SRaRyon-wBnQiT5-93JKw","e":"AQAB"}]}

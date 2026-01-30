@@ -1,0 +1,18 @@
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-same-namespace
+  namespace: default
+  annotations:
+    kubedrill.io/displayName: "Allow Same Namespace"
+    kubedrill.io/description: "Allow requests to the public workload only from the same namespace."
+spec:
+  selector:
+    matchLabels:
+      app: public
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        namespaces:
+        - default
