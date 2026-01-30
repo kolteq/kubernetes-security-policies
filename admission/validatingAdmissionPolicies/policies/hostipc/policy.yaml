@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: Hostipc
     security.kubeapt.io/description: ValidatingAdmissionPolicy for hostipc.
     security.kubeapt.io/resource: Pods
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "10"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the hostipc policy.
     policies.kolteq.com/validatingAdmissionPolicy: 5857de86-e1f4-5b68-a0ba-30b370f12dc5
   labels:

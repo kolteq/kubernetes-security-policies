@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Run As Group'
     security.kubeapt.io/description: spec.securityContext.runAsGroup must be undefined or a non-zero value (> 0).
     security.kubeapt.io/resource: Pods
-    security.kubeapt.io/severity: "6"
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: "Set spec.securityContext.runAsGroup to >0 or omit it. Fields: spec.securityContext.runAsGroup."
     policies.kolteq.com/validatingAdmissionPolicy: be5a7534-d5dd-5537-b435-9a51be36091f
   labels:

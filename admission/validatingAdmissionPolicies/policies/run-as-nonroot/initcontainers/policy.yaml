@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Run As Nonroot'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for run-as-nonroot/initcontainers.
     security.kubeapt.io/resource: Initcontainers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the run-as-nonroot/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 8e5ea7fe-f071-5538-a13c-89b00413b610
   labels:

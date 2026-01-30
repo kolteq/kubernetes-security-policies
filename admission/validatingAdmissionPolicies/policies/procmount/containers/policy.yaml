@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: Procmount
     security.kubeapt.io/description: ValidatingAdmissionPolicy for procmount/containers.
     security.kubeapt.io/resource: Containers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "10"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the procmount/containers policy.
     policies.kolteq.com/validatingAdmissionPolicy: d037449d-51fc-54a7-aa2d-913f568f7279
   labels:

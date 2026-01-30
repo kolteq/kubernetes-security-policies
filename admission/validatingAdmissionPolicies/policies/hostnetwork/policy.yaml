@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: Hostnetwork
     security.kubeapt.io/description: ValidatingAdmissionPolicy for hostnetwork.
     security.kubeapt.io/resource: Pods
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "10"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the hostnetwork policy.
     policies.kolteq.com/validatingAdmissionPolicy: 4d8ef6f6-a6aa-5cdc-aa65-050431083b71
   labels:

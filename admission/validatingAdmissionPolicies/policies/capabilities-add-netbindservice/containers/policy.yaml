@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Capabilities Add Netbindservice'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for capabilities-add-netbindservice/containers.
     security.kubeapt.io/resource: Containers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the capabilities-add-netbindservice/containers policy.
     policies.kolteq.com/validatingAdmissionPolicy: b101993a-4538-5f11-8e4b-5fa1795e1d4c
   labels:

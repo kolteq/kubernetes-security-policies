@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Livenessprobe Tcpsocket Host'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for livenessprobe-tcpsocket-host/initcontainers.
     security.kubeapt.io/resource: Initcontainers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "3"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the livenessprobe-tcpsocket-host/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: a2453cfe-50a8-5541-b5b4-408ee94b390a
   labels:

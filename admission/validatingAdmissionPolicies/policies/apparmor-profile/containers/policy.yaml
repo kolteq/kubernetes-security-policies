@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Apparmor Profile'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for apparmor-profile/containers.
     security.kubeapt.io/resource: Containers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the apparmor-profile/containers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 729e55cd-8106-5cf0-b359-6d9bff405b0a
   labels:

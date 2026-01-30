@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: Hostusers
     security.kubeapt.io/description: Using hostUsers is disallowed. spec.hostUsers must be undefined or set to false.
     security.kubeapt.io/resource: Pods
-    security.kubeapt.io/severity: "9"
+    security.kubeapt.io/severity: "10"
     security.kubeapt.io/remediation: "Set spec.hostUsers=false or omit it. Fields: spec.hostUsers."
     policies.kolteq.com/validatingAdmissionPolicy: ef824444-e21d-5f0c-8b9e-58ae3fba230b
   labels:

@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Tls Required'
     security.kubeapt.io/description: Ingress must include a TLS entry covering every host in spec.rules[*].host.
     security.kubeapt.io/resource: Ingresses
-    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/severity: "7"
     security.kubeapt.io/remediation: "Add spec.tls entries covering all spec.rules[*].host values. Fields: spec.rules[].host, spec.tls[].hosts."
     policies.kolteq.com/validatingAdmissionPolicy: ad5c2c5d-ae2c-599a-8bb1-56968e55ff5d
   labels:

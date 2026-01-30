@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Serviceaccounts Write'
     security.kubeapt.io/description: ClusterRoles must not grant create/update/patch/delete on ServiceAccounts without strict
     security.kubeapt.io/resource: ClusterRoles
-    security.kubeapt.io/severity: "8"
+    security.kubeapt.io/severity: "9"
     security.kubeapt.io/remediation: "Remove create/update/patch/delete on serviceaccounts. Fields: rules[*].resources, rules[*].verbs."
     policies.kolteq.com/validatingAdmissionPolicy: c2751a05-1009-572f-bb3d-6804d2d573b5
 spec:

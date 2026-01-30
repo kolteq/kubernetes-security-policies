@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Seccomp Profile'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for seccomp-profile/initcontainers.
     security.kubeapt.io/resource: Initcontainers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the seccomp-profile/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: a56ead5a-79d8-5ede-9dce-3960023aeac4
   labels:

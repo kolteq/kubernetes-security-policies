@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Serviceaccounts Write'
     security.kubeapt.io/description: Roles must not grant create/update/patch/delete on ServiceAccounts without strict scoping.
     security.kubeapt.io/resource: Roles
-    security.kubeapt.io/severity: "8"
+    security.kubeapt.io/severity: "9"
     security.kubeapt.io/remediation: "Remove create/update/patch/delete on serviceaccounts. Fields: rules[*].resources, rules[*].verbs."
     policies.kolteq.com/validatingAdmissionPolicy: cc916b1d-3a80-5ac5-9445-4f8b438f534b
   labels:

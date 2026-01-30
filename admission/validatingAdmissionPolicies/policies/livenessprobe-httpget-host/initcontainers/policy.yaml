@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Livenessprobe Httpget Host'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for livenessprobe-httpget-host/initcontainers.
     security.kubeapt.io/resource: Initcontainers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "3"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the livenessprobe-httpget-host/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 32cab35f-b5d0-5896-a5e6-7c5ac722ffd0
   labels:

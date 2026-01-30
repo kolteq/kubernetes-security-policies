@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: Privileged
     security.kubeapt.io/description: ValidatingAdmissionPolicy for privileged/containers.
     security.kubeapt.io/resource: Containers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "10"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the privileged/containers policy.
     policies.kolteq.com/validatingAdmissionPolicy: f0ca8163-6be7-5de8-b2c8-eadc6f4a146e
   labels:

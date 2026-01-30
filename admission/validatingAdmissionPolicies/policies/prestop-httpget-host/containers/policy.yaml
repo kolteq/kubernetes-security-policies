@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Prestop Httpget Host'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for prestop-httpget-host/containers.
     security.kubeapt.io/resource: Containers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "3"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the prestop-httpget-host/containers policy.
     policies.kolteq.com/validatingAdmissionPolicy: 9a7503f9-b67d-54d3-9dd8-997c792c8d5b
   labels:

@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Selinux Type'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for selinux-type.
     security.kubeapt.io/resource: Pods
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the selinux-type policy.
     policies.kolteq.com/validatingAdmissionPolicy: dc82b9eb-6c91-58e0-b8fe-3e043fe48327
   labels:

@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Run As User'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for run-as-user/initcontainers.
     security.kubeapt.io/resource: Initcontainers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the run-as-user/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: b0b12148-6f01-5444-af4f-61e5de824ba2
   labels:

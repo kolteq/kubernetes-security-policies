@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Apparmor Annotation Values'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for apparmor-annotation-values.
     security.kubeapt.io/resource: Pods
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the apparmor-annotation-values policy.
     policies.kolteq.com/validatingAdmissionPolicy: 934375f3-3b04-5b5b-937c-24c962bb253b
   labels:

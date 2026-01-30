@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Cert Auth Review'
     security.kubeapt.io/description: ClusterRoles must not grant write/approve access to CSRs, authz/authn review APIs.
     security.kubeapt.io/resource: ClusterRoles
-    security.kubeapt.io/severity: "9"
+    security.kubeapt.io/severity: "3"
     security.kubeapt.io/remediation: "Remove write/approve verbs for CSR and auth review resources. Fields: rules[*].apiGroups, rules[*].resources, rules[*].verbs."
     policies.kolteq.com/validatingAdmissionPolicy: 9eb3da31-8c21-5178-99da-794d48d419d3
 spec:

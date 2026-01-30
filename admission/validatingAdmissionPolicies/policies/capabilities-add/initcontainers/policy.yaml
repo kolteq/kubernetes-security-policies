@@ -6,7 +6,7 @@ metadata:
     security.kubeapt.io/displayName: 'Capabilities Add'
     security.kubeapt.io/description: ValidatingAdmissionPolicy for capabilities-add/initcontainers.
     security.kubeapt.io/resource: Initcontainers
-    security.kubeapt.io/severity: medium
+    security.kubeapt.io/severity: "5"
     security.kubeapt.io/remediation: Adjust workloads to satisfy the capabilities-add/initcontainers policy.
     policies.kolteq.com/validatingAdmissionPolicy: dfff1252-565b-57fa-89b1-3482a936740c
   labels:
