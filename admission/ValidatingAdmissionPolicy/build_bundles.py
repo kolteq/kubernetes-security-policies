@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+import hashlib
 import json
 import re
 import shutil
@@ -84,6 +85,15 @@ def write_readme(bundle_dir: Path, name: str, description: str, bundle_slug: str
     (bundle_dir / "README.md").write_text("\n".join(lines))
 
 
+def write_checksum(archive_path: Path):
+    hasher = hashlib.sha256()
+    with archive_path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            hasher.update(chunk)
+    checksum_path = archive_path.with_suffix(archive_path.suffix + ".sha256")
+    checksum_path.write_text(f"{hasher.hexdigest()}  {archive_path.name}\n")
+
+
 def build_bundle(root: Path, bundle_path: Path, id_to_paths, out_dir: Path):
     name, description, policy_ids = read_bundle(bundle_path)
     bundle_slug = bundle_path.stem
@@ -110,12 +120,14 @@ def build_bundle(root: Path, bundle_path: Path, id_to_paths, out_dir: Path):
         tar_path = out_dir / f"{bundle_slug}.tar.gz"
         with tarfile.open(tar_path, "w:gz") as tar:
             tar.add(bundle_dir, arcname=bundle_slug)
+        write_checksum(tar_path)
 
         zip_path = out_dir / f"{bundle_slug}.zip"
         with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as zf:
             for file_path in bundle_dir.rglob("*"):
                 if file_path.is_file():
                     zf.write(file_path, file_path.relative_to(tmp_root))
+        write_checksum(zip_path)
 
 
 def build_bundle_json_from_labels(
