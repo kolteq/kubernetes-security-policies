@@ -4,6 +4,9 @@ metadata:
   name: default
   # This must be the namespace where istiod is deployed!
   namespace: istio-system
+  annotations:
+    kubedrill.io/displayName: "Mesh-wide mTLS Strict"
+    kubedrill.io/description: "Enforce STRICT mTLS across the entire mesh."
 spec:
   mtls:
     mode: STRICT

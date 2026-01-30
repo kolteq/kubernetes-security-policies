@@ -1,0 +1,28 @@
+name: Test ValidatingAdmissionPolicies
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+  workflow_dispatch:
+
+jobs:
+  test-vap:
+    name: Test ValidatingAdmissionPolicies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create k8s Kind Cluster
+        uses: helm/kind-action@v1
+        with:
+          version: v0.31.0
+
+      - name: Run ValidatingAdmissionPolicies Tests
+        run: make test-vap
