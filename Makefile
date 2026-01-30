@@ -3,14 +3,14 @@
 test: test-vap
 
 test-vap:
-	./admission/validatingAdmissionPolicies/policy_tests.sh
+	./admission/ValidatingAdmissionPolicy/test_ValidatingAdmissionPolicy.sh
 
 build: build-vap-bundles
 
 build-vap-bundles:
-	./admission/validatingAdmissionPolicies/build_bundles.py --build
+	./admission/ValidatingAdmissionPolicy/build_bundles.py --build
 
 clean: clean-vap-bundles
 
 clean-vap-bundles:
-	rm ./admission/validatingAdmissionPolicies/bundles/*.zip ./admission/validatingAdmissionPolicies/bundles/*.tar.gz
+	rm ./admission/ValidatingAdmissionPolicy/bundles/*.zip ./admission/ValidatingAdmissionPolicy/bundles/*.tar.gz
