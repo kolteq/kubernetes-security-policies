@@ -1,0 +1,17 @@
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-get-only
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: api-gateway
+  action: ALLOW
+  rules:
+  - to:
+    - operation:
+        methods:
+        - GET
+        ports:
+        - "8080"

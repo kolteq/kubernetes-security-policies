@@ -1,0 +1,15 @@
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-serviceaccount
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: payments
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        principals:
+        - cluster.local/ns/default/sa/payments-client

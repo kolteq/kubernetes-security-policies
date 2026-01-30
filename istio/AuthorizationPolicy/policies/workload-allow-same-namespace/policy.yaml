@@ -1,0 +1,15 @@
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-same-namespace
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: public
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        namespaces:
+        - default
