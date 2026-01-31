@@ -16,4 +16,4 @@ build-vap-bundles:
 clean: clean-vap-bundles
 
 clean-vap-bundles:
-	rm ./admission/ValidatingAdmissionPolicy/bundles/*.zip ./admission/ValidatingAdmissionPolicy/bundles/*.tar.gz
+	rm ./admission/ValidatingAdmissionPolicy/bundles/*.zip* ./admission/ValidatingAdmissionPolicy/bundles/*.tar.gz* ./admission/ValidatingAdmissionPolicy/bundles/bundles.json
