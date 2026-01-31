@@ -10,7 +10,7 @@ import zipfile
 from pathlib import Path
 import yaml
 
-ID_RE = re.compile(r"policies\.kolteq\.com/validatingAdmissionPolicy:\s*([0-9a-f\-]+)")
+ID_RE = re.compile(r"policies\.kolteq\.com/ValidatingAdmissionPolicy:\s*([0-9a-f\-]+)")
 LABEL_RE = re.compile(r"^[A-Za-z0-9]([A-Za-z0-9_.-]{0,61}[A-Za-z0-9])?$")
 DNS_LABEL_RE = re.compile(r"^[a-z0-9]([-a-z0-9]*[a-z0-9])?$")
 
