@@ -13,6 +13,7 @@ import yaml
 ID_RE = re.compile(r"policies\.kolteq\.com/ValidatingAdmissionPolicy:\s*([0-9a-f\-]+)")
 LABEL_RE = re.compile(r"^[A-Za-z0-9]([A-Za-z0-9_.-]{0,61}[A-Za-z0-9])?$")
 DNS_LABEL_RE = re.compile(r"^[a-z0-9]([-a-z0-9]*[a-z0-9])?$")
+BUNDLES_INDEX_NAME = "bundles.json"
 
 
 def index_policy_files(root: Path):
@@ -37,6 +38,21 @@ def read_bundle(bundle_path: Path):
         description = ""
         policy_ids = data
     return name, description, policy_ids
+
+
+def collect_bundle_paths(bundles_dir: Path) -> list[Path]:
+    return [
+        path
+        for path in sorted(bundles_dir.glob("*.json"))
+        if path.name != BUNDLES_INDEX_NAME
+    ]
+
+
+def write_bundles_index(bundles_dir: Path, bundle_paths: list[Path]):
+    names = [path.stem for path in bundle_paths]
+    names = sorted(set(names), key=str.casefold)
+    index_path = bundles_dir / BUNDLES_INDEX_NAME
+    index_path.write_text(json.dumps(names, indent=4) + "\n")
 
 
 def is_valid_label_key(label: str) -> bool:
@@ -224,7 +240,9 @@ def main():
     if args.build:
         out_dir = bundles_dir
         id_to_paths = index_policy_files(root)
-        for bundle_path in sorted(bundles_dir.glob("*.json")):
+        bundle_paths = collect_bundle_paths(bundles_dir)
+        write_bundles_index(bundles_dir, bundle_paths)
+        for bundle_path in bundle_paths:
             build_bundle(root, bundle_path, id_to_paths, out_dir)
 
 
