@@ -10,7 +10,10 @@ import zipfile
 from pathlib import Path
 import yaml
 
-ID_RE = re.compile(r"policies\.kolteq\.com/ValidatingAdmissionPolicy:\s*([0-9a-f\-]+)")
+ID_RE = re.compile(
+    r"policies\.kolteq\.com/validatingAdmissionPolicy:\s*([0-9a-f\-]+)",
+    re.IGNORECASE,
+)
 LABEL_RE = re.compile(r"^[A-Za-z0-9]([A-Za-z0-9_.-]{0,61}[A-Za-z0-9])?$")
 DNS_LABEL_RE = re.compile(r"^[a-z0-9]([-a-z0-9]*[a-z0-9])?$")
 BUNDLES_INDEX_NAME = "bundles.json"
@@ -87,7 +90,7 @@ def write_readme(bundle_dir: Path, name: str, description: str, bundle_slug: str
         [
             "Apply:",
             "```bash",
-            "kubectl apply -f . --recursive",
+            "kubectl apply -f policies/ --recursive",
             "```",
             "",
             "View online:",
@@ -125,9 +128,10 @@ def build_bundle(root: Path, bundle_path: Path, id_to_paths, out_dir: Path):
                 files.add(path)
 
         policies_root = root / "policies"
+        policies_dir = bundle_dir / "policies"
         for path in sorted(files):
             rel = path.relative_to(policies_root)
-            dest = bundle_dir / rel
+            dest = policies_dir / rel
             dest.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(path, dest)
 
