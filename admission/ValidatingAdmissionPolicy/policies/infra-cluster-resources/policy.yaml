@@ -1,0 +1,67 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: clusterrole-infra-cluster-resources
+  annotations:
+    security.kubeapt.io/displayName: "Infra Cluster Resources"
+    security.kubeapt.io/description: "ClusterRoles must not grant broad access to nodes (read/proxy), persistent volumes, storageclasses,"
+    security.kubeapt.io/resource: "ClusterRoles"
+    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/remediation: "Remove broad access to nodes, PVs, storageclasses, and namespace write verbs. Fields: rules[*].apiGroups, rules[*].resources, rules[*].verbs."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - clusterroles
+  variables:
+  - name: nodeResources
+    expression: |
+      ["nodes","nodes/proxy","nodes/log","nodes/metrics"]
+  - name: pvResources
+    expression: |
+      ["persistentvolumes"]
+  - name: storageResources
+    expression: |
+      ["storageclasses"]
+  - name: namespaceResources
+    expression: |
+      ["namespaces"]
+  - name: writeVerbs
+    expression: |
+      ["create","update","patch","delete","proxy"]
+  - name: readVerbs
+    expression: |
+      ["get","list","watch","proxy"]
+  validations:
+  - expression: |
+      !has(object.rules) || object.rules.all(r,
+        !(
+          (has(r.apiGroups) && has(r.resources) && has(r.verbs) &&
+           r.apiGroups.exists(ag, ag == "") &&
+           r.resources.exists(res, variables.nodeResources.exists(nr, nr == res)) &&
+           r.verbs.exists(v, variables.readVerbs.exists(rv, rv == v))) ||
+          (has(r.apiGroups) && has(r.resources) && has(r.verbs) &&
+           r.apiGroups.exists(ag, ag == "") &&
+           r.resources.exists(res, variables.pvResources.exists(pr, pr == res)) &&
+           r.verbs.exists(v, variables.writeVerbs.exists(wv, wv == v))) ||
+          (has(r.apiGroups) && has(r.resources) && has(r.verbs) &&
+           r.apiGroups.exists(ag, ag == "") &&
+           r.resources.exists(res, variables.storageResources.exists(sr, sr == res)) &&
+           r.verbs.exists(v, variables.writeVerbs.exists(wv, wv == v))) ||
+          (has(r.apiGroups) && has(r.resources) && has(r.verbs) &&
+           r.apiGroups.exists(ag, ag == "") &&
+           r.resources.exists(res, variables.namespaceResources.exists(nsr, nsr == res)) &&
+           r.verbs.exists(v, variables.writeVerbs.exists(wv, wv == v)))
+        )
+      )
+    message: |
+      ClusterRoles must not grant broad access to nodes (read/proxy), persistent volumes, storageclasses, or namespace create/update/patch/delete.

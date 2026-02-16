@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: violating-no-token-secrets
+automountServiceAccountToken: false
+secrets:
+- name: legacy-token

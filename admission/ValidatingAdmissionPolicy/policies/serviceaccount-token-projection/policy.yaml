@@ -1,0 +1,34 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: serviceaccount-token-projection
+  annotations:
+    security.kubeapt.io/displayName: "Serviceaccount Token Projection"
+    security.kubeapt.io/description: "Pods using a serviceAccountName must include a projected serviceAccountToken volume."
+    security.kubeapt.io/resource: "Pods"
+    security.kubeapt.io/severity: "3"
+    security.kubeapt.io/remediation: "Add projected serviceAccountToken volume when using serviceAccountName. Fields: spec.serviceAccountName, spec.volumes[].projected.sources[].serviceAccountToken."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      !has(object.spec.serviceAccountName) || (has(object.spec.volumes) &&
+       object.spec.volumes.exists(v,
+         has(v.projected) &&
+         has(v.projected.sources) &&
+         v.projected.sources.exists(s, has(s.serviceAccountToken))
+       ))
+    message: |
+      Pods using a serviceAccountName must include a projected serviceAccountToken volume.

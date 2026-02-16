@@ -1,0 +1,40 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: allowed-hostports-ephemeralcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Hostports"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for hostports/ephemeralcontainers."
+    security.kubeapt.io/resource: "Ephemeralcontainers"
+    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the hostports/ephemeralcontainers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods/ephemeralcontainers
+  variables:
+  - name: allowedHostPorts
+    expression: |
+      []
+  validations:
+  - expression: |
+      !has(object.spec.ephemeralContainers) || object.spec.ephemeralContainers.all(ec,
+        !has(ec.ports) ||
+        ec.ports.all(p,
+          !has(p.hostPort) ||
+          p.hostPort == 0 ||
+          variables.allowedHostPorts.exists(h, h == p.hostPort)
+        )
+      )
+    message: |
+      Ephemeral container hostPort must be undefined, 0, or in the variables.allowedHostPorts list.

@@ -1,0 +1,35 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: poststart-httpget-host-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Poststart Httpget Host"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for poststart-httpget-host/initcontainers."
+    security.kubeapt.io/resource: "Initcontainers"
+    security.kubeapt.io/severity: "3"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the poststart-httpget-host/initcontainers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      !has(object.spec.initContainers) || object.spec.initContainers.all(ic,
+        !has(ic.lifecycle) ||
+        !has(ic.lifecycle.postStart) ||
+        !has(ic.lifecycle.postStart.httpGet) ||
+        !has(ic.lifecycle.postStart.httpGet.host) ||
+        ic.lifecycle.postStart.httpGet.host == ""
+      )
+    message: |
+      spec.initContainers[*].lifecycle.postStart.httpGet.host must be undefined or empty ("").

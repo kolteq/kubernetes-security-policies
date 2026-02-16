@@ -1,0 +1,45 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: configmap-no-secrets
+  annotations:
+    security.kubeapt.io/displayName: "No Secrets"
+    security.kubeapt.io/description: "ConfigMaps must not contain secrets, tokens, or private keys. Use Secrets instead."
+    security.kubeapt.io/resource: "ConfigMaps"
+    security.kubeapt.io/severity: "7"
+    security.kubeapt.io/remediation: "Move sensitive values into Secrets and remove from ConfigMap. Fields: data, binaryData."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - configmaps
+  validations:
+  - expression: |
+      (!has(object.data) || !object.data.exists(
+        k,
+        v,
+        (
+          k.lowerAscii().matches(".*(secret|password|passwd|token|apikey|api_key|credential|private|key).*") ||
+          v.matches("(?s).*-----BEGIN (RSA|DSA|EC|PGP) PRIVATE KEY-----.*") ||
+          v.matches("(?i)aws(.{0,10})?(secret|access)[^\\w]?key") ||
+          v.matches("(?i)AWS_?(SECRET|ACCESS)_KEY") ||
+          v.matches("(?i)GOOGLE_APPLICATION_CREDENTIALS") ||
+          v.matches("(?i)AZURE_CLIENT_SECRET")
+        )
+      )) &&
+      (!has(object.binaryData) || !object.binaryData.exists(
+        k,
+        v,
+        k.lowerAscii().matches(".*(secret|password|passwd|token|apikey|api_key|credential|private|key).*")
+      ))
+    message: |
+      ConfigMaps must not contain secrets, tokens, or private keys. Use Secrets instead.

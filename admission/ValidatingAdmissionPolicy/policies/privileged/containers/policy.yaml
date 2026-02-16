@@ -1,0 +1,36 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: privileged-containers
+  annotations:
+    security.kubeapt.io/displayName: "Privileged"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for privileged/containers."
+    security.kubeapt.io/resource: "Containers"
+    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the privileged/containers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      (has(object.spec.os) &&
+       has(object.spec.os.name) &&
+       object.spec.os.name.lowerAscii() == "windows") ||
+      object.spec.containers.all(c,
+        !has(c.securityContext) ||
+        !has(c.securityContext.privileged) ||
+        c.securityContext.privileged == false
+      )
+    message: |
+      Privileged containers are disallowed. All spec.containers[*].securityContext.privileged must be undefined or false.

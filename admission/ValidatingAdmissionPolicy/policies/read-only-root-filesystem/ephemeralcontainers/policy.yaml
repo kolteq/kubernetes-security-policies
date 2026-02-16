@@ -1,0 +1,33 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: read-only-root-filesystem-ephemeralcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Read Only Root Filesystem"
+    security.kubeapt.io/description: "spec.ephemeralContainers[*].securityContext.readOnlyRootFilesystem must be set to true."
+    security.kubeapt.io/resource: "Ephemeralcontainers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Set readOnlyRootFilesystem=true for ephemeralContainers. Fields: spec.ephemeralContainers[*].securityContext.readOnlyRootFilesystem."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods/ephemeralcontainers
+  validations:
+  - expression: |
+      !has(object.spec.ephemeralContainers) || object.spec.ephemeralContainers.all(ec,
+        has(ec.securityContext) &&
+        has(ec.securityContext.readOnlyRootFilesystem) &&
+        ec.securityContext.readOnlyRootFilesystem == true
+      )
+    message: |
+      spec.ephemeralContainers[*].securityContext.readOnlyRootFilesystem must be set to true.

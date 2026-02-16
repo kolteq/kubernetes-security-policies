@@ -1,0 +1,36 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: run-as-nonroot-ephemeralcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Run As Nonroot"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for run-as-nonroot/ephemeralcontainers."
+    security.kubeapt.io/resource: "Ephemeralcontainers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the run-as-nonroot/ephemeralcontainers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods/ephemeralcontainers
+  variables:
+  - name: podNonRootTrue
+    expression: |
+      has(object.spec.securityContext) && has(object.spec.securityContext.runAsNonRoot) && object.spec.securityContext.runAsNonRoot == true
+  validations:
+  - expression: |
+      !has(object.spec.ephemeralContainers) || object.spec.ephemeralContainers.all(ec,
+        variables.podNonRootTrue
+        ? (!has(ec.securityContext) || !has(ec.securityContext.runAsNonRoot) || ec.securityContext.runAsNonRoot == true)
+        : (has(ec.securityContext) && has(ec.securityContext.runAsNonRoot) && ec.securityContext.runAsNonRoot == true)
+      )
+    message: "spec.ephemeralContainers[*].securityContext.runAsNonRoot must be set to true, unless the Pod-level spec.securityContext.runAsNonRoot is true\u2014in which case it may be undefined or true.\n"

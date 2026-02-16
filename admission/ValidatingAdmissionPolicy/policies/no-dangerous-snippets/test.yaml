@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: violating-snippet
+  annotations:
+    nginx.ingress.kubernetes.io/server-snippet: |
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_pass http://127.0.0.1;
+spec:
+  tls:
+  - hosts:
+    - app.example.com
+    secretName: tls-app
+  rules:
+  - host: app.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: demo
+            port:
+              number: 80

@@ -1,0 +1,44 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: allowed-capabilities-add-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Capabilities Add"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for capabilities-add/initcontainers."
+    security.kubeapt.io/resource: "Initcontainers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the capabilities-add/initcontainers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  variables:
+  - name: allowedCaps
+    expression: |
+      ["AUDIT_WRITE","CHOWN","DAC_OVERRIDE","FOWNER","FSETID","KILL",
+       "MKNOD","NET_BIND_SERVICE","SETFCAP","SETGID","SETPCAP","SETUID","SYS_CHROOT"]
+  validations:
+  - expression: |
+      (has(object.spec.os) &&
+       has(object.spec.os.name) &&
+       object.spec.os.name.lowerAscii() == "windows") ||
+      !has(object.spec.initContainers) || object.spec.initContainers.all(ic,
+        !has(ic.securityContext) ||
+        !has(ic.securityContext.capabilities) ||
+        !has(ic.securityContext.capabilities.add) ||
+        ic.securityContext.capabilities.add.all(cap,
+          variables.allowedCaps.exists(a, a == cap)
+        )
+      )
+    message: |
+      Only the baseline capabilities may be added by initContainers: AUDIT_WRITE, CHOWN, DAC_OVERRIDE, FOWNER, FSETID, KILL, MKNOD, NET_BIND_SERVICE, SETFCAP, SETGID, SETPCAP, SETUID, SYS_CHROOT.

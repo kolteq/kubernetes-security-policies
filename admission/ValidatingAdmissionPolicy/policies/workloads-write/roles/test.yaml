@@ -1,0 +1,8 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: violating-role-workloads-write
+rules:
+- apiGroups: ["apps"]
+  resources: ["deployments"]
+  verbs: ["create"]

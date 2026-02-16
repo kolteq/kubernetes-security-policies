@@ -1,0 +1,34 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: clusterrolebinding-powerful-roles
+  annotations:
+    security.kubeapt.io/displayName: "Powerful Roles"
+    security.kubeapt.io/description: "ClusterRoleBindings must not reference powerful roles such as cluster-admin/admin/edit."
+    security.kubeapt.io/resource: "ClusterRoleBindings"
+    security.kubeapt.io/severity: "9"
+    security.kubeapt.io/remediation: "Change roleRef to a non-privileged role. Fields: roleRef.kind, roleRef.name."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - clusterrolebindings
+  variables:
+  - name: powerfulRoles
+    expression: |
+      ["cluster-admin","admin","edit","ns-admin","full-access"]
+  validations:
+  - expression: |
+      !has(object.roleRef) || !(object.roleRef.kind in ["ClusterRole","Role"] &&
+        variables.powerfulRoles.exists(rn, rn == object.roleRef.name))
+    message: |
+      ClusterRoleBindings must not reference powerful roles such as cluster-admin/admin/edit.

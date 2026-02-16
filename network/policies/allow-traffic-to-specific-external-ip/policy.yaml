@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-traffic-to-specific-external-ip
+  annotations:
+    kubedrill.io/displayName: "Allow Egress to Specific External IP"
+    kubedrill.io/description: "Allow egress traffic to the external IP 203.0.113.10/32."
+spec:
+  podSelector: {}
+  policyTypes:
+  - Egress
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 203.0.113.10/32

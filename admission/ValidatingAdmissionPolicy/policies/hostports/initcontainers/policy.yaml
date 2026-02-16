@@ -1,0 +1,40 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: allowed-hostports-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Hostports"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for hostports/initcontainers."
+    security.kubeapt.io/resource: "Initcontainers"
+    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the hostports/initcontainers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  variables:
+  - name: allowedHostPorts
+    expression: |
+      []
+  validations:
+  - expression: |
+      !has(object.spec.initContainers) || object.spec.initContainers.all(ic,
+        !has(ic.ports) ||
+        ic.ports.all(p,
+          !has(p.hostPort) ||
+          p.hostPort == 0 ||
+          variables.allowedHostPorts.exists(h, h == p.hostPort)
+        )
+      )
+    message: |
+      initContainer hostPort must be undefined, 0, or in the variables.allowedHostPorts list.

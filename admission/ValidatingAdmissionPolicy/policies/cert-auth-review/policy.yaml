@@ -1,0 +1,55 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: clusterrole-cert-auth-review
+  annotations:
+    security.kubeapt.io/displayName: "Cert Auth Review"
+    security.kubeapt.io/description: "ClusterRoles must not grant write/approve access to CSRs, authz/authn review APIs."
+    security.kubeapt.io/resource: "ClusterRoles"
+    security.kubeapt.io/severity: "3"
+    security.kubeapt.io/remediation: "Remove write/approve verbs for CSR and auth review resources. Fields: rules[*].apiGroups, rules[*].resources, rules[*].verbs."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - clusterroles
+  variables:
+  - name: certResources
+    expression: |
+      ["certificatesigningrequests","certificatesigningrequests/approval","certificatesigningrequests/status"]
+  - name: authzResources
+    expression: |
+      ["subjectaccessreviews","selfsubjectaccessreviews"]
+  - name: authnResources
+    expression: |
+      ["tokenreviews"]
+  - name: writeVerbs
+    expression: |
+      ["create","update","patch","approve"]
+  validations:
+  - expression: |
+      !has(object.rules) || object.rules.all(r,
+        !(has(r.apiGroups) && has(r.resources) && has(r.verbs) &&
+          r.apiGroups.exists(ag, ag == "certificates.k8s.io") &&
+          r.resources.exists(res, variables.certResources.exists(cr, cr == res)) &&
+          r.verbs.exists(v, variables.writeVerbs.exists(wv, wv == v))) &&
+        !(has(r.apiGroups) && has(r.resources) && has(r.verbs) &&
+          r.apiGroups.exists(ag, ag == "authorization.k8s.io") &&
+          r.resources.exists(res, variables.authzResources.exists(ar, ar == res)) &&
+          r.verbs.exists(v, variables.writeVerbs.exists(wv, wv == v))) &&
+        !(has(r.apiGroups) && has(r.resources) && has(r.verbs) &&
+          r.apiGroups.exists(ag, ag == "authentication.k8s.io") &&
+          r.resources.exists(res, variables.authnResources.exists(anr, anr == res)) &&
+          r.verbs.exists(v, variables.writeVerbs.exists(wv, wv == v)))
+      )
+    message: |
+      ClusterRoles must not grant write/approve access to CSRs, authz/authn review APIs.

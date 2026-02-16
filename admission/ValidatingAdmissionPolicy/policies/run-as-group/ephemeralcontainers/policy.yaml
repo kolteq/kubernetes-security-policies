@@ -1,0 +1,33 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: run-as-group-ephemeralcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Run As Group"
+    security.kubeapt.io/description: "spec.ephemeralContainers[*].securityContext.runAsGroup must be undefined or a non-zero"
+    security.kubeapt.io/resource: "Ephemeralcontainers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Set spec.ephemeralContainers[*].securityContext.runAsGroup to >0 or omit it. Fields: spec.ephemeralContainers[*].securityContext.runAsGroup."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods/ephemeralcontainers
+  validations:
+  - expression: |
+      !has(object.spec.ephemeralContainers) || object.spec.ephemeralContainers.all(ec,
+        !has(ec.securityContext) ||
+        !has(ec.securityContext.runAsGroup) ||
+        ec.securityContext.runAsGroup > 0
+      )
+    message: |
+      spec.ephemeralContainers[*].securityContext.runAsGroup must be undefined or a non-zero value (> 0).

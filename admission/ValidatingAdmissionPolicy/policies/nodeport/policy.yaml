@@ -1,0 +1,29 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: service-nodeport
+  annotations:
+    security.kubeapt.io/displayName: "Nodeport"
+    security.kubeapt.io/description: "Service type NodePort is disallowed; use ClusterIP/LoadBalancer with proper controls."
+    security.kubeapt.io/resource: "Services"
+    security.kubeapt.io/severity: "7"
+    security.kubeapt.io/remediation: "Use ClusterIP or LoadBalancer instead of NodePort. Fields: spec.type."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - services
+  validations:
+  - expression: |
+      !has(object.spec.type) || object.spec.type != "NodePort"
+    message: |
+      Service type NodePort is disallowed; use ClusterIP/LoadBalancer with proper controls.

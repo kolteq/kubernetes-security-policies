@@ -1,0 +1,35 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: prestop-tcpsocket-host-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Prestop Tcpsocket Host"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for prestop-tcpsocket-host/initcontainers."
+    security.kubeapt.io/resource: "Initcontainers"
+    security.kubeapt.io/severity: "3"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the prestop-tcpsocket-host/initcontainers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      !has(object.spec.initContainers) || object.spec.initContainers.all(ic,
+        !has(ic.lifecycle) ||
+        !has(ic.lifecycle.preStop) ||
+        !has(ic.lifecycle.preStop.tcpSocket) ||
+        !has(ic.lifecycle.preStop.tcpSocket.host) ||
+        ic.lifecycle.preStop.tcpSocket.host == ""
+      )
+    message: |
+      spec.initContainers[*].lifecycle.preStop.tcpSocket.host must be undefined or empty ("").

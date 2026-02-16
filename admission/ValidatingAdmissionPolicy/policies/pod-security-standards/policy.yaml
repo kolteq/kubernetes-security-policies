@@ -1,0 +1,32 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: namespace-pod-security-standards
+  annotations:
+    security.kubeapt.io/displayName: "Pod Security Standards"
+    security.kubeapt.io/description: "Namespace must set pod-security.kubernetes.io/{enforce,audit,warn} to baseline or restricted."
+    security.kubeapt.io/resource: "Namespaces"
+    security.kubeapt.io/severity: "3"
+    security.kubeapt.io/remediation: "Set pod-security.kubernetes.io labels to baseline or restricted. Fields: metadata.labels['pod-security.kubernetes.io/enforce'], metadata.labels['pod-security.kubernetes.io/audit'], metadata.labels['pod-security.kubernetes.io/warn']."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - namespaces
+  validations:
+  - expression: |
+      has(object.metadata.labels) &&
+      object.metadata.labels["pod-security.kubernetes.io/enforce"] in ["baseline", "restricted"] ||
+      object.metadata.labels["pod-security.kubernetes.io/audit"] in ["baseline", "restricted"] ||
+      object.metadata.labels["pod-security.kubernetes.io/warn"] in ["baseline", "restricted"]
+    message: |
+      Namespace must set one of pod-security.kubernetes.io/{enforce,audit,warn} to baseline or restricted.

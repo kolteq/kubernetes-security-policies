@@ -1,0 +1,35 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: prestop-httpget-host-containers
+  annotations:
+    security.kubeapt.io/displayName: "Prestop Httpget Host"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for prestop-httpget-host/containers."
+    security.kubeapt.io/resource: "Containers"
+    security.kubeapt.io/severity: "3"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the prestop-httpget-host/containers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      object.spec.containers.all(c,
+        !has(c.lifecycle) ||
+        !has(c.lifecycle.preStop) ||
+        !has(c.lifecycle.preStop.httpGet) ||
+        !has(c.lifecycle.preStop.httpGet.host) ||
+        c.lifecycle.preStop.httpGet.host == ""
+      )
+    message: |
+      spec.containers[*].lifecycle.preStop.httpGet.host must be undefined or empty ("").

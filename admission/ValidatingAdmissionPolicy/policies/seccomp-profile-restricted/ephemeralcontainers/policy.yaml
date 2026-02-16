@@ -1,0 +1,69 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: seccomp-profile-ephemeralcontainers-restricted
+  annotations:
+    security.kubeapt.io/displayName: "Seccomp Profile Restricted"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for seccomp-profile-restricted/ephemeralcontainers."
+    security.kubeapt.io/resource: "Ephemeralcontainers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the seccomp-profile-restricted/ephemeralcontainers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods/ephemeralcontainers
+  variables:
+  - name: allowedSeccompTypes
+    expression: |
+      ["RuntimeDefault","Localhost"]
+  - name: podTypePresent
+    expression: |
+      has(object.spec.securityContext) && has(object.spec.securityContext.seccompProfile) && has(object.spec.securityContext.seccompProfile.type)
+  - name: podTypeAllowed
+    expression: |
+      variables.podTypePresent && variables.allowedSeccompTypes.exists(t, t == object.spec.securityContext.seccompProfile.type)
+  validations:
+  - expression: |
+      (has(object.spec.os) &&
+       has(object.spec.os.name) &&
+       object.spec.os.name.lowerAscii() == "windows") ||
+      (variables.podTypeAllowed &&
+       (!has(object.spec.ephemeralContainers) ||
+        object.spec.ephemeralContainers.all(ec,
+          !has(ec.securityContext) ||
+          !has(ec.securityContext.seccompProfile) ||
+          !has(ec.securityContext.seccompProfile.type) ||
+          variables.allowedSeccompTypes.exists(t, t == ec.securityContext.seccompProfile.type)
+        )
+       )
+      ) || (!variables.podTypePresent &&
+       (!has(object.spec.ephemeralContainers) ||
+        object.spec.ephemeralContainers.all(ec,
+          has(ec.securityContext) &&
+          has(ec.securityContext.seccompProfile) &&
+          has(ec.securityContext.seccompProfile.type) &&
+          variables.allowedSeccompTypes.exists(t, t == ec.securityContext.seccompProfile.type)
+        )
+       )
+      )
+    message: |
+      spec.ephemeralContainers[*].securityContext.seccompProfile.type must be "RuntimeDefault" or "Localhost". Ephemeral container fields may be undefined only when the Pod-level spec.securityContext.seccompProfile.type is set to "RuntimeDefault" or "Localhost"; otherwise every ephemeral container must set its own to one of those values.

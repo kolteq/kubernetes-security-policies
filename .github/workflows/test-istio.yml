@@ -1,0 +1,28 @@
+name: Test Istio Policies
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+  workflow_dispatch:
+
+jobs:
+  test-istio:
+    name: Test Istio Policies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create k8s Kind Cluster
+        uses: helm/kind-action@v1
+        with:
+          version: v0.31.0
+
+      - name: Run Istio Policy Tests
+        run: make test-istio

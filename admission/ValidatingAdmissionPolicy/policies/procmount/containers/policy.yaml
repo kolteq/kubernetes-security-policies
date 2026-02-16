@@ -1,0 +1,33 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: procmount-containers
+  annotations:
+    security.kubeapt.io/displayName: "Procmount"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for procmount/containers."
+    security.kubeapt.io/resource: "Containers"
+    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the procmount/containers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      object.spec.containers.all(c,
+        !has(c.securityContext) ||
+        !has(c.securityContext.procMount) ||
+        c.securityContext.procMount == "Default"
+      )
+    message: |
+      spec.containers[*].securityContext.procMount must be undefined or "Default".

@@ -1,0 +1,37 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: capabilities-drop-all-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Capabilities Drop All"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for capabilities-drop-all/initcontainers."
+    security.kubeapt.io/resource: "Initcontainers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the capabilities-drop-all/initcontainers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      (has(object.spec.os) &&
+       has(object.spec.os.name) &&
+       object.spec.os.name.lowerAscii() == "windows") ||
+      !has(object.spec.initContainers) || object.spec.initContainers.all(ic,
+        has(ic.securityContext) &&
+        has(ic.securityContext.capabilities) &&
+        has(ic.securityContext.capabilities.drop) &&
+        ic.securityContext.capabilities.drop.exists(d, d == "ALL")
+      )
+    message: |
+      spec.initContainers[*].securityContext.capabilities.drop must exist and include "ALL".

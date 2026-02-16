@@ -1,0 +1,29 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: selinux-role
+  annotations:
+    security.kubeapt.io/displayName: "Selinux Role"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for selinux-role."
+    security.kubeapt.io/resource: "Pods"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the selinux-role policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      !has(object.spec.securityContext) || !has(object.spec.securityContext.seLinuxOptions) || !has(object.spec.securityContext.seLinuxOptions.role) || object.spec.securityContext.seLinuxOptions.role == ""
+    message: |
+      spec.securityContext.seLinuxOptions.role must be undefined or an empty string ("").

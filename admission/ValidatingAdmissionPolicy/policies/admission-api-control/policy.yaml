@@ -1,0 +1,42 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: clusterrole-admission-api-control
+  annotations:
+    security.kubeapt.io/displayName: "Admission Api Control"
+    security.kubeapt.io/description: "ClusterRoles must not grant write access to ValidatingWebhookConfiguration/MutatingWebhookConfiguration."
+    security.kubeapt.io/resource: "ClusterRoles"
+    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/remediation: "Remove write verbs for ValidatingWebhookConfiguration and MutatingWebhookConfiguration. Fields: rules[*].apiGroups, rules[*].resources, rules[*].verbs."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - clusterroles
+  variables:
+  - name: admissionResources
+    expression: |
+      ["validatingwebhookconfigurations","mutatingwebhookconfigurations"]
+  - name: admissionVerbs
+    expression: |
+      ["create","update","patch","delete"]
+  validations:
+  - expression: |
+      !has(object.rules) || object.rules.all(r,
+        !(has(r.apiGroups) && has(r.resources) && has(r.verbs) &&
+          r.apiGroups.exists(ag, ag == "admissionregistration.k8s.io") &&
+          r.resources.exists(res, variables.admissionResources.exists(ar, ar == res)) &&
+          r.verbs.exists(v, variables.admissionVerbs.exists(av, av == v))
+        )
+      )
+    message: |
+      ClusterRoles must not grant write access to ValidatingWebhookConfiguration/MutatingWebhookConfiguration.

@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-traffic-to-kubernetes-api-server
+  annotations:
+    kubedrill.io/displayName: "Allow Egress to Kubernetes API Server"
+    kubedrill.io/description: "Allow egress traffic to the Kubernetes API server on 10.96.0.1:6443."
+spec:
+  podSelector: {}
+  policyTypes:
+  - Egress
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 10.96.0.1/32
+    ports:
+    - protocol: TCP
+      port: 6443

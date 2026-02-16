@@ -1,0 +1,39 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: image-no-latest-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Image No Latest"
+    security.kubeapt.io/description: "spec.initContainers[*].image must use an immutable digest or a non-latest tag."
+    security.kubeapt.io/resource: "Initcontainers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Use an immutable digest or a non-latest tag for init container images. Fields: spec.initContainers[*].image."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  variables:
+  - name: isWindows
+    expression: |
+      has(object.spec.os) && has(object.spec.os.name) && object.spec.os.name.lowerAscii() == "windows"
+  validations:
+  - expression: |
+      variables.isWindows || !has(object.spec.initContainers) || object.spec.initContainers.all(ic,
+        ic.image.matches(".*@sha256:[0-9A-Fa-f]{64}") ||
+        (
+          ic.image.lastIndexOf(":") > ic.image.lastIndexOf("/") &&
+          !ic.image.lowerAscii().endsWith(":latest")
+        )
+      )
+    message: |
+      spec.initContainers[*].image must use an immutable digest or a non-latest tag.

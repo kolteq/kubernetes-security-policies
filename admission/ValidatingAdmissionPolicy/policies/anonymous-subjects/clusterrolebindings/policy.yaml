@@ -1,0 +1,35 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: clusterrolebinding-anonymous-subjects
+  annotations:
+    security.kubeapt.io/displayName: "Anonymous Subjects"
+    security.kubeapt.io/description: "ClusterRoleBindings must not bind roles to anonymous or broadly shared user identities."
+    security.kubeapt.io/resource: "ClusterRoleBindings"
+    security.kubeapt.io/severity: "3"
+    security.kubeapt.io/remediation: "Remove anonymous/broad user subjects from ClusterRoleBinding. Fields: subjects[*].kind, subjects[*].name."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - clusterrolebindings
+  variables:
+  - name: anonymousNames
+    expression: |
+      ["system:anonymous","everyone","all-users"]
+  validations:
+  - expression: |
+      !has(object.subjects) || object.subjects.all(s,
+        !(s.kind == "User" && variables.anonymousNames.exists(n, n == s.name))
+      )
+    message: |
+      ClusterRoleBindings must not bind roles to anonymous or broadly shared user identities.

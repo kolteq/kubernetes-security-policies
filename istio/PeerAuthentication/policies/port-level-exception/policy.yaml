@@ -1,0 +1,17 @@
+apiVersion: security.istio.io/v1
+kind: PeerAuthentication
+metadata:
+  name: app-port-exception
+  namespace: default
+  annotations:
+    kubedrill.io/displayName: "mTLS Port Exception"
+    kubedrill.io/description: "Enforce STRICT mTLS for the api-gateway workload except disable mTLS on port 8080."
+spec:
+  selector:
+    matchLabels:
+      app: api-gateway
+  mtls:
+    mode: STRICT
+  portLevelMtls:
+    8080:
+      mode: DISABLE

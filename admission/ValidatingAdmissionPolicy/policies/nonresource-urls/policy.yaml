@@ -1,0 +1,33 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: clusterrole-nonresource-urls
+  annotations:
+    security.kubeapt.io/displayName: "Nonresource Urls"
+    security.kubeapt.io/description: "ClusterRoles must not grant broad nonResourceURL access to API server endpoints (/, /api,"
+    security.kubeapt.io/resource: "ClusterRoles"
+    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/remediation: "Remove broad nonResourceURL access or scope to specific paths/verbs. Fields: rules[*].nonResourceURLs, rules[*].verbs."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - clusterroles
+  validations:
+  - expression: |
+      !has(object.rules) || object.rules.all(r,
+        !(has(r.nonResourceURLs) && has(r.verbs) &&
+          r.nonResourceURLs.exists(u, u == "*" || u in ["/","/api","/api/*","/metrics","/logs","/debug","/debug/*"]) &&
+          r.verbs.exists(v, v in ["get","post","create","update","patch","delete"]))
+      )
+    message: |
+      ClusterRoles must not grant broad nonResourceURL access to API server endpoints (/, /api, /api/*, /metrics, /logs, /debug/*).

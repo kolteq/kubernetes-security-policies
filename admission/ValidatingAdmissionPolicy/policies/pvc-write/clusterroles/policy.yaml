@@ -1,0 +1,34 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: clusterrole-pvc-write
+  annotations:
+    security.kubeapt.io/displayName: "Pvc Write"
+    security.kubeapt.io/description: "ClusterRoles must not grant create/update/patch/delete on PersistentVolumeClaims without"
+    security.kubeapt.io/resource: "ClusterRoles"
+    security.kubeapt.io/severity: "3"
+    security.kubeapt.io/remediation: "Remove create/update/patch/delete on persistentvolumeclaims. Fields: rules[*].resources, rules[*].verbs."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - clusterroles
+  validations:
+  - expression: |
+      !has(object.rules) || object.rules.all(r,
+        !(has(r.apiGroups) && has(r.resources) && has(r.verbs) &&
+          r.apiGroups.exists(ag, ag == "") &&
+          r.resources.exists(res, res == "persistentvolumeclaims") &&
+          r.verbs.exists(v, v in ["create","update","patch","delete"]))
+      )
+    message: |
+      ClusterRoles must not grant create/update/patch/delete on PersistentVolumeClaims without tight controls.

@@ -1,0 +1,16 @@
+[
+    {
+        "name": "kolteq-best-practices",
+        "latest-version": "v0.1.0",
+        "versions": [
+            "v0.1.0"
+        ]
+    },
+    {
+        "name": "pod-security-admission",
+        "latest-version": "v1.34.0",
+        "versions": [
+            "v1.34.0"
+        ]
+    }
+]

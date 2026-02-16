@@ -1,0 +1,29 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: serviceaccount-imagepullsecrets-scope
+  annotations:
+    security.kubeapt.io/displayName: "Imagepullsecrets Scope"
+    security.kubeapt.io/description: "Limit imagePullSecrets on ServiceAccounts; avoid sharing powerful registry creds broadly."
+    security.kubeapt.io/resource: "ServiceAccounts"
+    security.kubeapt.io/severity: "7"
+    security.kubeapt.io/remediation: "Limit ServiceAccount imagePullSecrets to at most one. Fields: imagePullSecrets."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - serviceaccounts
+  validations:
+  - expression: |
+      !has(object.imagePullSecrets) || size(object.imagePullSecrets) <= 1
+    message: |
+      Limit imagePullSecrets on ServiceAccounts; avoid sharing powerful registry creds broadly.

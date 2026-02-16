@@ -1,0 +1,29 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: clusterrole-aggregation
+  annotations:
+    security.kubeapt.io/displayName: "Aggregation"
+    security.kubeapt.io/description: "ClusterRoles must not use aggregationRule; avoid implicit privilege aggregation."
+    security.kubeapt.io/resource: "ClusterRoles"
+    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/remediation: "Remove aggregationRule or clusterRoleSelectors from ClusterRole. Fields: aggregationRule.clusterRoleSelectors."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - clusterroles
+  validations:
+  - expression: |
+      !has(object.aggregationRule) || !has(object.aggregationRule.clusterRoleSelectors) || size(object.aggregationRule.clusterRoleSelectors) == 0
+    message: |
+      ClusterRoles must not use aggregationRule; avoid implicit privilege aggregation.

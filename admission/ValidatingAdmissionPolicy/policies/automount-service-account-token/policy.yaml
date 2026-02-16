@@ -1,0 +1,29 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: automount-service-account-token
+  annotations:
+    security.kubeapt.io/displayName: "Automount Service Account Token"
+    security.kubeapt.io/description: "spec.automountServiceAccountToken must be explicitly set to false."
+    security.kubeapt.io/resource: "Pods"
+    security.kubeapt.io/severity: "3"
+    security.kubeapt.io/remediation: "Set spec.automountServiceAccountToken=false. Fields: spec.automountServiceAccountToken."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      has(object.spec.automountServiceAccountToken) && object.spec.automountServiceAccountToken == false
+    message: |
+      spec.automountServiceAccountToken must be explicitly set to false.

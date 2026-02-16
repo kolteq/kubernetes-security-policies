@@ -1,0 +1,33 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: run-as-group-containers
+  annotations:
+    security.kubeapt.io/displayName: "Run As Group"
+    security.kubeapt.io/description: "spec.containers[*].securityContext.runAsGroup must be undefined or a non-zero value (>"
+    security.kubeapt.io/resource: "Containers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Set spec.containers[*].securityContext.runAsGroup to >0 or omit it. Fields: spec.containers[*].securityContext.runAsGroup."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      object.spec.containers.all(c,
+        !has(c.securityContext) ||
+        !has(c.securityContext.runAsGroup) ||
+        c.securityContext.runAsGroup > 0
+      )
+    message: |
+      spec.containers[*].securityContext.runAsGroup must be undefined or a non-zero value (> 0).

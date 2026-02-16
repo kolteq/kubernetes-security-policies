@@ -1,0 +1,49 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: networkpolicy-allow-all
+  annotations:
+    security.kubeapt.io/displayName: "Networkpolicy Allow All"
+    security.kubeapt.io/description: "Wildcard NetworkPolicies that allow all ingress and egress traffic for all pods are not"
+    security.kubeapt.io/resource: "NetworkPolicies"
+    security.kubeapt.io/severity: "3"
+    security.kubeapt.io/remediation: "Scope podSelector and restrict ingress/egress peers and ports. Fields: spec.podSelector, spec.ingress[].from, spec.ingress[].ports, spec.egress[].to, spec.egress[].ports."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - networking.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - networkpolicies
+  variables:
+  - name: isAllPods
+    expression: |
+      (!has(object.spec.podSelector.matchLabels) ||
+       object.spec.podSelector.matchLabels.size() == 0) &&
+      (!has(object.spec.podSelector.matchExpressions) ||
+       object.spec.podSelector.matchExpressions.size() == 0)
+  - name: ingressAllowsAll
+    expression: |
+      has(object.spec.ingress) && object.spec.ingress.exists(r,
+        (!has(r.from) || r.from.size() == 0) &&
+        (!has(r.ports) || r.ports.size() == 0)
+      )
+  - name: egressAllowsAll
+    expression: |
+      has(object.spec.egress) && object.spec.egress.exists(r,
+        (!has(r.to) || r.to.size() == 0) &&
+        (!has(r.ports) || r.ports.size() == 0)
+      )
+  validations:
+  - expression: |
+      !(variables.isAllPods &&
+        (variables.ingressAllowsAll || !has(object.spec.ingress)) &&
+        (variables.egressAllowsAll || !has(object.spec.egress)))
+    message: Wildcard NetworkPolicies that allow all ingress and egress traffic for all pods are not allowed.

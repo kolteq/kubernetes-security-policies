@@ -1,0 +1,35 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: poststart-tcpsocket-host-containers
+  annotations:
+    security.kubeapt.io/displayName: "Poststart Tcpsocket Host"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for poststart-tcpsocket-host/containers."
+    security.kubeapt.io/resource: "Containers"
+    security.kubeapt.io/severity: "3"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the poststart-tcpsocket-host/containers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      object.spec.containers.all(c,
+        !has(c.lifecycle) ||
+        !has(c.lifecycle.postStart) ||
+        !has(c.lifecycle.postStart.tcpSocket) ||
+        !has(c.lifecycle.postStart.tcpSocket.host) ||
+        c.lifecycle.postStart.tcpSocket.host == ""
+      )
+    message: |
+      spec.containers[*].lifecycle.postStart.tcpSocket.host must be undefined or empty ("").

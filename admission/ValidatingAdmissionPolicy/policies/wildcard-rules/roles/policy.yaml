@@ -1,0 +1,34 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: role-wildcard-rules
+  annotations:
+    security.kubeapt.io/displayName: "Wildcard Rules"
+    security.kubeapt.io/description: "Wildcard rules (apiGroups/resources/verbs all \"*\") are disallowed."
+    security.kubeapt.io/resource: "Roles"
+    security.kubeapt.io/severity: "9"
+    security.kubeapt.io/remediation: "Replace wildcard apiGroups/resources/verbs with explicit values. Fields: rules[*].apiGroups, rules[*].resources, rules[*].verbs."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - roles
+  validations:
+  - expression: |
+      !has(object.rules) ||
+              object.rules.all(r,
+                !((has(r.apiGroups) && r.apiGroups.exists(ag, ag == "*")) ||
+                  (has(r.resources) && r.resources.exists(res, res == "*")) ||
+                  (has(r.verbs) && r.verbs.exists(v, v == "*")))
+              )
+    message: |
+      Wildcard rules (apiGroups/resources/verbs all "*") are disallowed.

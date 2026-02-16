@@ -1,0 +1,29 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: hostpid
+  annotations:
+    security.kubeapt.io/displayName: "Hostpid"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for hostpid."
+    security.kubeapt.io/resource: "Pods"
+    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the hostpid policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      !has(object.spec.hostPID) || object.spec.hostPID == false
+    message: |
+      Using hostPID is disallowed. spec.hostPID must be undefined or set to false.

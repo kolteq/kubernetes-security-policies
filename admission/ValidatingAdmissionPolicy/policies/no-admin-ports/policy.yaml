@@ -1,0 +1,35 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: service-no-admin-ports
+  annotations:
+    security.kubeapt.io/displayName: "No Admin Ports"
+    security.kubeapt.io/description: "Externally reachable Services (type LoadBalancer/NodePort) must not expose admin/debug/metrics"
+    security.kubeapt.io/resource: "Services"
+    security.kubeapt.io/severity: "3"
+    security.kubeapt.io/remediation: "Remove admin/debug/metrics ports from external Services or split into an internal Service. Fields: spec.type, spec.ports[].name."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - services
+  validations:
+  - expression: |
+      !(
+        (object.spec.type == 'LoadBalancer' || object.spec.type == 'NodePort')
+        &&
+        object.spec.ports.exists(p,
+          has(p.name) &&
+          p.name.matches('(?i).*(admin|debug|metrics|mgmt|management).*')
+        )
+      )
+    message: Externally reachable Services (type LoadBalancer/NodePort) must not expose admin/debug/metrics ports. Split these endpoints into a separate internal-only Service.

@@ -1,0 +1,36 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: ingress-tls-required
+  annotations:
+    security.kubeapt.io/displayName: "Tls Required"
+    security.kubeapt.io/description: "Ingress must include a TLS entry covering every host in spec.rules[*].host."
+    security.kubeapt.io/resource: "Ingresses"
+    security.kubeapt.io/severity: "7"
+    security.kubeapt.io/remediation: "Add spec.tls entries covering all spec.rules[*].host values. Fields: spec.rules[].host, spec.tls[].hosts."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - networking.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - ingresses
+  variables:
+  - name: hosts
+    expression: |
+      has(object.spec.rules) ? object.spec.rules.filter(r, has(r.host)).map(r, r.host) : []
+  validations:
+  - expression: |
+      size(variables.hosts) == 0 || (has(object.spec.tls) &&
+       object.spec.tls.exists(t,
+         has(t.hosts) && variables.hosts.all(h, t.hosts.exists(th, th == h))
+       ))
+    message: |
+      Ingress must include a TLS entry covering every host in spec.rules[*].host.

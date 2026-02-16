@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: violating-external-ips
+spec:
+  type: ClusterIP
+  selector:
+    app: test
+  externalIPs:
+  - 203.0.113.10
+  ports:
+  - name: web
+    port: 80
+    targetPort: 80

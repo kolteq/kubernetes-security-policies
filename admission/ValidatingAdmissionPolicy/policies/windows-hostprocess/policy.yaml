@@ -1,0 +1,29 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: windows-hostprocess
+  annotations:
+    security.kubeapt.io/displayName: "Windows Hostprocess"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for windows-hostprocess."
+    security.kubeapt.io/resource: "Pods"
+    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the windows-hostprocess policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      !has(object.spec.securityContext) || !has(object.spec.securityContext.windowsOptions) || !has(object.spec.securityContext.windowsOptions.hostProcess) || object.spec.securityContext.windowsOptions.hostProcess == false
+    message: |
+      HostProcess is not allowed. spec.securityContext.windowsOptions.hostProcess must be undefined or set to false.

@@ -1,0 +1,39 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: clusterrole-secrets-access
+  annotations:
+    security.kubeapt.io/displayName: "Secrets Access"
+    security.kubeapt.io/description: "ClusterRoles must not grant broad read/write access to Secrets without tight scoping."
+    security.kubeapt.io/resource: "ClusterRoles"
+    security.kubeapt.io/severity: "9"
+    security.kubeapt.io/remediation: "Remove read/write on secrets. Fields: rules[*].resources, rules[*].verbs."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - clusterroles
+  variables:
+  - name: secretVerbs
+    expression: |
+      ["get","list","watch","create","update","patch","delete"]
+  validations:
+  - expression: |
+      !has(object.rules) || object.rules.all(r,
+        !(has(r.apiGroups) && has(r.resources) && has(r.verbs) &&
+          r.apiGroups.exists(ag, ag == "") &&
+          r.resources.exists(res, res == "secrets") &&
+          r.verbs.exists(v, variables.secretVerbs.exists(sv, sv == v))
+        )
+      )
+    message: |
+      ClusterRoles must not grant broad read/write access to Secrets without tight scoping.

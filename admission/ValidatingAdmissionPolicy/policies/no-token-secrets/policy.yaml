@@ -1,0 +1,29 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: serviceaccount-no-token-secrets
+  annotations:
+    security.kubeapt.io/displayName: "No Token Secrets"
+    security.kubeapt.io/description: "Avoid explicit long-lived token Secrets on ServiceAccounts."
+    security.kubeapt.io/resource: "ServiceAccounts"
+    security.kubeapt.io/severity: "7"
+    security.kubeapt.io/remediation: "Remove ServiceAccount secrets references; rely on projected tokens. Fields: secrets."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - serviceaccounts
+  validations:
+  - expression: |
+      !has(object.secrets) || size(object.secrets) == 0
+    message: |
+      Avoid explicit long-lived token Secrets on ServiceAccounts.

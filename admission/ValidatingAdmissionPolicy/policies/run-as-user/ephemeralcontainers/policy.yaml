@@ -1,0 +1,33 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: run-as-user-ephemeralcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Run As User"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for run-as-user/ephemeralcontainers."
+    security.kubeapt.io/resource: "Ephemeralcontainers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the run-as-user/ephemeralcontainers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods/ephemeralcontainers
+  validations:
+  - expression: |
+      !has(object.spec.ephemeralContainers) || object.spec.ephemeralContainers.all(ec,
+        !has(ec.securityContext) ||
+        !has(ec.securityContext.runAsUser) ||
+        ec.securityContext.runAsUser > 0
+      )
+    message: |
+      spec.ephemeralContainers[*].securityContext.runAsUser must be undefined or a non-zero value (> 0).

@@ -1,0 +1,39 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: selinux-type-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Selinux Type"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for selinux-type/initcontainers."
+    security.kubeapt.io/resource: "Initcontainers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the selinux-type/initcontainers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  variables:
+  - name: allowedSELinuxTypes
+    expression: |
+      ["container_t","container_init_t","container_kvm_t","container_engine_t"]
+  validations:
+  - expression: |
+      !has(object.spec.initContainers) || object.spec.initContainers.all(ic,
+        !has(ic.securityContext) ||
+        !has(ic.securityContext.seLinuxOptions) ||
+        !has(ic.securityContext.seLinuxOptions.type) ||
+        ic.securityContext.seLinuxOptions.type == "" ||
+        variables.allowedSELinuxTypes.exists(t, t == ic.securityContext.seLinuxOptions.type)
+      )
+    message: |
+      spec.initContainers[*].securityContext.seLinuxOptions.type must be undefined, empty (""), or one of: container_t, container_init_t, container_kvm_t, container_engine_t.

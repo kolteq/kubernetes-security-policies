@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: violating-service-account-name
+  labels:
+    app: good
+spec:
+  serviceAccountName: default
+  automountServiceAccountToken: false
+  volumes:
+  - name: sa-token
+    projected:
+      sources:
+      - serviceAccountToken:
+          path: token
+  containers:
+  - name: main
+    image: busybox:1.36
+    command: ["sh", "-c", "sleep 3600"]
+    volumeMounts:
+    - name: sa-token
+      mountPath: /var/run/secrets/sa-token

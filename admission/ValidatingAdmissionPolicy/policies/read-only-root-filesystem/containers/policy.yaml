@@ -1,0 +1,36 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: read-only-root-filesystem-containers
+  annotations:
+    security.kubeapt.io/displayName: "Read Only Root Filesystem"
+    security.kubeapt.io/description: "spec.containers[*].securityContext.readOnlyRootFilesystem must be set to true."
+    security.kubeapt.io/resource: "Containers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Set readOnlyRootFilesystem=true for containers. Fields: spec.containers[*].securityContext.readOnlyRootFilesystem."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      (has(object.spec.os) &&
+       has(object.spec.os.name) &&
+       object.spec.os.name.lowerAscii() == "windows") ||
+      object.spec.containers.all(c,
+        has(c.securityContext) &&
+        has(c.securityContext.readOnlyRootFilesystem) &&
+        c.securityContext.readOnlyRootFilesystem == true
+      )
+    message: |
+      spec.containers[*].securityContext.readOnlyRootFilesystem must be set to true.

@@ -1,0 +1,38 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: apparmor-profile-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Apparmor Profile"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for apparmor-profile/initcontainers."
+    security.kubeapt.io/resource: "Initcontainers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the apparmor-profile/initcontainers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  variables:
+  - name: allowedAppArmorTypes
+    expression: |
+      ["RuntimeDefault","Localhost"]
+  validations:
+  - expression: |
+      !has(object.spec.initContainers) || object.spec.initContainers.all(ic,
+        !has(ic.securityContext) ||
+        !has(ic.securityContext.appArmorProfile) ||
+        !has(ic.securityContext.appArmorProfile.type) ||
+        variables.allowedAppArmorTypes.exists(t, t == ic.securityContext.appArmorProfile.type)
+      )
+    message: |
+      spec.initContainers[*].securityContext.appArmorProfile.type must be undefined, RuntimeDefault, or Localhost.

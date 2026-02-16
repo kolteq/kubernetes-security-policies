@@ -1,0 +1,29 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: hostipc
+  annotations:
+    security.kubeapt.io/displayName: "Hostipc"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for hostipc."
+    security.kubeapt.io/resource: "Pods"
+    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the hostipc policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      !has(object.spec.hostIPC) || object.spec.hostIPC == false
+    message: |
+      Using hostIPC is disallowed. spec.hostIPC must be undefined or set to false.

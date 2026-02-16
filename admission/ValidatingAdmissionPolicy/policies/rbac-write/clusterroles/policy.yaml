@@ -1,0 +1,42 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: clusterrole-rbac-write
+  annotations:
+    security.kubeapt.io/displayName: "Rbac Write"
+    security.kubeapt.io/description: "ClusterRoles must not grant write/bind/escalate on RBAC resources."
+    security.kubeapt.io/resource: "ClusterRoles"
+    security.kubeapt.io/severity: "9"
+    security.kubeapt.io/remediation: "Remove write/bind/escalate on RBAC resources. Fields: rules[*].apiGroups, rules[*].resources, rules[*].verbs."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - clusterroles
+  variables:
+  - name: rbacResources
+    expression: |
+      ["roles","rolebindings","clusterroles","clusterrolebindings"]
+  - name: rbacWriteVerbs
+    expression: |
+      ["create","update","patch","delete","bind","escalate"]
+  validations:
+  - expression: |
+      !has(object.rules) || object.rules.all(r,
+        !(has(r.apiGroups) && has(r.resources) && has(r.verbs) &&
+          r.apiGroups.exists(ag, ag == "rbac.authorization.k8s.io") &&
+          r.resources.exists(res, variables.rbacResources.exists(rr, rr == res)) &&
+          r.verbs.exists(v, variables.rbacWriteVerbs.exists(rv, rv == v))
+        )
+      )
+    message: |
+      ClusterRoles must not grant write/bind/escalate on RBAC resources.

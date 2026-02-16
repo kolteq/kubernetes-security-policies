@@ -1,0 +1,34 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: selinux-role-ephemeralcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Selinux Role"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for selinux-role/ephemeralcontainers."
+    security.kubeapt.io/resource: "Ephemeralcontainers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the selinux-role/ephemeralcontainers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods/ephemeralcontainers
+  validations:
+  - expression: |
+      !has(object.spec.ephemeralContainers) || object.spec.ephemeralContainers.all(ec,
+        !has(ec.securityContext) ||
+        !has(ec.securityContext.seLinuxOptions) ||
+        !has(ec.securityContext.seLinuxOptions.role) ||
+        ec.securityContext.seLinuxOptions.role == ""
+      )
+    message: |
+      spec.ephemeralContainers[*].securityContext.seLinuxOptions.role must be undefined or an empty string ("").

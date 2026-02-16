@@ -1,0 +1,34 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: selinux-user-containers
+  annotations:
+    security.kubeapt.io/displayName: "Selinux User"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for selinux-user/containers."
+    security.kubeapt.io/resource: "Containers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the selinux-user/containers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      object.spec.containers.all(c,
+        !has(c.securityContext) ||
+        !has(c.securityContext.seLinuxOptions) ||
+        !has(c.securityContext.seLinuxOptions.user) ||
+        c.securityContext.seLinuxOptions.user == ""
+      )
+    message: |
+      spec.containers[*].securityContext.seLinuxOptions.user must be undefined or an empty string ("").

@@ -1,0 +1,56 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: seccomp-profile-containers-restricted
+  annotations:
+    security.kubeapt.io/displayName: "Seccomp Profile Restricted"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for seccomp-profile-restricted/containers."
+    security.kubeapt.io/resource: "Containers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the seccomp-profile-restricted/containers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  variables:
+  - name: allowedSeccompTypes
+    expression: |
+      ["RuntimeDefault","Localhost"]
+  - name: podTypePresent
+    expression: |
+      has(object.spec.securityContext) && has(object.spec.securityContext.seccompProfile) && has(object.spec.securityContext.seccompProfile.type)
+  - name: podTypeAllowed
+    expression: |
+      variables.podTypePresent && variables.allowedSeccompTypes.exists(t, t == object.spec.securityContext.seccompProfile.type)
+  validations:
+  - expression: |
+      (has(object.spec.os) &&
+       has(object.spec.os.name) &&
+       object.spec.os.name.lowerAscii() == "windows") ||
+      (variables.podTypeAllowed &&
+       object.spec.containers.all(c,
+         !has(c.securityContext) ||
+         !has(c.securityContext.seccompProfile) ||
+         !has(c.securityContext.seccompProfile.type) ||
+         variables.allowedSeccompTypes.exists(t, t == c.securityContext.seccompProfile.type)
+       )
+      ) || (!variables.podTypePresent &&
+       object.spec.containers.all(c,
+         has(c.securityContext) &&
+         has(c.securityContext.seccompProfile) &&
+         has(c.securityContext.seccompProfile.type) &&
+         variables.allowedSeccompTypes.exists(t, t == c.securityContext.seccompProfile.type)
+       )
+      )
+    message: |
+      spec.containers[*].securityContext.seccompProfile.type must be "RuntimeDefault" or "Localhost". Container fields may be undefined only when the Pod-level spec.securityContext.seccompProfile.type is set to "RuntimeDefault" or "Localhost"; otherwise every container must set its own to one of those values.

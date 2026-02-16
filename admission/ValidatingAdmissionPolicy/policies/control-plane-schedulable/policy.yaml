@@ -1,0 +1,43 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: control-plane-schedulable
+  annotations:
+    security.kubeapt.io/displayName: "Control Plane Schedulable"
+    security.kubeapt.io/description: "Control-plane nodes must carry a NoSchedule/NoExecute taint to prevent workload scheduling."
+    security.kubeapt.io/resource: "Nodes"
+    security.kubeapt.io/severity: "3"
+    security.kubeapt.io/remediation: "Add NoSchedule/NoExecute taint for control-plane nodes. Fields: spec.taints."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - nodes
+  variables:
+  - name: controlPlaneLabel
+    expression: |
+      has(object.metadata.labels) &&
+      (
+        "node-role.kubernetes.io/control-plane" in object.metadata.labels ||
+        "node-role.kubernetes.io/master" in object.metadata.labels
+      )
+  validations:
+  - expression: |
+      !variables.controlPlaneLabel || (
+        has(object.spec.taints) &&
+        object.spec.taints.exists(t,
+          (t.key in ["node-role.kubernetes.io/control-plane","node-role.kubernetes.io/master"]) &&
+          (t.effect == "NoSchedule" || t.effect == "NoExecute")
+        )
+      )
+    message: |
+      Control-plane nodes must carry a NoSchedule/NoExecute taint to prevent workload scheduling.

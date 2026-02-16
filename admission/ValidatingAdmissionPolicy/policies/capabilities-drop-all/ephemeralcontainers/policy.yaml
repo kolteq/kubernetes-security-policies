@@ -1,0 +1,37 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: capabilities-drop-all-ephemeralcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Capabilities Drop All"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for capabilities-drop-all/ephemeralcontainers."
+    security.kubeapt.io/resource: "Ephemeralcontainers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the capabilities-drop-all/ephemeralcontainers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods/ephemeralcontainers
+  validations:
+  - expression: |
+      (has(object.spec.os) &&
+       has(object.spec.os.name) &&
+       object.spec.os.name.lowerAscii() == "windows") ||
+      !has(object.spec.ephemeralContainers) || object.spec.ephemeralContainers.all(ec,
+        has(ec.securityContext) &&
+        has(ec.securityContext.capabilities) &&
+        has(ec.securityContext.capabilities.drop) &&
+        ec.securityContext.capabilities.drop.exists(d, d == "ALL")
+      )
+    message: |
+      spec.ephemeralContainers[*].securityContext.capabilities.drop must exist and include "ALL".

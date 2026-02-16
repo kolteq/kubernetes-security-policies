@@ -1,0 +1,38 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: allowed-volume-types
+  annotations:
+    security.kubeapt.io/displayName: "Volume Types"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for volume-types."
+    security.kubeapt.io/resource: "Pods"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the volume-types policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      !has(object.spec.volumes) || object.spec.volumes.all(v,
+        has(v.configMap) ||
+        has(v.csi) ||
+        has(v.downwardAPI) ||
+        has(v.emptyDir) ||
+        has(v.ephemeral) ||
+        has(v.persistentVolumeClaim) ||
+        has(v.projected) ||
+        has(v.secret)
+      )
+    message: |
+      Each item in spec.volumes[*] must set one of: configMap, csi, downwardAPI, emptyDir, ephemeral, persistentVolumeClaim, projected, or secret.

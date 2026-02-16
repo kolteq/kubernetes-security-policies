@@ -1,0 +1,29 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: hostnetwork
+  annotations:
+    security.kubeapt.io/displayName: "Hostnetwork"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for hostnetwork."
+    security.kubeapt.io/resource: "Pods"
+    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the hostnetwork policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      !has(object.spec.hostNetwork) || object.spec.hostNetwork == false
+    message: |
+      Using hostNetwork is disallowed. spec.hostNetwork must be undefined or set to false.

@@ -1,0 +1,29 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: configmap-immutable-true
+  annotations:
+    security.kubeapt.io/displayName: "Immutable True"
+    security.kubeapt.io/description: "immutable must be set to true to prevent runtime tampering."
+    security.kubeapt.io/resource: "ConfigMaps"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Set immutable=true. Fields: immutable."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - configmaps
+  validations:
+  - expression: |
+      has(object.immutable) && object.immutable == true
+    message: |
+      immutable must be set to true to prevent runtime tampering.

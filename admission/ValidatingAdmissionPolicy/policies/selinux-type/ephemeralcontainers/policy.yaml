@@ -1,0 +1,39 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: selinux-type-ephemeralcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Selinux Type"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for selinux-type/ephemeralcontainers."
+    security.kubeapt.io/resource: "Ephemeralcontainers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the selinux-type/ephemeralcontainers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods/ephemeralcontainers
+  variables:
+  - name: allowedSELinuxTypes
+    expression: |
+      ["container_t","container_init_t","container_kvm_t","container_engine_t"]
+  validations:
+  - expression: |
+      !has(object.spec.ephemeralContainers) || object.spec.ephemeralContainers.all(ec,
+        !has(ec.securityContext) ||
+        !has(ec.securityContext.seLinuxOptions) ||
+        !has(ec.securityContext.seLinuxOptions.type) ||
+        ec.securityContext.seLinuxOptions.type == "" ||
+        variables.allowedSELinuxTypes.exists(t, t == ec.securityContext.seLinuxOptions.type)
+      )
+    message: |
+      spec.ephemeralContainers[*].securityContext.seLinuxOptions.type must be undefined, empty (""), or one of: container_t, container_init_t, container_kvm_t, container_engine_t.

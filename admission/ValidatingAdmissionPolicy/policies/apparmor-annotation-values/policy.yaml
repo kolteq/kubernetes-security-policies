@@ -1,0 +1,33 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: apparmor-annotation-values
+  annotations:
+    security.kubeapt.io/displayName: "Apparmor Annotation Values"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for apparmor-annotation-values."
+    security.kubeapt.io/resource: "Pods"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the apparmor-annotation-values policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      !has(object.metadata.annotations) || !object.metadata.annotations.exists(k,
+        k.startsWith("container.apparmor.security.beta.kubernetes.io/") &&
+        !(object.metadata.annotations[k] == "runtime/default" ||
+          object.metadata.annotations[k].startsWith("localhost/"))
+      )
+    message: |
+      Annotations under container.apparmor.security.beta.kubernetes.io/* must be "runtime/default" or start with "localhost/". Other values are not allowed.

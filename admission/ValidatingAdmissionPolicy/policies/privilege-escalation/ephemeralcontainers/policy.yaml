@@ -1,0 +1,36 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: allow-privilege-escalation-ephemeralcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Privilege Escalation"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for privilege-escalation/ephemeralcontainers."
+    security.kubeapt.io/resource: "Ephemeralcontainers"
+    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the privilege-escalation/ephemeralcontainers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods/ephemeralcontainers
+  validations:
+  - expression: |
+      (has(object.spec.os) &&
+       has(object.spec.os.name) &&
+       object.spec.os.name.lowerAscii() == "windows") ||
+      !has(object.spec.ephemeralContainers) || object.spec.ephemeralContainers.all(ec,
+        has(ec.securityContext) &&
+        has(ec.securityContext.allowPrivilegeEscalation) &&
+        ec.securityContext.allowPrivilegeEscalation == false
+      )
+    message: |
+      spec.ephemeralContainers[*].securityContext.allowPrivilegeEscalation must be set to false.

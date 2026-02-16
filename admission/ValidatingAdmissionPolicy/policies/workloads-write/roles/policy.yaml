@@ -1,0 +1,45 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: role-workloads-write
+  annotations:
+    security.kubeapt.io/displayName: "Workloads Write"
+    security.kubeapt.io/description: "Roles must not grant create/update/patch/delete on workload controllers (apps/batch)."
+    security.kubeapt.io/resource: "Roles"
+    security.kubeapt.io/severity: "9"
+    security.kubeapt.io/remediation: "Remove create/update/patch/delete on workload controllers. Fields: rules[*].apiGroups, rules[*].resources, rules[*].verbs."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - roles
+  variables:
+  - name: appResources
+    expression: |
+      ["deployments","daemonsets","statefulsets","replicasets"]
+  - name: batchResources
+    expression: |
+      ["jobs","cronjobs"]
+  validations:
+  - expression: |
+      !has(object.rules) || object.rules.all(r,
+        !(
+          (r.apiGroups.exists(ag, ag == "apps") &&
+           r.resources.exists(res, variables.appResources.exists(ar, ar == res)) &&
+           r.verbs.exists(v, v in ["create","update","patch","delete"])) ||
+          (r.apiGroups.exists(ag, ag == "batch") &&
+           r.resources.exists(res, variables.batchResources.exists(br, br == res)) &&
+           r.verbs.exists(v, v in ["create","update","patch","delete"]))
+        )
+      )
+    message: |
+      Roles must not grant create/update/patch/delete on workload controllers (apps/batch).

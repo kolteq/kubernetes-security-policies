@@ -1,0 +1,34 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: readinessprobe-httpget-host-initcontainers
+  annotations:
+    security.kubeapt.io/displayName: "Readinessprobe Httpget Host"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for readinessprobe-httpget-host/initcontainers."
+    security.kubeapt.io/resource: "Initcontainers"
+    security.kubeapt.io/severity: "3"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the readinessprobe-httpget-host/initcontainers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      !has(object.spec.initContainers) || object.spec.initContainers.all(ic,
+        !has(ic.readinessProbe) ||
+        !has(ic.readinessProbe.httpGet) ||
+        !has(ic.readinessProbe.httpGet.host) ||
+        ic.readinessProbe.httpGet.host == ""
+      )
+    message: |
+      spec.initContainers[*].readinessProbe.httpGet.host must be undefined or empty ("").

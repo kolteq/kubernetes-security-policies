@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-traffic-to-kubelet
+  annotations:
+    kubedrill.io/displayName: "Allow Egress to Kubelet"
+    kubedrill.io/description: "Allow egress traffic to kubelet on port 10250 within 10.0.0.0/8."
+spec:
+  podSelector: {}
+  policyTypes:
+  - Egress
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 10.0.0.0/8
+    ports:
+    - protocol: TCP
+      port: 10250

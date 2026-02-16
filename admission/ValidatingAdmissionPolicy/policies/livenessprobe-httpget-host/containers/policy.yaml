@@ -1,0 +1,34 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: livenessprobe-httpget-host
+  annotations:
+    security.kubeapt.io/displayName: "Livenessprobe Httpget Host"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for livenessprobe-httpget-host/container."
+    security.kubeapt.io/resource: "Containers"
+    security.kubeapt.io/severity: "3"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the livenessprobe-httpget-host/container policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      object.spec.containers.all(c,
+        !has(c.livenessProbe) ||
+        !has(c.livenessProbe.httpGet) ||
+        !has(c.livenessProbe.httpGet.host) ||
+        c.livenessProbe.httpGet.host == ""
+      )
+    message: |
+      spec.containers[*].livenessProbe.httpGet.host must be undefined or empty ("").

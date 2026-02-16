@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: violating-imagepullsecrets-scope
+automountServiceAccountToken: false
+imagePullSecrets:
+- name: registry-cred-1
+- name: registry-cred-2

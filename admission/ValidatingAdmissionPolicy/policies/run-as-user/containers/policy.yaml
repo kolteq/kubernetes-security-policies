@@ -1,0 +1,33 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: run-as-user-containers
+  annotations:
+    security.kubeapt.io/displayName: "Run As User"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for run-as-user/containers."
+    security.kubeapt.io/resource: "Containers"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the run-as-user/containers policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      object.spec.containers.all(c,
+        !has(c.securityContext) ||
+        !has(c.securityContext.runAsUser) ||
+        c.securityContext.runAsUser > 0
+      )
+    message: |
+      spec.containers[*].securityContext.runAsUser must be undefined or a non-zero value (> 0).

@@ -1,0 +1,29 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: service-account-name
+  annotations:
+    security.kubeapt.io/displayName: "Service Account Name"
+    security.kubeapt.io/description: "spec.serviceAccountName must be set to a non-default service account."
+    security.kubeapt.io/resource: "Pods"
+    security.kubeapt.io/severity: "3"
+    security.kubeapt.io/remediation: "Set spec.serviceAccountName to a non-default ServiceAccount. Fields: spec.serviceAccountName."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  validations:
+  - expression: |
+      has(object.spec.serviceAccountName) && size(object.spec.serviceAccountName) > 0 && object.spec.serviceAccountName != "default"
+    message: |
+      spec.serviceAccountName must be set to a non-default service account.

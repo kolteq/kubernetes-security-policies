@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-traffic-inside-application-namespace
+  annotations:
+    kubedrill.io/displayName: "Allow Intra-Namespace Traffic"
+    kubedrill.io/description: "Allow all ingress and egress traffic between pods in the same namespace."
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - podSelector: {}
+  egress:
+  - to:
+    - podSelector: {}

@@ -1,0 +1,44 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: allowed-sysctls
+  annotations:
+    security.kubeapt.io/displayName: "Sysctls"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for sysctls."
+    security.kubeapt.io/resource: "Pods"
+    security.kubeapt.io/severity: "10"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the sysctls policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  variables:
+  - name: allowedSysctls
+    expression: |
+      ["kernel.shm_rmid_forced",
+       "net.ipv4.ip_local_port_range",
+       "net.ipv4.ip_unprivileged_port_start",
+       "net.ipv4.tcp_syncookies",
+       "net.ipv4.ping_group_range",
+       "net.ipv4.ip_local_reserved_ports",
+       "net.ipv4.tcp_keepalive_time",
+       "net.ipv4.tcp_fin_timeout",
+       "net.ipv4.tcp_keepalive_intvl",
+       "net.ipv4.tcp_keepalive_probes"]
+  validations:
+  - expression: |
+      !has(object.spec.securityContext) || !has(object.spec.securityContext.sysctls) || object.spec.securityContext.sysctls.all(s,
+        has(s.name) && variables.allowedSysctls.exists(a, a == s.name)
+      )
+    message: |
+      Only the approved sysctls are allowed in spec.securityContext.sysctls[*].name. Allowed: kernel.shm_rmid_forced, net.ipv4.ip_local_port_range, net.ipv4.ip_unprivileged_port_start, net.ipv4.tcp_syncookies, net.ipv4.ping_group_range, net.ipv4.ip_local_reserved_ports, net.ipv4.tcp_keepalive_time, net.ipv4.tcp_fin_timeout, net.ipv4.tcp_keepalive_intvl, net.ipv4.tcp_keepalive_probes.

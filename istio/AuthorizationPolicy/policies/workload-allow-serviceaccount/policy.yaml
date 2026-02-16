@@ -1,0 +1,18 @@
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-serviceaccount
+  namespace: default
+  annotations:
+    kubedrill.io/displayName: "Allow ServiceAccount"
+    kubedrill.io/description: "Allow requests to the payments workload only from the specified service account principal."
+spec:
+  selector:
+    matchLabels:
+      app: payments
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        principals:
+        - cluster.local/ns/default/sa/payments-client

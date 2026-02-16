@@ -1,0 +1,36 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: seccomp-profile-pod
+  annotations:
+    security.kubeapt.io/displayName: "Seccomp Profile"
+    security.kubeapt.io/description: "ValidatingAdmissionPolicy for seccomp-profile."
+    security.kubeapt.io/resource: "Pods"
+    security.kubeapt.io/severity: "5"
+    security.kubeapt.io/remediation: "Adjust workloads to satisfy the seccomp-profile policy."
+    security.kubeapt.io/product: "Kubernetes"
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+  variables:
+  - name: allowedSeccompTypes
+    expression: |
+      ["RuntimeDefault","Localhost"]
+  validations:
+  - expression: |
+      (has(object.spec.os) &&
+       has(object.spec.os.name) &&
+       object.spec.os.name.lowerAscii() == "windows") ||
+      !has(object.spec.securityContext) || !has(object.spec.securityContext.seccompProfile) || !has(object.spec.securityContext.seccompProfile.type) || variables.allowedSeccompTypes.exists(t, t == object.spec.securityContext.seccompProfile.type)
+    message: |
+      spec.securityContext.seccompProfile.type must be undefined, RuntimeDefault, or Localhost.

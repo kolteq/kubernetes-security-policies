@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-any-any
+  annotations:
+    kubedrill.io/displayName: "Deny All Traffic"
+    kubedrill.io/description: "Deny all ingress and egress traffic for all pods in the namespace."
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
