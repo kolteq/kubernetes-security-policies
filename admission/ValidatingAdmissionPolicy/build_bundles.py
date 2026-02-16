@@ -121,7 +121,24 @@ def build_bundle(root: Path, bundle_dir: Path, policy_index: dict[str, Path]):
 
         bindings_path = root / "bundles" / bundle_slug / "bindings.yaml"
         if bindings_path.exists():
-            shutil.copy2(bindings_path, bundle_dir / "bindings.yaml")
+            bindings_docs = []
+            for doc in yaml.safe_load_all(bindings_path.read_text()):
+                if not isinstance(doc, dict):
+                    bindings_docs.append(doc)
+                    continue
+                metadata = doc.setdefault("metadata", {})
+                current_name = metadata.get("name")
+                if current_name:
+                    metadata["name"] = f"{bundle_slug}--{version}--{current_name}"
+                labels = metadata.setdefault("labels", {})
+                labels["bundle"] = bundle_slug
+                annotations = metadata.setdefault("annotations", {})
+                annotations["policy-bundle.kolteq.com/name"] = bundle_slug
+                annotations["policy-bundle.kolteq.com/version"] = version
+                bindings_docs.append(doc)
+            (bundle_dir / "bindings.yaml").write_text(
+                yaml.safe_dump_all(bindings_docs, sort_keys=False, explicit_start=True)
+            )
 
         write_readme(bundle_dir, name, description, bundle_slug)
 

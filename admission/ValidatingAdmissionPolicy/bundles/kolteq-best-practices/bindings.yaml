@@ -1,9 +1,8 @@
+---
 apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: configmap-data-classification-label-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: configmap-data-classification-label
   validationActions:
@@ -24,8 +23,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: configmap-data-classification-label-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: configmap-data-classification-label
   validationActions:
@@ -46,8 +43,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: configmap-data-classification-label-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: configmap-data-classification-label
   validationActions:
@@ -68,8 +63,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: service-external-ips-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: service-external-ips
   validationActions:
@@ -90,8 +83,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: service-external-ips-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: service-external-ips
   validationActions:
@@ -112,8 +103,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: service-external-ips-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: service-external-ips
   validationActions:
@@ -134,8 +123,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: ingress-tls-hosts-match-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: ingress-tls-hosts-match
   validationActions:
@@ -156,8 +143,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: ingress-tls-hosts-match-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: ingress-tls-hosts-match
   validationActions:
@@ -178,8 +163,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: ingress-tls-hosts-match-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: ingress-tls-hosts-match
   validationActions:
@@ -200,8 +183,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: ingress-no-dangerous-snippets-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: ingress-no-dangerous-snippets
   validationActions:
@@ -222,8 +203,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: ingress-no-dangerous-snippets-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: ingress-no-dangerous-snippets
   validationActions:
@@ -244,8 +223,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: ingress-no-dangerous-snippets-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: ingress-no-dangerous-snippets
   validationActions:
@@ -266,8 +243,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-pod-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-user-pod
   validationActions:
@@ -288,8 +263,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-pod-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-user-pod
   validationActions:
@@ -310,8 +283,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-pod-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-user-pod
   validationActions:
@@ -332,8 +303,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-user-initcontainers
   validationActions:
@@ -354,8 +323,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-user-initcontainers
   validationActions:
@@ -376,8 +343,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-user-initcontainers
   validationActions:
@@ -398,8 +363,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-user-ephemeralcontainers
   validationActions:
@@ -420,8 +383,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-user-ephemeralcontainers
   validationActions:
@@ -442,8 +403,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-user-ephemeralcontainers
   validationActions:
@@ -464,8 +423,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-user-containers
   validationActions:
@@ -486,8 +443,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-user-containers
   validationActions:
@@ -508,8 +463,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-user-containers
   validationActions:
@@ -530,8 +483,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-pod-restricted-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-pod-restricted
   validationActions:
@@ -552,8 +503,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-pod-restricted-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-pod-restricted
   validationActions:
@@ -574,8 +523,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-pod-restricted-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-pod-restricted
   validationActions:
@@ -596,8 +543,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-initcontainers-restricted-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-initcontainers-restricted
   validationActions:
@@ -618,8 +563,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-initcontainers-restricted-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-initcontainers-restricted
   validationActions:
@@ -640,8 +583,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-initcontainers-restricted-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-initcontainers-restricted
   validationActions:
@@ -662,8 +603,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-ephemeralcontainers-restricted-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-ephemeralcontainers-restricted
   validationActions:
@@ -684,8 +623,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-ephemeralcontainers-restricted-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-ephemeralcontainers-restricted
   validationActions:
@@ -706,8 +643,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-ephemeralcontainers-restricted-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-ephemeralcontainers-restricted
   validationActions:
@@ -728,8 +663,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-containers-restricted-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-containers-restricted
   validationActions:
@@ -750,8 +683,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-containers-restricted-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-containers-restricted
   validationActions:
@@ -772,8 +703,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-containers-restricted-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-containers-restricted
   validationActions:
@@ -794,8 +723,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-pod-exec-create-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-pod-exec-create
   validationActions:
@@ -816,8 +743,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-pod-exec-create-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-pod-exec-create
   validationActions:
@@ -838,8 +763,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-pod-exec-create-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-pod-exec-create
   validationActions:
@@ -860,8 +783,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: serviceaccount-automount-token-false-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: serviceaccount-automount-token-false
   validationActions:
@@ -882,8 +803,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: serviceaccount-automount-token-false-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: serviceaccount-automount-token-false
   validationActions:
@@ -904,8 +823,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: serviceaccount-automount-token-false-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: serviceaccount-automount-token-false
   validationActions:
@@ -926,8 +843,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: configmap-topology-intel-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: configmap-topology-intel
   validationActions:
@@ -948,8 +863,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: configmap-topology-intel-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: configmap-topology-intel
   validationActions:
@@ -970,8 +883,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: configmap-topology-intel-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: configmap-topology-intel
   validationActions:
@@ -992,8 +903,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-role
   validationActions:
@@ -1014,8 +923,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-role
   validationActions:
@@ -1036,8 +943,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-role
   validationActions:
@@ -1058,8 +963,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-role-initcontainers
   validationActions:
@@ -1080,8 +983,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-role-initcontainers
   validationActions:
@@ -1102,8 +1003,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-role-initcontainers
   validationActions:
@@ -1124,8 +1023,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-role-ephemeralcontainers
   validationActions:
@@ -1146,8 +1043,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-role-ephemeralcontainers
   validationActions:
@@ -1168,8 +1063,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-role-ephemeralcontainers
   validationActions:
@@ -1190,8 +1083,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-role-containers
   validationActions:
@@ -1212,8 +1103,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-role-containers
   validationActions:
@@ -1234,8 +1123,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-role-containers
   validationActions:
@@ -1256,8 +1143,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: configmap-no-secrets-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: configmap-no-secrets
   validationActions:
@@ -1278,8 +1163,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: configmap-no-secrets-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: configmap-no-secrets
   validationActions:
@@ -1300,8 +1183,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: configmap-no-secrets-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: configmap-no-secrets
   validationActions:
@@ -1322,8 +1203,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-sysctls-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-sysctls
   validationActions:
@@ -1344,8 +1223,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-sysctls-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-sysctls
   validationActions:
@@ -1366,8 +1243,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-sysctls-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-sysctls
   validationActions:
@@ -1388,8 +1263,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: dns-policy-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: dns-policy
   validationActions:
@@ -1410,8 +1283,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: dns-policy-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: dns-policy
   validationActions:
@@ -1432,8 +1303,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: dns-policy-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: dns-policy
   validationActions:
@@ -1454,8 +1323,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-tcpsocket-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: poststart-tcpsocket-host-initcontainers
   validationActions:
@@ -1476,8 +1343,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-tcpsocket-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: poststart-tcpsocket-host-initcontainers
   validationActions:
@@ -1498,8 +1363,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-tcpsocket-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: poststart-tcpsocket-host-initcontainers
   validationActions:
@@ -1520,8 +1383,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-tcpsocket-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: poststart-tcpsocket-host-containers
   validationActions:
@@ -1542,8 +1403,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-tcpsocket-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: poststart-tcpsocket-host-containers
   validationActions:
@@ -1564,8 +1423,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-tcpsocket-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: poststart-tcpsocket-host-containers
   validationActions:
@@ -1586,8 +1443,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-httpget-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: startupprobe-httpget-host-initcontainers
   validationActions:
@@ -1608,8 +1463,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-httpget-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: startupprobe-httpget-host-initcontainers
   validationActions:
@@ -1630,8 +1483,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-httpget-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: startupprobe-httpget-host-initcontainers
   validationActions:
@@ -1652,8 +1503,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-httpget-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: startupprobe-httpget-host-containers
   validationActions:
@@ -1674,8 +1523,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-httpget-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: startupprobe-httpget-host-containers
   validationActions:
@@ -1696,8 +1543,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-httpget-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: startupprobe-httpget-host-containers
   validationActions:
@@ -1718,8 +1563,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-annotation-values-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: apparmor-annotation-values
   validationActions:
@@ -1740,8 +1583,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-annotation-values-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: apparmor-annotation-values
   validationActions:
@@ -1762,8 +1603,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-annotation-values-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: apparmor-annotation-values
   validationActions:
@@ -1784,8 +1623,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostipc-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: hostipc
   validationActions:
@@ -1806,8 +1643,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostipc-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: hostipc
   validationActions:
@@ -1828,8 +1663,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostipc-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: hostipc
   validationActions:
@@ -1850,8 +1683,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-rbac-write-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-rbac-write
   validationActions:
@@ -1872,8 +1703,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-rbac-write-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-rbac-write
   validationActions:
@@ -1894,8 +1723,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-rbac-write-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-rbac-write
   validationActions:
@@ -1916,8 +1743,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: service-no-admin-ports-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: service-no-admin-ports
   validationActions:
@@ -1938,8 +1763,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: service-no-admin-ports-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: service-no-admin-ports
   validationActions:
@@ -1960,8 +1783,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: service-no-admin-ports-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: service-no-admin-ports
   validationActions:
@@ -1982,8 +1803,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: privileged-initcontainers
   validationActions:
@@ -2004,8 +1823,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: privileged-initcontainers
   validationActions:
@@ -2026,8 +1843,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: privileged-initcontainers
   validationActions:
@@ -2048,8 +1863,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: privileged-ephemeralcontainers
   validationActions:
@@ -2070,8 +1883,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: privileged-ephemeralcontainers
   validationActions:
@@ -2092,8 +1903,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: privileged-ephemeralcontainers
   validationActions:
@@ -2114,8 +1923,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: privileged-containers
   validationActions:
@@ -2136,8 +1943,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: privileged-containers
   validationActions:
@@ -2158,8 +1963,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: privileged-containers
   validationActions:
@@ -2180,8 +1983,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: image-no-latest-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: image-no-latest-initcontainers
   validationActions:
@@ -2202,8 +2003,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: image-no-latest-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: image-no-latest-initcontainers
   validationActions:
@@ -2224,8 +2023,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: image-no-latest-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: image-no-latest-initcontainers
   validationActions:
@@ -2246,8 +2043,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: image-no-latest-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: image-no-latest-ephemeralcontainers
   validationActions:
@@ -2268,8 +2063,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: image-no-latest-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: image-no-latest-ephemeralcontainers
   validationActions:
@@ -2290,8 +2083,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: image-no-latest-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: image-no-latest-ephemeralcontainers
   validationActions:
@@ -2312,8 +2103,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: image-no-latest-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: image-no-latest-containers
   validationActions:
@@ -2334,8 +2123,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: image-no-latest-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: image-no-latest-containers
   validationActions:
@@ -2356,8 +2143,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: image-no-latest-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: image-no-latest-containers
   validationActions:
@@ -2378,8 +2163,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-pvc-write-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-pvc-write
   validationActions:
@@ -2400,8 +2183,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-pvc-write-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-pvc-write
   validationActions:
@@ -2422,8 +2203,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-pvc-write-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-pvc-write
   validationActions:
@@ -2444,8 +2223,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: rolebinding-powerful-roles-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: rolebinding-powerful-roles
   validationActions:
@@ -2466,8 +2243,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: rolebinding-powerful-roles-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: rolebinding-powerful-roles
   validationActions:
@@ -2488,8 +2263,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: rolebinding-powerful-roles-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: rolebinding-powerful-roles
   validationActions:
@@ -2510,8 +2283,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-pod-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: apparmor-profile-pod
   validationActions:
@@ -2532,8 +2303,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-pod-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: apparmor-profile-pod
   validationActions:
@@ -2554,8 +2323,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-pod-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: apparmor-profile-pod
   validationActions:
@@ -2576,8 +2343,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: apparmor-profile-initcontainers
   validationActions:
@@ -2598,8 +2363,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: apparmor-profile-initcontainers
   validationActions:
@@ -2620,8 +2383,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: apparmor-profile-initcontainers
   validationActions:
@@ -2642,8 +2403,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: apparmor-profile-ephemeralcontainers
   validationActions:
@@ -2664,8 +2423,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: apparmor-profile-ephemeralcontainers
   validationActions:
@@ -2686,8 +2443,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: apparmor-profile-ephemeralcontainers
   validationActions:
@@ -2708,8 +2463,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: apparmor-profile-containers
   validationActions:
@@ -2730,8 +2483,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: apparmor-profile-containers
   validationActions:
@@ -2752,8 +2503,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: apparmor-profile-containers
   validationActions:
@@ -2774,8 +2523,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-httpget-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: prestop-httpget-host-initcontainers
   validationActions:
@@ -2796,8 +2543,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-httpget-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: prestop-httpget-host-initcontainers
   validationActions:
@@ -2818,8 +2563,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-httpget-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: prestop-httpget-host-initcontainers
   validationActions:
@@ -2840,8 +2583,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-httpget-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: prestop-httpget-host-containers
   validationActions:
@@ -2862,8 +2603,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-httpget-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: prestop-httpget-host-containers
   validationActions:
@@ -2884,8 +2623,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-httpget-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: prestop-httpget-host-containers
   validationActions:
@@ -2906,8 +2643,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostusers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: hostusers
   validationActions:
@@ -2928,8 +2663,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostusers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: hostusers
   validationActions:
@@ -2950,8 +2683,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostusers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: hostusers
   validationActions:
@@ -2972,8 +2703,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: procmount-initcontainers
   validationActions:
@@ -2994,8 +2723,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: procmount-initcontainers
   validationActions:
@@ -3016,8 +2743,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: procmount-initcontainers
   validationActions:
@@ -3038,8 +2763,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: procmount-ephemeralcontainers
   validationActions:
@@ -3060,8 +2783,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: procmount-ephemeralcontainers
   validationActions:
@@ -3082,8 +2803,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: procmount-ephemeralcontainers
   validationActions:
@@ -3104,8 +2823,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: procmount-containers
   validationActions:
@@ -3126,8 +2843,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: procmount-containers
   validationActions:
@@ -3148,8 +2863,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: procmount-containers
   validationActions:
@@ -3170,8 +2883,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: serviceaccount-token-projection-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: serviceaccount-token-projection
   validationActions:
@@ -3192,8 +2903,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: serviceaccount-token-projection-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: serviceaccount-token-projection
   validationActions:
@@ -3214,8 +2923,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: serviceaccount-token-projection-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: serviceaccount-token-projection
   validationActions:
@@ -3236,8 +2943,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: configmap-no-executable-code-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: configmap-no-executable-code
   validationActions:
@@ -3258,8 +2963,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: configmap-no-executable-code-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: configmap-no-executable-code
   validationActions:
@@ -3280,8 +2983,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: configmap-no-executable-code-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: configmap-no-executable-code
   validationActions:
@@ -3302,8 +3003,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-user
   validationActions:
@@ -3324,8 +3023,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-user
   validationActions:
@@ -3346,8 +3043,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-user
   validationActions:
@@ -3368,8 +3063,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-user-initcontainers
   validationActions:
@@ -3390,8 +3083,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-user-initcontainers
   validationActions:
@@ -3412,8 +3103,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-user-initcontainers
   validationActions:
@@ -3434,8 +3123,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-user-ephemeralcontainers
   validationActions:
@@ -3456,8 +3143,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-user-ephemeralcontainers
   validationActions:
@@ -3478,8 +3163,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-user-ephemeralcontainers
   validationActions:
@@ -3500,8 +3183,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-user-containers
   validationActions:
@@ -3522,8 +3203,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-user-containers
   validationActions:
@@ -3544,8 +3223,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-user-containers
   validationActions:
@@ -3566,8 +3243,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: ingress-tls-required-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: ingress-tls-required
   validationActions:
@@ -3588,8 +3263,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: ingress-tls-required-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: ingress-tls-required
   validationActions:
@@ -3610,8 +3283,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: ingress-tls-required-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: ingress-tls-required
   validationActions:
@@ -3632,8 +3303,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-tcpsocket-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: prestop-tcpsocket-host-initcontainers
   validationActions:
@@ -3654,8 +3323,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-tcpsocket-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: prestop-tcpsocket-host-initcontainers
   validationActions:
@@ -3676,8 +3343,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-tcpsocket-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: prestop-tcpsocket-host-initcontainers
   validationActions:
@@ -3698,8 +3363,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-tcpsocket-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: prestop-tcpsocket-host-containers
   validationActions:
@@ -3720,8 +3383,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-tcpsocket-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: prestop-tcpsocket-host-containers
   validationActions:
@@ -3742,8 +3403,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-tcpsocket-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: prestop-tcpsocket-host-containers
   validationActions:
@@ -3764,8 +3423,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: rolebinding-default-serviceaccount-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: rolebinding-default-serviceaccount
   validationActions:
@@ -3786,8 +3443,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: rolebinding-default-serviceaccount-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: rolebinding-default-serviceaccount
   validationActions:
@@ -3808,8 +3463,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: rolebinding-default-serviceaccount-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: rolebinding-default-serviceaccount
   validationActions:
@@ -3830,8 +3483,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-group-pod-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-group-pod
   validationActions:
@@ -3852,8 +3503,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-group-pod-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-group-pod
   validationActions:
@@ -3874,8 +3523,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-group-pod-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-group-pod
   validationActions:
@@ -3896,8 +3543,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-group-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-group-initcontainers
   validationActions:
@@ -3918,8 +3563,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-group-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-group-initcontainers
   validationActions:
@@ -3940,8 +3583,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-group-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-group-initcontainers
   validationActions:
@@ -3962,8 +3603,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-group-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-group-ephemeralcontainers
   validationActions:
@@ -3984,8 +3623,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-group-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-group-ephemeralcontainers
   validationActions:
@@ -4006,8 +3643,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-group-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-group-ephemeralcontainers
   validationActions:
@@ -4028,8 +3663,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-group-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-group-containers
   validationActions:
@@ -4050,8 +3683,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-group-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-group-containers
   validationActions:
@@ -4072,8 +3703,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-group-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-group-containers
   validationActions:
@@ -4094,8 +3723,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: service-account-name-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: service-account-name
   validationActions:
@@ -4116,8 +3743,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: service-account-name-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: service-account-name
   validationActions:
@@ -4138,8 +3763,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: service-account-name-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: service-account-name
   validationActions:
@@ -4160,8 +3783,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: rolebinding-anonymous-subjects-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: rolebinding-anonymous-subjects
   validationActions:
@@ -4182,8 +3803,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: rolebinding-anonymous-subjects-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: rolebinding-anonymous-subjects
   validationActions:
@@ -4204,8 +3823,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: rolebinding-anonymous-subjects-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: rolebinding-anonymous-subjects
   validationActions:
@@ -4226,8 +3843,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-type
   validationActions:
@@ -4248,8 +3863,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-type
   validationActions:
@@ -4270,8 +3883,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-type
   validationActions:
@@ -4292,8 +3903,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-type-initcontainers
   validationActions:
@@ -4314,8 +3923,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-type-initcontainers
   validationActions:
@@ -4336,8 +3943,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-type-initcontainers
   validationActions:
@@ -4358,8 +3963,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-type-ephemeralcontainers
   validationActions:
@@ -4380,8 +3983,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-type-ephemeralcontainers
   validationActions:
@@ -4402,8 +4003,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-type-ephemeralcontainers
   validationActions:
@@ -4424,8 +4023,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-type-containers
   validationActions:
@@ -4446,8 +4043,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-type-containers
   validationActions:
@@ -4468,8 +4063,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: selinux-type-containers
   validationActions:
@@ -4490,8 +4083,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-wildcard-rules-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-wildcard-rules
   validationActions:
@@ -4512,8 +4103,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-wildcard-rules-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-wildcard-rules
   validationActions:
@@ -4534,8 +4123,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-wildcard-rules-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-wildcard-rules
   validationActions:
@@ -4556,8 +4143,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-httpget-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: readinessprobe-httpget-host-initcontainers
   validationActions:
@@ -4578,8 +4163,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-httpget-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: readinessprobe-httpget-host-initcontainers
   validationActions:
@@ -4600,8 +4183,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-httpget-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: readinessprobe-httpget-host-initcontainers
   validationActions:
@@ -4622,8 +4203,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-httpget-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: readinessprobe-httpget-host-containers
   validationActions:
@@ -4644,8 +4223,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-httpget-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: readinessprobe-httpget-host-containers
   validationActions:
@@ -4666,8 +4243,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-httpget-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: readinessprobe-httpget-host-containers
   validationActions:
@@ -4688,8 +4263,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-serviceaccount-tokens-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-serviceaccount-tokens
   validationActions:
@@ -4710,8 +4283,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-serviceaccount-tokens-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-serviceaccount-tokens
   validationActions:
@@ -4732,8 +4303,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-serviceaccount-tokens-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-serviceaccount-tokens
   validationActions:
@@ -4754,8 +4323,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostpid-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: hostpid
   validationActions:
@@ -4776,8 +4343,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostpid-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: hostpid
   validationActions:
@@ -4798,8 +4363,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostpid-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: hostpid
   validationActions:
@@ -4820,8 +4383,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: pod-template-labels-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: pod-template-labels
   validationActions:
@@ -4842,8 +4403,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: pod-template-labels-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: pod-template-labels
   validationActions:
@@ -4864,8 +4423,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: pod-template-labels-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: pod-template-labels
   validationActions:
@@ -4886,8 +4443,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: rolebinding-system-groups-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: rolebinding-system-groups
   validationActions:
@@ -4908,8 +4463,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: rolebinding-system-groups-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: rolebinding-system-groups
   validationActions:
@@ -4930,8 +4483,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: rolebinding-system-groups-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: rolebinding-system-groups
   validationActions:
@@ -4952,8 +4503,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-tcpsocket-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: readinessprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -4974,8 +4523,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-tcpsocket-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: readinessprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -4996,8 +4543,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-tcpsocket-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: readinessprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -5018,8 +4563,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-tcpsocket-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: readinessprobe-tcpsocket-host-containers
   validationActions:
@@ -5040,8 +4583,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-tcpsocket-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: readinessprobe-tcpsocket-host-containers
   validationActions:
@@ -5062,8 +4603,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-tcpsocket-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: readinessprobe-tcpsocket-host-containers
   validationActions:
@@ -5084,8 +4623,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allow-privilege-escalation-initcontainers
   validationActions:
@@ -5106,8 +4643,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allow-privilege-escalation-initcontainers
   validationActions:
@@ -5128,8 +4663,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allow-privilege-escalation-initcontainers
   validationActions:
@@ -5150,8 +4683,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allow-privilege-escalation-ephemeralcontainers
   validationActions:
@@ -5172,8 +4703,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allow-privilege-escalation-ephemeralcontainers
   validationActions:
@@ -5194,8 +4723,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allow-privilege-escalation-ephemeralcontainers
   validationActions:
@@ -5216,8 +4743,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allow-privilege-escalation-containers
   validationActions:
@@ -5238,8 +4763,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allow-privilege-escalation-containers
   validationActions:
@@ -5260,8 +4783,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allow-privilege-escalation-containers
   validationActions:
@@ -5282,8 +4803,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-secrets-access-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-secrets-access
   validationActions:
@@ -5304,8 +4823,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-secrets-access-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-secrets-access
   validationActions:
@@ -5326,8 +4843,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-secrets-access-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-secrets-access
   validationActions:
@@ -5348,8 +4863,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: networkpolicy-allow-all-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: networkpolicy-allow-all
   validationActions:
@@ -5370,8 +4883,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: networkpolicy-allow-all-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: networkpolicy-allow-all
   validationActions:
@@ -5392,8 +4903,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: networkpolicy-allow-all-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: networkpolicy-allow-all
   validationActions:
@@ -5414,8 +4923,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-add-netbindservice-initcontainers
   validationActions:
@@ -5436,8 +4943,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-add-netbindservice-initcontainers
   validationActions:
@@ -5458,8 +4963,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-add-netbindservice-initcontainers
   validationActions:
@@ -5480,8 +4983,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-add-netbindservice-ephemeralcontainers
   validationActions:
@@ -5502,8 +5003,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-add-netbindservice-ephemeralcontainers
   validationActions:
@@ -5524,8 +5023,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-add-netbindservice-ephemeralcontainers
   validationActions:
@@ -5546,8 +5043,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-add-netbindservice-containers
   validationActions:
@@ -5568,8 +5063,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-add-netbindservice-containers
   validationActions:
@@ -5590,8 +5083,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-add-netbindservice-containers
   validationActions:
@@ -5612,8 +5103,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-drop-all-initcontainers
   validationActions:
@@ -5634,8 +5123,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-drop-all-initcontainers
   validationActions:
@@ -5656,8 +5143,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-drop-all-initcontainers
   validationActions:
@@ -5678,8 +5163,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-drop-all-ephemeralcontainers
   validationActions:
@@ -5700,8 +5183,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-drop-all-ephemeralcontainers
   validationActions:
@@ -5722,8 +5203,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-drop-all-ephemeralcontainers
   validationActions:
@@ -5744,8 +5223,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-drop-all-containers
   validationActions:
@@ -5766,8 +5243,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-drop-all-containers
   validationActions:
@@ -5788,8 +5263,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: capabilities-drop-all-containers
   validationActions:
@@ -5810,8 +5283,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostpath-volumes-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: hostpath-volumes
   validationActions:
@@ -5832,8 +5303,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostpath-volumes-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: hostpath-volumes
   validationActions:
@@ -5854,8 +5323,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostpath-volumes-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: hostpath-volumes
   validationActions:
@@ -5876,8 +5343,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: fsgroup-pod-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: fsgroup-pod
   validationActions:
@@ -5898,8 +5363,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: fsgroup-pod-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: fsgroup-pod
   validationActions:
@@ -5920,8 +5383,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: fsgroup-pod-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: fsgroup-pod
   validationActions:
@@ -5942,8 +5403,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: automount-service-account-token-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: automount-service-account-token
   validationActions:
@@ -5964,8 +5423,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: automount-service-account-token-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: automount-service-account-token
   validationActions:
@@ -5986,8 +5443,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: automount-service-account-token-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: automount-service-account-token
   validationActions:
@@ -6008,8 +5463,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-pod-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-nonroot-pod
   validationActions:
@@ -6030,8 +5483,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-pod-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-nonroot-pod
   validationActions:
@@ -6052,8 +5503,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-pod-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-nonroot-pod
   validationActions:
@@ -6074,8 +5523,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-nonroot-initcontainers
   validationActions:
@@ -6096,8 +5543,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-nonroot-initcontainers
   validationActions:
@@ -6118,8 +5563,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-nonroot-initcontainers
   validationActions:
@@ -6140,8 +5583,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-nonroot-ephemeralcontainers
   validationActions:
@@ -6162,8 +5603,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-nonroot-ephemeralcontainers
   validationActions:
@@ -6184,8 +5623,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-nonroot-ephemeralcontainers
   validationActions:
@@ -6206,8 +5643,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-nonroot-containers
   validationActions:
@@ -6228,8 +5663,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-nonroot-containers
   validationActions:
@@ -6250,8 +5683,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: run-as-nonroot-containers
   validationActions:
@@ -6272,8 +5703,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-httpget-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: livenessprobe-httpget-host-initcontainers
   validationActions:
@@ -6294,8 +5723,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-httpget-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: livenessprobe-httpget-host-initcontainers
   validationActions:
@@ -6316,8 +5743,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-httpget-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: livenessprobe-httpget-host-initcontainers
   validationActions:
@@ -6338,8 +5763,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-httpget-host-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: livenessprobe-httpget-host
   validationActions:
@@ -6360,8 +5783,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-httpget-host-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: livenessprobe-httpget-host
   validationActions:
@@ -6382,8 +5803,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-httpget-host-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: livenessprobe-httpget-host
   validationActions:
@@ -6404,8 +5823,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-capabilities-add-initcontainers
   validationActions:
@@ -6426,8 +5843,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-capabilities-add-initcontainers
   validationActions:
@@ -6448,8 +5863,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-capabilities-add-initcontainers
   validationActions:
@@ -6470,8 +5883,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-capabilities-add-ephemeralcontainers
   validationActions:
@@ -6492,8 +5903,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-capabilities-add-ephemeralcontainers
   validationActions:
@@ -6514,8 +5923,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-capabilities-add-ephemeralcontainers
   validationActions:
@@ -6536,8 +5943,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-capabilities-add-containers
   validationActions:
@@ -6558,8 +5963,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-capabilities-add-containers
   validationActions:
@@ -6580,8 +5983,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-capabilities-add-containers
   validationActions:
@@ -6602,8 +6003,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: service-nodeport-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: service-nodeport
   validationActions:
@@ -6624,8 +6023,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: service-nodeport-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: service-nodeport
   validationActions:
@@ -6646,8 +6043,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: service-nodeport-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: service-nodeport
   validationActions:
@@ -6668,8 +6063,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-pod-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-pod
   validationActions:
@@ -6690,8 +6083,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-pod-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-pod
   validationActions:
@@ -6712,8 +6103,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-pod-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-pod
   validationActions:
@@ -6734,8 +6123,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-initcontainers
   validationActions:
@@ -6756,8 +6143,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-initcontainers
   validationActions:
@@ -6778,8 +6163,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-initcontainers
   validationActions:
@@ -6800,8 +6183,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-ephemeralcontainers
   validationActions:
@@ -6822,8 +6203,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-ephemeralcontainers
   validationActions:
@@ -6844,8 +6223,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-ephemeralcontainers
   validationActions:
@@ -6866,8 +6243,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-containers
   validationActions:
@@ -6888,8 +6263,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-containers
   validationActions:
@@ -6910,8 +6283,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: seccomp-profile-containers
   validationActions:
@@ -6932,8 +6303,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: windows-hostprocess
   validationActions:
@@ -6954,8 +6323,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: windows-hostprocess
   validationActions:
@@ -6976,8 +6343,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: windows-hostprocess
   validationActions:
@@ -6998,8 +6363,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: windows-hostprocess-initcontainers
   validationActions:
@@ -7020,8 +6383,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: windows-hostprocess-initcontainers
   validationActions:
@@ -7042,8 +6403,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: windows-hostprocess-initcontainers
   validationActions:
@@ -7064,8 +6423,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: windows-hostprocess-ephemeralcontainers
   validationActions:
@@ -7086,8 +6443,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: windows-hostprocess-ephemeralcontainers
   validationActions:
@@ -7108,8 +6463,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: windows-hostprocess-ephemeralcontainers
   validationActions:
@@ -7130,8 +6483,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: windows-hostprocess-containers
   validationActions:
@@ -7152,8 +6503,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: windows-hostprocess-containers
   validationActions:
@@ -7174,8 +6523,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: windows-hostprocess-containers
   validationActions:
@@ -7196,8 +6543,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostnetwork-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: hostnetwork
   validationActions:
@@ -7218,8 +6563,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostnetwork-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: hostnetwork
   validationActions:
@@ -7240,8 +6583,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostnetwork-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: hostnetwork
   validationActions:
@@ -7262,8 +6603,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-workloads-write-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-workloads-write
   validationActions:
@@ -7284,8 +6623,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-workloads-write-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-workloads-write
   validationActions:
@@ -7306,8 +6643,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-workloads-write-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-workloads-write
   validationActions:
@@ -7328,8 +6663,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-tcpsocket-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: livenessprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -7350,8 +6683,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-tcpsocket-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: livenessprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -7372,8 +6703,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-tcpsocket-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: livenessprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -7394,8 +6723,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-tcpsocket-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: livenessprobe-tcpsocket-host-containers
   validationActions:
@@ -7416,8 +6743,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-tcpsocket-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: livenessprobe-tcpsocket-host-containers
   validationActions:
@@ -7438,8 +6763,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-tcpsocket-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: livenessprobe-tcpsocket-host-containers
   validationActions:
@@ -7460,8 +6783,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: share-process-namespace-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: share-process-namespace
   validationActions:
@@ -7482,8 +6803,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: share-process-namespace-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: share-process-namespace
   validationActions:
@@ -7504,8 +6823,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: share-process-namespace-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: share-process-namespace
   validationActions:
@@ -7526,8 +6843,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-hostports-initcontainers
   validationActions:
@@ -7548,8 +6863,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-hostports-initcontainers
   validationActions:
@@ -7570,8 +6883,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-hostports-initcontainers
   validationActions:
@@ -7592,8 +6903,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-hostports-ephemeralcontainers
   validationActions:
@@ -7614,8 +6923,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-hostports-ephemeralcontainers
   validationActions:
@@ -7636,8 +6943,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-hostports-ephemeralcontainers
   validationActions:
@@ -7658,8 +6963,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-hostports-containers
   validationActions:
@@ -7680,8 +6983,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-hostports-containers
   validationActions:
@@ -7702,8 +7003,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-hostports-containers
   validationActions:
@@ -7724,8 +7023,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: configmap-immutable-true-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: configmap-immutable-true
   validationActions:
@@ -7746,8 +7043,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: configmap-immutable-true-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: configmap-immutable-true
   validationActions:
@@ -7768,8 +7063,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: configmap-immutable-true-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: configmap-immutable-true
   validationActions:
@@ -7790,8 +7083,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: read-only-root-filesystem-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: read-only-root-filesystem-initcontainers
   validationActions:
@@ -7812,8 +7103,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: read-only-root-filesystem-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: read-only-root-filesystem-initcontainers
   validationActions:
@@ -7834,8 +7123,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: read-only-root-filesystem-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: read-only-root-filesystem-initcontainers
   validationActions:
@@ -7856,8 +7143,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: read-only-root-filesystem-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: read-only-root-filesystem-ephemeralcontainers
   validationActions:
@@ -7878,8 +7163,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: read-only-root-filesystem-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: read-only-root-filesystem-ephemeralcontainers
   validationActions:
@@ -7900,8 +7183,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: read-only-root-filesystem-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: read-only-root-filesystem-ephemeralcontainers
   validationActions:
@@ -7922,8 +7203,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: read-only-root-filesystem-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: read-only-root-filesystem-containers
   validationActions:
@@ -7944,8 +7223,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: read-only-root-filesystem-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: read-only-root-filesystem-containers
   validationActions:
@@ -7966,8 +7243,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: read-only-root-filesystem-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: read-only-root-filesystem-containers
   validationActions:
@@ -7988,8 +7263,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-httpget-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: poststart-httpget-host-initcontainers
   validationActions:
@@ -8010,8 +7283,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-httpget-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: poststart-httpget-host-initcontainers
   validationActions:
@@ -8032,8 +7303,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-httpget-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: poststart-httpget-host-initcontainers
   validationActions:
@@ -8054,8 +7323,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-httpget-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: poststart-httpget-host-containers
   validationActions:
@@ -8076,8 +7343,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-httpget-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: poststart-httpget-host-containers
   validationActions:
@@ -8098,8 +7363,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-httpget-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: poststart-httpget-host-containers
   validationActions:
@@ -8120,8 +7383,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-tcpsocket-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: startupprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -8142,8 +7403,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-tcpsocket-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: startupprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -8164,8 +7423,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-tcpsocket-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: startupprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -8186,8 +7443,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-tcpsocket-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: startupprobe-tcpsocket-host-containers
   validationActions:
@@ -8208,8 +7463,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-tcpsocket-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: startupprobe-tcpsocket-host-containers
   validationActions:
@@ -8230,8 +7483,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-tcpsocket-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: startupprobe-tcpsocket-host-containers
   validationActions:
@@ -8252,8 +7503,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-serviceaccounts-write-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-serviceaccounts-write
   validationActions:
@@ -8274,8 +7523,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-serviceaccounts-write-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-serviceaccounts-write
   validationActions:
@@ -8296,8 +7543,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: role-serviceaccounts-write-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: role-serviceaccounts-write
   validationActions:
@@ -8318,8 +7563,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: serviceaccount-no-token-secrets-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: serviceaccount-no-token-secrets
   validationActions:
@@ -8340,8 +7583,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: serviceaccount-no-token-secrets-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: serviceaccount-no-token-secrets
   validationActions:
@@ -8362,8 +7603,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: serviceaccount-no-token-secrets-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: serviceaccount-no-token-secrets
   validationActions:
@@ -8384,8 +7623,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-volume-types-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-volume-types
   validationActions:
@@ -8406,8 +7643,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-volume-types-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-volume-types
   validationActions:
@@ -8428,8 +7663,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-volume-types-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: allowed-volume-types
   validationActions:
@@ -8450,8 +7683,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: serviceaccount-imagepullsecrets-scope-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: serviceaccount-imagepullsecrets-scope
   validationActions:
@@ -8472,8 +7703,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: serviceaccount-imagepullsecrets-scope-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: serviceaccount-imagepullsecrets-scope
   validationActions:
@@ -8494,8 +7723,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: serviceaccount-imagepullsecrets-scope-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: kolteq-best-practices
 spec:
   policyName: serviceaccount-imagepullsecrets-scope
   validationActions:

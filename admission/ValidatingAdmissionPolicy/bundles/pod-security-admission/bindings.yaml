@@ -1,9 +1,8 @@
+---
 apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-pod-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-user-pod
   validationActions:
@@ -25,8 +24,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-pod-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-user-pod
   validationActions:
@@ -48,8 +45,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-pod-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-user-pod
   validationActions:
@@ -71,8 +66,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-user-initcontainers
   validationActions:
@@ -94,8 +87,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-user-initcontainers
   validationActions:
@@ -117,8 +108,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-user-initcontainers
   validationActions:
@@ -140,8 +129,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-user-ephemeralcontainers
   validationActions:
@@ -163,8 +150,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-user-ephemeralcontainers
   validationActions:
@@ -186,8 +171,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-user-ephemeralcontainers
   validationActions:
@@ -209,8 +192,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-user-containers
   validationActions:
@@ -232,8 +213,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-user-containers
   validationActions:
@@ -255,8 +234,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-user-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-user-containers
   validationActions:
@@ -278,8 +255,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-pod-restricted-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-pod-restricted
   validationActions:
@@ -301,8 +276,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-pod-restricted-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-pod-restricted
   validationActions:
@@ -324,8 +297,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-pod-restricted-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-pod-restricted
   validationActions:
@@ -347,8 +318,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-initcontainers-restricted-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-initcontainers-restricted
   validationActions:
@@ -370,8 +339,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-initcontainers-restricted-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-initcontainers-restricted
   validationActions:
@@ -393,8 +360,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-initcontainers-restricted-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-initcontainers-restricted
   validationActions:
@@ -416,8 +381,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-ephemeralcontainers-restricted-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-ephemeralcontainers-restricted
   validationActions:
@@ -439,8 +402,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-ephemeralcontainers-restricted-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-ephemeralcontainers-restricted
   validationActions:
@@ -462,8 +423,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-ephemeralcontainers-restricted-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-ephemeralcontainers-restricted
   validationActions:
@@ -485,8 +444,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-containers-restricted-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-containers-restricted
   validationActions:
@@ -508,8 +465,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-containers-restricted-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-containers-restricted
   validationActions:
@@ -531,8 +486,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-containers-restricted-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-containers-restricted
   validationActions:
@@ -554,8 +507,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-role
   validationActions:
@@ -577,8 +528,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-role
   validationActions:
@@ -600,8 +549,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-role
   validationActions:
@@ -623,8 +570,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-role-initcontainers
   validationActions:
@@ -646,8 +591,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-role-initcontainers
   validationActions:
@@ -669,8 +612,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-role-initcontainers
   validationActions:
@@ -692,8 +633,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-role-ephemeralcontainers
   validationActions:
@@ -715,8 +654,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-role-ephemeralcontainers
   validationActions:
@@ -738,8 +675,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-role-ephemeralcontainers
   validationActions:
@@ -761,8 +696,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-role-containers
   validationActions:
@@ -784,8 +717,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-role-containers
   validationActions:
@@ -807,8 +738,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-role-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-role-containers
   validationActions:
@@ -830,8 +759,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-sysctls-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-sysctls
   validationActions:
@@ -853,8 +780,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-sysctls-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-sysctls
   validationActions:
@@ -876,8 +801,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-sysctls-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-sysctls
   validationActions:
@@ -899,8 +822,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-tcpsocket-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: poststart-tcpsocket-host-initcontainers
   validationActions:
@@ -922,8 +843,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-tcpsocket-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: poststart-tcpsocket-host-initcontainers
   validationActions:
@@ -945,8 +864,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-tcpsocket-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: poststart-tcpsocket-host-initcontainers
   validationActions:
@@ -968,8 +885,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-tcpsocket-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: poststart-tcpsocket-host-containers
   validationActions:
@@ -991,8 +906,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-tcpsocket-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: poststart-tcpsocket-host-containers
   validationActions:
@@ -1014,8 +927,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-tcpsocket-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: poststart-tcpsocket-host-containers
   validationActions:
@@ -1037,8 +948,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-httpget-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: startupprobe-httpget-host-initcontainers
   validationActions:
@@ -1060,8 +969,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-httpget-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: startupprobe-httpget-host-initcontainers
   validationActions:
@@ -1083,8 +990,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-httpget-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: startupprobe-httpget-host-initcontainers
   validationActions:
@@ -1106,8 +1011,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-httpget-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: startupprobe-httpget-host-containers
   validationActions:
@@ -1129,8 +1032,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-httpget-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: startupprobe-httpget-host-containers
   validationActions:
@@ -1152,8 +1053,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-httpget-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: startupprobe-httpget-host-containers
   validationActions:
@@ -1175,8 +1074,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-annotation-values-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: apparmor-annotation-values
   validationActions:
@@ -1198,8 +1095,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-annotation-values-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: apparmor-annotation-values
   validationActions:
@@ -1221,8 +1116,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-annotation-values-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: apparmor-annotation-values
   validationActions:
@@ -1244,8 +1137,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostipc-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: hostipc
   validationActions:
@@ -1267,8 +1158,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostipc-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: hostipc
   validationActions:
@@ -1290,8 +1179,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostipc-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: hostipc
   validationActions:
@@ -1313,8 +1200,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: privileged-initcontainers
   validationActions:
@@ -1336,8 +1221,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: privileged-initcontainers
   validationActions:
@@ -1359,8 +1242,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: privileged-initcontainers
   validationActions:
@@ -1382,8 +1263,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: privileged-ephemeralcontainers
   validationActions:
@@ -1405,8 +1284,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: privileged-ephemeralcontainers
   validationActions:
@@ -1428,8 +1305,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: privileged-ephemeralcontainers
   validationActions:
@@ -1451,8 +1326,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: privileged-containers
   validationActions:
@@ -1474,8 +1347,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: privileged-containers
   validationActions:
@@ -1497,8 +1368,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: privileged-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: privileged-containers
   validationActions:
@@ -1520,8 +1389,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-pod-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: apparmor-profile-pod
   validationActions:
@@ -1543,8 +1410,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-pod-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: apparmor-profile-pod
   validationActions:
@@ -1566,8 +1431,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-pod-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: apparmor-profile-pod
   validationActions:
@@ -1589,8 +1452,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: apparmor-profile-initcontainers
   validationActions:
@@ -1612,8 +1473,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: apparmor-profile-initcontainers
   validationActions:
@@ -1635,8 +1494,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: apparmor-profile-initcontainers
   validationActions:
@@ -1658,8 +1515,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: apparmor-profile-ephemeralcontainers
   validationActions:
@@ -1681,8 +1536,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: apparmor-profile-ephemeralcontainers
   validationActions:
@@ -1704,8 +1557,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: apparmor-profile-ephemeralcontainers
   validationActions:
@@ -1727,8 +1578,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: apparmor-profile-containers
   validationActions:
@@ -1750,8 +1599,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: apparmor-profile-containers
   validationActions:
@@ -1773,8 +1620,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: apparmor-profile-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: apparmor-profile-containers
   validationActions:
@@ -1796,8 +1641,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-httpget-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: prestop-httpget-host-initcontainers
   validationActions:
@@ -1819,8 +1662,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-httpget-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: prestop-httpget-host-initcontainers
   validationActions:
@@ -1842,8 +1683,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-httpget-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: prestop-httpget-host-initcontainers
   validationActions:
@@ -1865,8 +1704,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-httpget-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: prestop-httpget-host-containers
   validationActions:
@@ -1888,8 +1725,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-httpget-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: prestop-httpget-host-containers
   validationActions:
@@ -1911,8 +1746,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-httpget-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: prestop-httpget-host-containers
   validationActions:
@@ -1934,8 +1767,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: procmount-initcontainers
   validationActions:
@@ -1957,8 +1788,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: procmount-initcontainers
   validationActions:
@@ -1980,8 +1809,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: procmount-initcontainers
   validationActions:
@@ -2003,8 +1830,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: procmount-ephemeralcontainers
   validationActions:
@@ -2026,8 +1851,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: procmount-ephemeralcontainers
   validationActions:
@@ -2049,8 +1872,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: procmount-ephemeralcontainers
   validationActions:
@@ -2072,8 +1893,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: procmount-containers
   validationActions:
@@ -2095,8 +1914,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: procmount-containers
   validationActions:
@@ -2118,8 +1935,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: procmount-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: procmount-containers
   validationActions:
@@ -2141,8 +1956,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-user
   validationActions:
@@ -2164,8 +1977,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-user
   validationActions:
@@ -2187,8 +1998,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-user
   validationActions:
@@ -2210,8 +2019,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-user-initcontainers
   validationActions:
@@ -2233,8 +2040,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-user-initcontainers
   validationActions:
@@ -2256,8 +2061,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-user-initcontainers
   validationActions:
@@ -2279,8 +2082,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-user-ephemeralcontainers
   validationActions:
@@ -2302,8 +2103,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-user-ephemeralcontainers
   validationActions:
@@ -2325,8 +2124,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-user-ephemeralcontainers
   validationActions:
@@ -2348,8 +2145,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-user-containers
   validationActions:
@@ -2371,8 +2166,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-user-containers
   validationActions:
@@ -2394,8 +2187,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-user-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-user-containers
   validationActions:
@@ -2417,8 +2208,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-tcpsocket-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: prestop-tcpsocket-host-initcontainers
   validationActions:
@@ -2440,8 +2229,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-tcpsocket-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: prestop-tcpsocket-host-initcontainers
   validationActions:
@@ -2463,8 +2250,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-tcpsocket-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: prestop-tcpsocket-host-initcontainers
   validationActions:
@@ -2486,8 +2271,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-tcpsocket-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: prestop-tcpsocket-host-containers
   validationActions:
@@ -2509,8 +2292,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-tcpsocket-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: prestop-tcpsocket-host-containers
   validationActions:
@@ -2532,8 +2313,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: prestop-tcpsocket-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: prestop-tcpsocket-host-containers
   validationActions:
@@ -2555,8 +2334,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-type
   validationActions:
@@ -2578,8 +2355,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-type
   validationActions:
@@ -2601,8 +2376,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-type
   validationActions:
@@ -2624,8 +2397,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-type-initcontainers
   validationActions:
@@ -2647,8 +2418,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-type-initcontainers
   validationActions:
@@ -2670,8 +2439,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-type-initcontainers
   validationActions:
@@ -2693,8 +2460,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-type-ephemeralcontainers
   validationActions:
@@ -2716,8 +2481,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-type-ephemeralcontainers
   validationActions:
@@ -2739,8 +2502,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-type-ephemeralcontainers
   validationActions:
@@ -2762,8 +2523,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-type-containers
   validationActions:
@@ -2785,8 +2544,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-type-containers
   validationActions:
@@ -2808,8 +2565,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: selinux-type-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: selinux-type-containers
   validationActions:
@@ -2831,8 +2586,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-httpget-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: readinessprobe-httpget-host-initcontainers
   validationActions:
@@ -2854,8 +2607,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-httpget-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: readinessprobe-httpget-host-initcontainers
   validationActions:
@@ -2877,8 +2628,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-httpget-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: readinessprobe-httpget-host-initcontainers
   validationActions:
@@ -2900,8 +2649,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-httpget-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: readinessprobe-httpget-host-containers
   validationActions:
@@ -2923,8 +2670,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-httpget-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: readinessprobe-httpget-host-containers
   validationActions:
@@ -2946,8 +2691,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-httpget-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: readinessprobe-httpget-host-containers
   validationActions:
@@ -2969,8 +2712,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostpid-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: hostpid
   validationActions:
@@ -2992,8 +2733,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostpid-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: hostpid
   validationActions:
@@ -3015,8 +2754,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostpid-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: hostpid
   validationActions:
@@ -3038,8 +2775,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-tcpsocket-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: readinessprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -3061,8 +2796,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-tcpsocket-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: readinessprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -3084,8 +2817,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-tcpsocket-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: readinessprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -3107,8 +2838,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-tcpsocket-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: readinessprobe-tcpsocket-host-containers
   validationActions:
@@ -3130,8 +2859,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-tcpsocket-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: readinessprobe-tcpsocket-host-containers
   validationActions:
@@ -3153,8 +2880,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: readinessprobe-tcpsocket-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: readinessprobe-tcpsocket-host-containers
   validationActions:
@@ -3176,8 +2901,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allow-privilege-escalation-initcontainers
   validationActions:
@@ -3199,8 +2922,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allow-privilege-escalation-initcontainers
   validationActions:
@@ -3222,8 +2943,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allow-privilege-escalation-initcontainers
   validationActions:
@@ -3245,8 +2964,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allow-privilege-escalation-ephemeralcontainers
   validationActions:
@@ -3268,8 +2985,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allow-privilege-escalation-ephemeralcontainers
   validationActions:
@@ -3291,8 +3006,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allow-privilege-escalation-ephemeralcontainers
   validationActions:
@@ -3314,8 +3027,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allow-privilege-escalation-containers
   validationActions:
@@ -3337,8 +3048,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allow-privilege-escalation-containers
   validationActions:
@@ -3360,8 +3069,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allow-privilege-escalation-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allow-privilege-escalation-containers
   validationActions:
@@ -3383,8 +3090,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-add-netbindservice-initcontainers
   validationActions:
@@ -3406,8 +3111,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-add-netbindservice-initcontainers
   validationActions:
@@ -3429,8 +3132,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-add-netbindservice-initcontainers
   validationActions:
@@ -3452,8 +3153,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-add-netbindservice-ephemeralcontainers
   validationActions:
@@ -3475,8 +3174,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-add-netbindservice-ephemeralcontainers
   validationActions:
@@ -3498,8 +3195,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-add-netbindservice-ephemeralcontainers
   validationActions:
@@ -3521,8 +3216,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-add-netbindservice-containers
   validationActions:
@@ -3544,8 +3237,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-add-netbindservice-containers
   validationActions:
@@ -3567,8 +3258,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-add-netbindservice-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-add-netbindservice-containers
   validationActions:
@@ -3590,8 +3279,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-drop-all-initcontainers
   validationActions:
@@ -3613,8 +3300,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-drop-all-initcontainers
   validationActions:
@@ -3636,8 +3321,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-drop-all-initcontainers
   validationActions:
@@ -3659,8 +3342,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-drop-all-ephemeralcontainers
   validationActions:
@@ -3682,8 +3363,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-drop-all-ephemeralcontainers
   validationActions:
@@ -3705,8 +3384,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-drop-all-ephemeralcontainers
   validationActions:
@@ -3728,8 +3405,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-drop-all-containers
   validationActions:
@@ -3751,8 +3426,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-drop-all-containers
   validationActions:
@@ -3774,8 +3447,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: capabilities-drop-all-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: capabilities-drop-all-containers
   validationActions:
@@ -3797,8 +3468,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostpath-volumes-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: hostpath-volumes
   validationActions:
@@ -3820,8 +3489,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostpath-volumes-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: hostpath-volumes
   validationActions:
@@ -3843,8 +3510,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostpath-volumes-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: hostpath-volumes
   validationActions:
@@ -3866,8 +3531,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-pod-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-nonroot-pod
   validationActions:
@@ -3889,8 +3552,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-pod-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-nonroot-pod
   validationActions:
@@ -3912,8 +3573,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-pod-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-nonroot-pod
   validationActions:
@@ -3935,8 +3594,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-nonroot-initcontainers
   validationActions:
@@ -3958,8 +3615,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-nonroot-initcontainers
   validationActions:
@@ -3981,8 +3636,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-nonroot-initcontainers
   validationActions:
@@ -4004,8 +3657,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-nonroot-ephemeralcontainers
   validationActions:
@@ -4027,8 +3678,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-nonroot-ephemeralcontainers
   validationActions:
@@ -4050,8 +3699,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-nonroot-ephemeralcontainers
   validationActions:
@@ -4073,8 +3720,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-nonroot-containers
   validationActions:
@@ -4096,8 +3741,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-nonroot-containers
   validationActions:
@@ -4119,8 +3762,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: run-as-nonroot-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: run-as-nonroot-containers
   validationActions:
@@ -4142,8 +3783,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-httpget-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: livenessprobe-httpget-host-initcontainers
   validationActions:
@@ -4165,8 +3804,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-httpget-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: livenessprobe-httpget-host-initcontainers
   validationActions:
@@ -4188,8 +3825,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-httpget-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: livenessprobe-httpget-host-initcontainers
   validationActions:
@@ -4211,8 +3846,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-httpget-host-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: livenessprobe-httpget-host
   validationActions:
@@ -4234,8 +3867,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-httpget-host-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: livenessprobe-httpget-host
   validationActions:
@@ -4257,8 +3888,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-httpget-host-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: livenessprobe-httpget-host
   validationActions:
@@ -4280,8 +3909,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-capabilities-add-initcontainers
   validationActions:
@@ -4303,8 +3930,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-capabilities-add-initcontainers
   validationActions:
@@ -4326,8 +3951,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-capabilities-add-initcontainers
   validationActions:
@@ -4349,8 +3972,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-capabilities-add-ephemeralcontainers
   validationActions:
@@ -4372,8 +3993,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-capabilities-add-ephemeralcontainers
   validationActions:
@@ -4395,8 +4014,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-capabilities-add-ephemeralcontainers
   validationActions:
@@ -4418,8 +4035,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-capabilities-add-containers
   validationActions:
@@ -4441,8 +4056,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-capabilities-add-containers
   validationActions:
@@ -4464,8 +4077,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-capabilities-add-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-capabilities-add-containers
   validationActions:
@@ -4487,8 +4098,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-pod-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-pod
   validationActions:
@@ -4510,8 +4119,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-pod-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-pod
   validationActions:
@@ -4533,8 +4140,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-pod-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-pod
   validationActions:
@@ -4556,8 +4161,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-initcontainers
   validationActions:
@@ -4579,8 +4182,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-initcontainers
   validationActions:
@@ -4602,8 +4203,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-initcontainers
   validationActions:
@@ -4625,8 +4224,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-ephemeralcontainers
   validationActions:
@@ -4648,8 +4245,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-ephemeralcontainers
   validationActions:
@@ -4671,8 +4266,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-ephemeralcontainers
   validationActions:
@@ -4694,8 +4287,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-containers
   validationActions:
@@ -4717,8 +4308,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-containers
   validationActions:
@@ -4740,8 +4329,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: seccomp-profile-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: seccomp-profile-containers
   validationActions:
@@ -4763,8 +4350,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: windows-hostprocess
   validationActions:
@@ -4786,8 +4371,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: windows-hostprocess
   validationActions:
@@ -4809,8 +4392,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: windows-hostprocess
   validationActions:
@@ -4832,8 +4413,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: windows-hostprocess-initcontainers
   validationActions:
@@ -4855,8 +4434,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: windows-hostprocess-initcontainers
   validationActions:
@@ -4878,8 +4455,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: windows-hostprocess-initcontainers
   validationActions:
@@ -4901,8 +4476,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: windows-hostprocess-ephemeralcontainers
   validationActions:
@@ -4924,8 +4497,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: windows-hostprocess-ephemeralcontainers
   validationActions:
@@ -4947,8 +4518,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: windows-hostprocess-ephemeralcontainers
   validationActions:
@@ -4970,8 +4539,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: windows-hostprocess-containers
   validationActions:
@@ -4993,8 +4560,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: windows-hostprocess-containers
   validationActions:
@@ -5016,8 +4581,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: windows-hostprocess-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: windows-hostprocess-containers
   validationActions:
@@ -5039,8 +4602,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostnetwork-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: hostnetwork
   validationActions:
@@ -5062,8 +4623,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostnetwork-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: hostnetwork
   validationActions:
@@ -5085,8 +4644,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: hostnetwork-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: hostnetwork
   validationActions:
@@ -5108,8 +4665,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-tcpsocket-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: livenessprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -5131,8 +4686,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-tcpsocket-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: livenessprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -5154,8 +4707,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-tcpsocket-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: livenessprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -5177,8 +4728,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-tcpsocket-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: livenessprobe-tcpsocket-host-containers
   validationActions:
@@ -5200,8 +4749,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-tcpsocket-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: livenessprobe-tcpsocket-host-containers
   validationActions:
@@ -5223,8 +4770,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: livenessprobe-tcpsocket-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: livenessprobe-tcpsocket-host-containers
   validationActions:
@@ -5246,8 +4791,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-hostports-initcontainers
   validationActions:
@@ -5269,8 +4812,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-hostports-initcontainers
   validationActions:
@@ -5292,8 +4833,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-hostports-initcontainers
   validationActions:
@@ -5315,8 +4854,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-ephemeralcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-hostports-ephemeralcontainers
   validationActions:
@@ -5338,8 +4875,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-ephemeralcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-hostports-ephemeralcontainers
   validationActions:
@@ -5361,8 +4896,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-ephemeralcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-hostports-ephemeralcontainers
   validationActions:
@@ -5384,8 +4917,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-hostports-containers
   validationActions:
@@ -5407,8 +4938,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-hostports-containers
   validationActions:
@@ -5430,8 +4959,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-hostports-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-hostports-containers
   validationActions:
@@ -5453,8 +4980,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-httpget-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: poststart-httpget-host-initcontainers
   validationActions:
@@ -5476,8 +5001,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-httpget-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: poststart-httpget-host-initcontainers
   validationActions:
@@ -5499,8 +5022,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-httpget-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: poststart-httpget-host-initcontainers
   validationActions:
@@ -5522,8 +5043,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-httpget-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: poststart-httpget-host-containers
   validationActions:
@@ -5545,8 +5064,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-httpget-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: poststart-httpget-host-containers
   validationActions:
@@ -5568,8 +5085,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: poststart-httpget-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: poststart-httpget-host-containers
   validationActions:
@@ -5591,8 +5106,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-tcpsocket-host-initcontainers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: startupprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -5614,8 +5127,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-tcpsocket-host-initcontainers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: startupprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -5637,8 +5148,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-tcpsocket-host-initcontainers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: startupprobe-tcpsocket-host-initcontainers
   validationActions:
@@ -5660,8 +5169,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-tcpsocket-host-containers-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: startupprobe-tcpsocket-host-containers
   validationActions:
@@ -5683,8 +5190,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-tcpsocket-host-containers-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: startupprobe-tcpsocket-host-containers
   validationActions:
@@ -5706,8 +5211,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: startupprobe-tcpsocket-host-containers-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: startupprobe-tcpsocket-host-containers
   validationActions:
@@ -5729,8 +5232,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-volume-types-namespace-warn
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-volume-types
   validationActions:
@@ -5752,8 +5253,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-volume-types-namespace-audit
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-volume-types
   validationActions:
@@ -5775,8 +5274,6 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingAdmissionPolicyBinding
 metadata:
   name: allowed-volume-types-namespace-enforce
-  labels:
-    policy-bundle.kolteq.com: pod-security-admission
 spec:
   policyName: allowed-volume-types
   validationActions:
