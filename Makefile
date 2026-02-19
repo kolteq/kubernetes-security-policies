@@ -8,12 +8,18 @@ test-vap:
 test-istio:
 	./istio/test_all.sh
 
-build: build-vap-bundles
+build: build-vap-bundles build-vap-policies
 
 build-vap-bundles:
 	./admission/ValidatingAdmissionPolicy/build_bundles.py
 
-clean: clean-vap-bundles
+build-vap-policies:
+	./admission/ValidatingAdmissionPolicy/build_policies.py
+
+clean: clean-vap-bundles clean-vap-policies
 
 clean-vap-bundles:
 	rm ./admission/ValidatingAdmissionPolicy/bundles/*/*.zip* ./admission/ValidatingAdmissionPolicy/bundles/*/*.tar.gz*
+
+clean-vap-policies:
+	rm ./admission/ValidatingAdmissionPolicy/policies/*.zip* ./admission/ValidatingAdmissionPolicy/policies/*.tar.gz*
