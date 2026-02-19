@@ -1,0 +1,596 @@
+{
+    "latest-version": "v0.1.0",
+    "versions": [
+        "v0.1.0"
+    ],
+    "policies": [
+        {
+            "name": "allow-privilege-escalation-containers",
+            "file": "privilege-escalation/containers/policy.yaml"
+        },
+        {
+            "name": "allow-privilege-escalation-ephemeralcontainers",
+            "file": "privilege-escalation/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "allow-privilege-escalation-initcontainers",
+            "file": "privilege-escalation/initcontainers/policy.yaml"
+        },
+        {
+            "name": "allowed-capabilities-add-containers",
+            "file": "capabilities-add/containers/policy.yaml"
+        },
+        {
+            "name": "allowed-capabilities-add-ephemeralcontainers",
+            "file": "capabilities-add/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "allowed-capabilities-add-initcontainers",
+            "file": "capabilities-add/initcontainers/policy.yaml"
+        },
+        {
+            "name": "allowed-hostports-containers",
+            "file": "hostports/containers/policy.yaml"
+        },
+        {
+            "name": "allowed-hostports-ephemeralcontainers",
+            "file": "hostports/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "allowed-hostports-initcontainers",
+            "file": "hostports/initcontainers/policy.yaml"
+        },
+        {
+            "name": "allowed-sysctls",
+            "file": "sysctls/policy.yaml"
+        },
+        {
+            "name": "allowed-volume-types",
+            "file": "volume-types/policy.yaml"
+        },
+        {
+            "name": "apparmor-annotation-values",
+            "file": "apparmor-annotation-values/policy.yaml"
+        },
+        {
+            "name": "apparmor-profile-containers",
+            "file": "apparmor-profile/containers/policy.yaml"
+        },
+        {
+            "name": "apparmor-profile-ephemeralcontainers",
+            "file": "apparmor-profile/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "apparmor-profile-initcontainers",
+            "file": "apparmor-profile/initcontainers/policy.yaml"
+        },
+        {
+            "name": "apparmor-profile-pod",
+            "file": "apparmor-profile/policy.yaml"
+        },
+        {
+            "name": "automount-service-account-token",
+            "file": "automount-service-account-token/policy.yaml"
+        },
+        {
+            "name": "capabilities-add-netbindservice-containers",
+            "file": "capabilities-add-netbindservice/containers/policy.yaml"
+        },
+        {
+            "name": "capabilities-add-netbindservice-ephemeralcontainers",
+            "file": "capabilities-add-netbindservice/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "capabilities-add-netbindservice-initcontainers",
+            "file": "capabilities-add-netbindservice/initcontainers/policy.yaml"
+        },
+        {
+            "name": "capabilities-drop-all-containers",
+            "file": "capabilities-drop-all/containers/policy.yaml"
+        },
+        {
+            "name": "capabilities-drop-all-ephemeralcontainers",
+            "file": "capabilities-drop-all/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "capabilities-drop-all-initcontainers",
+            "file": "capabilities-drop-all/initcontainers/policy.yaml"
+        },
+        {
+            "name": "clusterrole-admission-api-control",
+            "file": "admission-api-control/policy.yaml"
+        },
+        {
+            "name": "clusterrole-aggregation",
+            "file": "aggregation/policy.yaml"
+        },
+        {
+            "name": "clusterrole-cert-auth-review",
+            "file": "cert-auth-review/policy.yaml"
+        },
+        {
+            "name": "clusterrole-infra-cluster-resources",
+            "file": "infra-cluster-resources/policy.yaml"
+        },
+        {
+            "name": "clusterrole-nodes-proxy-get",
+            "file": "nodes-proxy-get/policy.yaml"
+        },
+        {
+            "name": "clusterrole-nonresource-urls",
+            "file": "nonresource-urls/policy.yaml"
+        },
+        {
+            "name": "clusterrole-pod-exec-create",
+            "file": "pod-exec-create/clusterroles/policy.yaml"
+        },
+        {
+            "name": "clusterrole-pvc-write",
+            "file": "pvc-write/clusterroles/policy.yaml"
+        },
+        {
+            "name": "clusterrole-rbac-write",
+            "file": "rbac-write/clusterroles/policy.yaml"
+        },
+        {
+            "name": "clusterrole-secrets-access",
+            "file": "secrets-access/clusterroles/policy.yaml"
+        },
+        {
+            "name": "clusterrole-serviceaccount-tokens",
+            "file": "serviceaccount-tokens/clusterroles/policy.yaml"
+        },
+        {
+            "name": "clusterrole-serviceaccounts-write",
+            "file": "serviceaccounts-write/clusterroles/policy.yaml"
+        },
+        {
+            "name": "clusterrole-wildcard-rules",
+            "file": "wildcard-rules/clusterroles/policy.yaml"
+        },
+        {
+            "name": "clusterrole-workloads-write",
+            "file": "workloads-write/clusterroles/policy.yaml"
+        },
+        {
+            "name": "clusterrolebinding-anonymous-subjects",
+            "file": "anonymous-subjects/clusterrolebindings/policy.yaml"
+        },
+        {
+            "name": "clusterrolebinding-default-serviceaccount",
+            "file": "default-serviceaccount/clusterrolebindings/policy.yaml"
+        },
+        {
+            "name": "clusterrolebinding-powerful-roles",
+            "file": "powerful-roles/clusterrolebindings/policy.yaml"
+        },
+        {
+            "name": "clusterrolebinding-system-groups",
+            "file": "system-groups/clusterrolebindings/policy.yaml"
+        },
+        {
+            "name": "configmap-immutable-true",
+            "file": "immutable-true/policy.yaml"
+        },
+        {
+            "name": "configmap-no-executable-code",
+            "file": "no-executable-code/policy.yaml"
+        },
+        {
+            "name": "configmap-no-secrets",
+            "file": "no-secrets/policy.yaml"
+        },
+        {
+            "name": "control-plane-schedulable",
+            "file": "control-plane-schedulable/policy.yaml"
+        },
+        {
+            "name": "dns-policy",
+            "file": "dns-policy/policy.yaml"
+        },
+        {
+            "name": "fsgroup-pod",
+            "file": "fsgroup/policy.yaml"
+        },
+        {
+            "name": "hostipc",
+            "file": "hostipc/policy.yaml"
+        },
+        {
+            "name": "hostnetwork",
+            "file": "hostnetwork/policy.yaml"
+        },
+        {
+            "name": "hostpath-volumes",
+            "file": "hostpath-volumes/policy.yaml"
+        },
+        {
+            "name": "hostpid",
+            "file": "hostpid/policy.yaml"
+        },
+        {
+            "name": "hostusers",
+            "file": "hostusers/policy.yaml"
+        },
+        {
+            "name": "image-no-latest-containers",
+            "file": "image-no-latest/containers/policy.yaml"
+        },
+        {
+            "name": "image-no-latest-ephemeralcontainers",
+            "file": "image-no-latest/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "image-no-latest-initcontainers",
+            "file": "image-no-latest/initcontainers/policy.yaml"
+        },
+        {
+            "name": "ingress-no-dangerous-snippets",
+            "file": "no-dangerous-snippets/policy.yaml"
+        },
+        {
+            "name": "ingress-tls-hosts-match",
+            "file": "tls-hosts-match/policy.yaml"
+        },
+        {
+            "name": "ingress-tls-required",
+            "file": "tls-required/policy.yaml"
+        },
+        {
+            "name": "livenessprobe-httpget-host",
+            "file": "livenessprobe-httpget-host/containers/policy.yaml"
+        },
+        {
+            "name": "livenessprobe-httpget-host-initcontainers",
+            "file": "livenessprobe-httpget-host/initcontainers/policy.yaml"
+        },
+        {
+            "name": "livenessprobe-tcpsocket-host-containers",
+            "file": "livenessprobe-tcpsocket-host/containers/policy.yaml"
+        },
+        {
+            "name": "livenessprobe-tcpsocket-host-initcontainers",
+            "file": "livenessprobe-tcpsocket-host/initcontainers/policy.yaml"
+        },
+        {
+            "name": "namespace-pod-security-standards",
+            "file": "pod-security-standards/policy.yaml"
+        },
+        {
+            "name": "networkpolicy-allow-all",
+            "file": "networkpolicy-allow-all/policy.yaml"
+        },
+        {
+            "name": "pod-template-labels",
+            "file": "pod-template-labels/policy.yaml"
+        },
+        {
+            "name": "poststart-httpget-host-containers",
+            "file": "poststart-httpget-host/containers/policy.yaml"
+        },
+        {
+            "name": "poststart-httpget-host-initcontainers",
+            "file": "poststart-httpget-host/initcontainers/policy.yaml"
+        },
+        {
+            "name": "poststart-tcpsocket-host-containers",
+            "file": "poststart-tcpsocket-host/containers/policy.yaml"
+        },
+        {
+            "name": "poststart-tcpsocket-host-initcontainers",
+            "file": "poststart-tcpsocket-host/initcontainers/policy.yaml"
+        },
+        {
+            "name": "prestop-httpget-host-containers",
+            "file": "prestop-httpget-host/containers/policy.yaml"
+        },
+        {
+            "name": "prestop-httpget-host-initcontainers",
+            "file": "prestop-httpget-host/initcontainers/policy.yaml"
+        },
+        {
+            "name": "prestop-tcpsocket-host-containers",
+            "file": "prestop-tcpsocket-host/containers/policy.yaml"
+        },
+        {
+            "name": "prestop-tcpsocket-host-initcontainers",
+            "file": "prestop-tcpsocket-host/initcontainers/policy.yaml"
+        },
+        {
+            "name": "privileged-containers",
+            "file": "privileged/containers/policy.yaml"
+        },
+        {
+            "name": "privileged-ephemeralcontainers",
+            "file": "privileged/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "privileged-initcontainers",
+            "file": "privileged/initcontainers/policy.yaml"
+        },
+        {
+            "name": "procmount-containers",
+            "file": "procmount/containers/policy.yaml"
+        },
+        {
+            "name": "procmount-ephemeralcontainers",
+            "file": "procmount/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "procmount-initcontainers",
+            "file": "procmount/initcontainers/policy.yaml"
+        },
+        {
+            "name": "read-only-root-filesystem-containers",
+            "file": "read-only-root-filesystem/containers/policy.yaml"
+        },
+        {
+            "name": "read-only-root-filesystem-ephemeralcontainers",
+            "file": "read-only-root-filesystem/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "read-only-root-filesystem-initcontainers",
+            "file": "read-only-root-filesystem/initcontainers/policy.yaml"
+        },
+        {
+            "name": "readinessprobe-httpget-host-containers",
+            "file": "readinessprobe-httpget-host/containers/policy.yaml"
+        },
+        {
+            "name": "readinessprobe-httpget-host-initcontainers",
+            "file": "readinessprobe-httpget-host/initcontainers/policy.yaml"
+        },
+        {
+            "name": "readinessprobe-tcpsocket-host-containers",
+            "file": "readinessprobe-tcpsocket-host/containers/policy.yaml"
+        },
+        {
+            "name": "readinessprobe-tcpsocket-host-initcontainers",
+            "file": "readinessprobe-tcpsocket-host/initcontainers/policy.yaml"
+        },
+        {
+            "name": "role-pod-exec-create",
+            "file": "pod-exec-create/roles/policy.yaml"
+        },
+        {
+            "name": "role-pvc-write",
+            "file": "pvc-write/roles/policy.yaml"
+        },
+        {
+            "name": "role-rbac-write",
+            "file": "rbac-write/roles/policy.yaml"
+        },
+        {
+            "name": "role-secrets-access",
+            "file": "secrets-access/roles/policy.yaml"
+        },
+        {
+            "name": "role-serviceaccount-tokens",
+            "file": "serviceaccount-tokens/roles/policy.yaml"
+        },
+        {
+            "name": "role-serviceaccounts-write",
+            "file": "serviceaccounts-write/roles/policy.yaml"
+        },
+        {
+            "name": "role-wildcard-rules",
+            "file": "wildcard-rules/roles/policy.yaml"
+        },
+        {
+            "name": "role-workloads-write",
+            "file": "workloads-write/roles/policy.yaml"
+        },
+        {
+            "name": "rolebinding-anonymous-subjects",
+            "file": "anonymous-subjects/rolebindings/policy.yaml"
+        },
+        {
+            "name": "rolebinding-default-serviceaccount",
+            "file": "default-serviceaccount/rolebindings/policy.yaml"
+        },
+        {
+            "name": "rolebinding-powerful-roles",
+            "file": "powerful-roles/rolebindings/policy.yaml"
+        },
+        {
+            "name": "rolebinding-system-groups",
+            "file": "system-groups/rolebindings/policy.yaml"
+        },
+        {
+            "name": "run-as-group-containers",
+            "file": "run-as-group/containers/policy.yaml"
+        },
+        {
+            "name": "run-as-group-ephemeralcontainers",
+            "file": "run-as-group/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "run-as-group-initcontainers",
+            "file": "run-as-group/initcontainers/policy.yaml"
+        },
+        {
+            "name": "run-as-group-pod",
+            "file": "run-as-group/policy.yaml"
+        },
+        {
+            "name": "run-as-nonroot-containers",
+            "file": "run-as-nonroot/containers/policy.yaml"
+        },
+        {
+            "name": "run-as-nonroot-ephemeralcontainers",
+            "file": "run-as-nonroot/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "run-as-nonroot-initcontainers",
+            "file": "run-as-nonroot/initcontainers/policy.yaml"
+        },
+        {
+            "name": "run-as-nonroot-pod",
+            "file": "run-as-nonroot/policy.yaml"
+        },
+        {
+            "name": "run-as-user-containers",
+            "file": "run-as-user/containers/policy.yaml"
+        },
+        {
+            "name": "run-as-user-ephemeralcontainers",
+            "file": "run-as-user/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "run-as-user-initcontainers",
+            "file": "run-as-user/initcontainers/policy.yaml"
+        },
+        {
+            "name": "run-as-user-pod",
+            "file": "run-as-user/policy.yaml"
+        },
+        {
+            "name": "seccomp-profile-containers",
+            "file": "seccomp-profile/containers/policy.yaml"
+        },
+        {
+            "name": "seccomp-profile-containers-restricted",
+            "file": "seccomp-profile-restricted/containers/policy.yaml"
+        },
+        {
+            "name": "seccomp-profile-ephemeralcontainers",
+            "file": "seccomp-profile/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "seccomp-profile-ephemeralcontainers-restricted",
+            "file": "seccomp-profile-restricted/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "seccomp-profile-initcontainers",
+            "file": "seccomp-profile/initcontainers/policy.yaml"
+        },
+        {
+            "name": "seccomp-profile-initcontainers-restricted",
+            "file": "seccomp-profile-restricted/initcontainers/policy.yaml"
+        },
+        {
+            "name": "seccomp-profile-pod",
+            "file": "seccomp-profile/policy.yaml"
+        },
+        {
+            "name": "seccomp-profile-pod-restricted",
+            "file": "seccomp-profile-restricted/policy.yaml"
+        },
+        {
+            "name": "selinux-role",
+            "file": "selinux-role/policy.yaml"
+        },
+        {
+            "name": "selinux-role-containers",
+            "file": "selinux-role/containers/policy.yaml"
+        },
+        {
+            "name": "selinux-role-ephemeralcontainers",
+            "file": "selinux-role/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "selinux-role-initcontainers",
+            "file": "selinux-role/initcontainers/policy.yaml"
+        },
+        {
+            "name": "selinux-type",
+            "file": "selinux-type/policy.yaml"
+        },
+        {
+            "name": "selinux-type-containers",
+            "file": "selinux-type/containers/policy.yaml"
+        },
+        {
+            "name": "selinux-type-ephemeralcontainers",
+            "file": "selinux-type/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "selinux-type-initcontainers",
+            "file": "selinux-type/initcontainers/policy.yaml"
+        },
+        {
+            "name": "selinux-user",
+            "file": "selinux-user/policy.yaml"
+        },
+        {
+            "name": "selinux-user-containers",
+            "file": "selinux-user/containers/policy.yaml"
+        },
+        {
+            "name": "selinux-user-ephemeralcontainers",
+            "file": "selinux-user/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "selinux-user-initcontainers",
+            "file": "selinux-user/initcontainers/policy.yaml"
+        },
+        {
+            "name": "service-account-name",
+            "file": "service-account-name/policy.yaml"
+        },
+        {
+            "name": "service-external-ips",
+            "file": "external-ips/policy.yaml"
+        },
+        {
+            "name": "service-no-admin-ports",
+            "file": "no-admin-ports/policy.yaml"
+        },
+        {
+            "name": "service-nodeport",
+            "file": "nodeport/policy.yaml"
+        },
+        {
+            "name": "serviceaccount-automount-token-false",
+            "file": "automount-token-false/policy.yaml"
+        },
+        {
+            "name": "serviceaccount-imagepullsecrets-scope",
+            "file": "imagepullsecrets-scope/policy.yaml"
+        },
+        {
+            "name": "serviceaccount-no-token-secrets",
+            "file": "no-token-secrets/policy.yaml"
+        },
+        {
+            "name": "serviceaccount-token-projection",
+            "file": "serviceaccount-token-projection/policy.yaml"
+        },
+        {
+            "name": "share-process-namespace",
+            "file": "share-process-namespace/policy.yaml"
+        },
+        {
+            "name": "startupprobe-httpget-host-containers",
+            "file": "startupprobe-httpget-host/containers/policy.yaml"
+        },
+        {
+            "name": "startupprobe-httpget-host-initcontainers",
+            "file": "startupprobe-httpget-host/initcontainers/policy.yaml"
+        },
+        {
+            "name": "startupprobe-tcpsocket-host-containers",
+            "file": "startupprobe-tcpsocket-host/containers/policy.yaml"
+        },
+        {
+            "name": "startupprobe-tcpsocket-host-initcontainers",
+            "file": "startupprobe-tcpsocket-host/initcontainers/policy.yaml"
+        },
+        {
+            "name": "windows-hostprocess",
+            "file": "windows-hostprocess/policy.yaml"
+        },
+        {
+            "name": "windows-hostprocess-containers",
+            "file": "windows-hostprocess/containers/policy.yaml"
+        },
+        {
+            "name": "windows-hostprocess-ephemeralcontainers",
+            "file": "windows-hostprocess/ephemeralcontainers/policy.yaml"
+        },
+        {
+            "name": "windows-hostprocess-initcontainers",
+            "file": "windows-hostprocess/initcontainers/policy.yaml"
+        }
+    ]
+}
